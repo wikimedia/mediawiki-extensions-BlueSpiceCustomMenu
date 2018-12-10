@@ -19,7 +19,7 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	 *
 	 * @param \Config $config
 	 * @param Params $params
-	 * @param LinkRenderer $linkRenderer
+	 * @param LinkRenderer|null $linkRenderer
 	 */
 	public function __construct( \Config $config, Params $params, LinkRenderer $linkRenderer = null ) {
 		parent::__construct( $config, $params, $linkRenderer );
@@ -52,7 +52,7 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 			static::PARAM_TEXT,
 			''
 		);
-		if(
+		if (
 			empty( $this->args[static::PARAM_TEXT] )
 			&& !empty( $this->args[static::PARAM_ID] )
 		) {
@@ -69,23 +69,23 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 			'title' => $this->args[static::PARAM_TEXT]
 		], $this->args[static::PARAM_TEXT] );
 
-		if( !$this->args[static::PARAM_CHILDREN] instanceof RecordSet ) {
+		if ( !$this->args[static::PARAM_CHILDREN] instanceof RecordSet ) {
 			return $content;
 		}
-		$level = $this->args[static::PARAM_LEVEL] +1;
+		$level = $this->args[static::PARAM_LEVEL] + 1;
 		$content .= \Html::openElement( 'ul', [
 			static::PARAM_CLASS => " child-menu level-$level",
 		] );
 		$counter = 0;
 		$menu = $this->getCustomMenu();
-		if( $menu->numberOfLevels() >= $level ) {
-			foreach( $this->args[static::PARAM_CHILDREN]->getRecords() as $record ) {
+		if ( $menu->numberOfLevels() >= $level ) {
+			foreach ( $this->args[static::PARAM_CHILDREN]->getRecords() as $record ) {
 				$counter ++;
 				$content .= $this->renderItem( $record );
-				if( $menu->numberOfSubEntries() == $menu::NUM_ENTRIES_UNLIMITED ) {
+				if ( $menu->numberOfSubEntries() == $menu::NUM_ENTRIES_UNLIMITED ) {
 					continue;
 				}
-				if( $menu->numberOfSubEntries() <= $counter ) {
+				if ( $menu->numberOfSubEntries() <= $counter ) {
 					break;
 				}
 			}

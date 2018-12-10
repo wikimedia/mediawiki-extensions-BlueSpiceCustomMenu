@@ -9,7 +9,7 @@ class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
 	protected function skipProcessing() {
 		$title = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" //'TopBarMenu' in the past
+			"CustomMenu/Header" // 'TopBarMenu' in the past
 		);
 		if ( !$this->title || !$this->title->equals( $title ) ) {
 			return true;
@@ -21,15 +21,14 @@ class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
 	}
 
 	protected function doProcess() {
-
 		$menu = $this->getServices()->getService( 'BSCustomMenuFactory' )
 			->getMenu( 'header' );
-		if( !$menu ) {
+		if ( !$menu ) {
 			return true;
 		}
-		
+
 		$items = [];
-		foreach( $menu->getData()->getRecords() as $record ) {
+		foreach ( $menu->getData()->getRecords() as $record ) {
 			$items[] = $this->recordToLegacyParserItem( $record );
 		}
 
@@ -43,7 +42,7 @@ class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
 			return $item;
 		}
 		$children = [];
-		foreach( $item['children']->getRecords() as $childRecord ) {
+		foreach ( $item['children']->getRecords() as $childRecord ) {
 			$children[] = $this->recordToLegacyParserItem( $childRecord );
 		}
 		$item['children'] = $children;

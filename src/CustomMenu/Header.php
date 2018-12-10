@@ -14,13 +14,13 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	protected function getRecords() {
 		$title = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" //'TopBarMenu' in the past
+			"CustomMenu/Header" // 'TopBarMenu' in the past
 		);
 
 		if ( $title && $title->exists() ) {
 			$menu = \MenuParser::getNavigationSites( $title );
 			$records = [];
-			foreach( $menu as $entry ) {
+			foreach ( $menu as $entry ) {
 				$records[] = $this->legacyParserItemToRecord( $entry );
 			}
 			return $records;
@@ -36,7 +36,7 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	protected function getDefaultRecords( $records = [] ) {
 		$currentTitle = \RequestContext::getMain()->getTitle();
 		$mainPage = \Title::newMainPage();
-		$menu = [[
+		$menu = [ [
 			'id' => 'nt-wiki',
 			'href' => $mainPage->getFullURL(),
 			'text' => $this->config->get( 'Sitename' ),
@@ -45,22 +45,22 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 			'containsactive' => false,
 			'external' => false,
 			'children' => [],
-		]];
-		//legacy hook
+		] ];
+		// legacy hook
 		\Hooks::run( 'BSTopMenuBarCustomizerRegisterNavigationSites', [
 			&$menu
 		] );
 
-		foreach( $menu as $entry ) {
+		foreach ( $menu as $entry ) {
 			$records[] = $this->legacyParserItemToRecord( $entry );
 		}
 		return parent::getDefaultRecords( $records );
 	}
 
 	protected function legacyParserItemToRecord( $entry ) {
-		if( !empty( $entry['children'] ) ) {
+		if ( !empty( $entry['children'] ) ) {
 			$children = [];
-			foreach( $entry['children'] as $child ) {
+			foreach ( $entry['children'] as $child ) {
 				$children[] = $this->legacyParserItemToRecord( $child );
 			}
 			$entry['children'] = new RecordSet( $children );

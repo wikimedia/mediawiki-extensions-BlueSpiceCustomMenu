@@ -12,16 +12,14 @@ class Menu extends \BlueSpice\Renderer {
 	const PARAM_CUSTOM_MENU = 'custommenu';
 
 	/**
-	 *
 	 * @var ICustomMenu
 	 */
 	protected $customMenu = null;
 
 	/**
-	 *
 	 * @param \Config $config
 	 * @param Params $params
-	 * @param LinkRenderer $linkRenderer
+	 * @param LinkRenderer|null $linkRenderer
 	 */
 	public function __construct( \Config $config, Params $params, LinkRenderer $linkRenderer = null ) {
 		parent::__construct( $config, $params, $linkRenderer );
@@ -29,13 +27,13 @@ class Menu extends \BlueSpice\Renderer {
 			static::PARAM_CUSTOM_MENU,
 			false
 		);
-		if( !$this->customMenu instanceof ICustomMenu ) {
+		if ( !$this->customMenu instanceof ICustomMenu ) {
 			throw new \MWException(
 				"param '" . static::PARAM_CUSTOM_MENU ."' must be an instance of '" . ICustomMenu::class . "'"
 			);
 		}
 		$this->args[static::PARAM_TAG] = 'ul';
-		if( empty( $this->args[static::PARAM_CLASS] ) ) {
+		if ( empty( $this->args[static::PARAM_CLASS] ) ) {
 			$this->args[static::PARAM_CLASS] = '';
 		}
 		$this->args[static::PARAM_CLASS]
@@ -59,13 +57,13 @@ class Menu extends \BlueSpice\Renderer {
 		$content = '';
 		$menu = $this->getCustomMenu();
 		$counter = 0;
-		foreach( $menu->getData()->getRecords() as $record ) {
+		foreach ( $menu->getData()->getRecords() as $record ) {
 			$counter ++;
 			$content .= $this->renderItem( $record );
-			if( $menu->numberOfMainEntries() == $menu::NUM_ENTRIES_UNLIMITED ) {
+			if ( $menu->numberOfMainEntries() == $menu::NUM_ENTRIES_UNLIMITED ) {
 				continue;
 			}
-			if( $menu->numberOfMainEntries() <= $counter ) {
+			if ( $menu->numberOfMainEntries() <= $counter ) {
 				break;
 			}
 		}
@@ -74,14 +72,13 @@ class Menu extends \BlueSpice\Renderer {
 	}
 
 	/**
-	 *
 	 * @param Record $record
 	 * @return string
 	 */
 	protected function renderItem( Record $record ) {
 		$params = array_merge(
 			$record->getData(),
-			[ static::PARAM_CUSTOM_MENU => $this->getCustomMenu()]
+			[ static::PARAM_CUSTOM_MENU => $this->getCustomMenu() ]
 		);
 		return Services::getInstance()->getBSRendererFactory()->get(
 			'custommenuitem',
@@ -90,7 +87,6 @@ class Menu extends \BlueSpice\Renderer {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	protected function makeTagAttribs() {
@@ -99,7 +95,6 @@ class Menu extends \BlueSpice\Renderer {
 	}
 
 	/**
-	 *
 	 * @return ICustomMenu
 	 */
 	public function getCustomMenu() {
@@ -107,7 +102,6 @@ class Menu extends \BlueSpice\Renderer {
 	}
 
 	/**
-	 * 
 	 * @return array
 	 */
 	public function getArgs() {

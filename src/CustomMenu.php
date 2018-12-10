@@ -11,27 +11,23 @@ use BlueSpice\Data\Record;
 abstract class CustomMenu implements ICustomMenu {
 
 	/**
-	 *
 	 * @var RecordSet
 	 */
 	protected $data = null;
 
 	/**
-	 *
 	 * @var string
 	 */
 	protected $key = '';
 
 	/**
-	 *
 	 * @var \Config
 	 */
 	protected $config = null;
 
 	/**
-	 *
 	 * @param \Config $config
-	 * @param $key
+	 * @param string $key
 	 */
 	protected function __construct( \Config $config, $key ) {
 		$this->config = $config;
@@ -49,7 +45,6 @@ abstract class CustomMenu implements ICustomMenu {
 	}
 
 	/**
-	 *
 	 * @return Params
 	 */
 	protected function getParams() {
@@ -59,7 +54,6 @@ abstract class CustomMenu implements ICustomMenu {
 	}
 
 	/**
-	 * 
 	 * @return Menu
 	 */
 	public function getRenderer() {
@@ -70,7 +64,6 @@ abstract class CustomMenu implements ICustomMenu {
 	}
 
 	/**
-	 *
 	 * @return RecordSet
 	 */
 	public function getData() {
@@ -82,32 +75,29 @@ abstract class CustomMenu implements ICustomMenu {
 		\BsCacheHelper::set(
 			$this->getCacheKey(),
 			$this->data,
-			60*1440 //max cache time 24h
+			60 * 1440 // max cache time 24h
 		);
 		return $this->data;
 	}
 
 	/**
-	 *
 	 * @param Record[] $records
 	 * @return Record[]
 	 */
 	protected function getDefaultRecords( $records = [] ) {
 		\Hooks::run( 'BSCustomMenuDefaultRecords', [
 			$this->getKey()
-			&$records
+			& $records
 		] );
 		return $records;
 	}
 
 	/**
-	 *
 	 * @return Record[]
 	 */
 	abstract protected function getRecords();
 
 	/**
-	 *
 	 * @return string
 	 */
 	public function getKey() {
@@ -115,7 +105,6 @@ abstract class CustomMenu implements ICustomMenu {
 	}
 
 	/**
-	 *
 	 * @return string
 	 */
 	protected function getCacheKey() {

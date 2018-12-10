@@ -1,7 +1,7 @@
 <?php
 
-$IP = dirname(dirname(dirname(__DIR__)));
-require_once( "$IP/maintenance/Maintenance.php" );
+$IP = dirname( dirname( dirname( __DIR__ ) ) );
+require_once "$IP/maintenance/Maintenance.php";
 
 class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 
@@ -10,21 +10,21 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 			NS_MEDIAWIKI,
 			"TopBarMenu"
 		);
-		if( !$oldTitle || !$oldTitle->exists() ) {
+		if ( !$oldTitle || !$oldTitle->exists() ) {
 			return true;
 		}
 		$newTitle = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" //'TopBarMenu' in the past
+			"CustomMenu/Header" // 'TopBarMenu' in the past
 		);
-		if( $newTitle && $newTitle->exists() ) {
+		if ( $newTitle && $newTitle->exists() ) {
 			return true;
 		}
 		return false;
 	}
 
 	protected function doDBUpdates() {
-		if( $this->noDataToMigrate() ) {
+		if ( $this->noDataToMigrate() ) {
 			$this->output( "TopBarMenu -> No data to migrate\n" );
 			return true;
 		}
@@ -36,7 +36,7 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 		);
 		$newTitle = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" //'TopBarMenu' in the past
+			"CustomMenu/Header" // 'TopBarMenu' in the past
 		);
 		try{
 			$move = new \MovePage( $oldTitle, $newTitle );

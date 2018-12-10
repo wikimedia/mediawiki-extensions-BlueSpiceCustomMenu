@@ -63,7 +63,7 @@ class Factory {
 	 * @return ICustomMenu[]
 	 */
 	public function getAllMenus() {
-		foreach( $this->registry->getAllKeys() as $key ) {
+		foreach ( $this->registry->getAllKeys() as $key ) {
 			$this->getMenu( $key );
 		}
 		return $this->instances;

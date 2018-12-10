@@ -9,7 +9,7 @@ class AddCustomMenus extends SkinTemplateOutputPageBeforeExec {
 	protected function doProcess() {
 		$factory = $this->getServices()->getService( 'BSCustomMenuFactory' );
 		$menus = [];
-		foreach( $factory->getAllMenus() as $menu ) {
+		foreach ( $factory->getAllMenus() as $menu ) {
 			$menus[$menu->getKey()] = $menu->getRenderer()->render();
 		}
 

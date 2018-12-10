@@ -24,8 +24,9 @@
 * @version    3.1.0-alpha
 * @subpackage CustomMenu
 * @copyright  Copyright (C) 2018 Hallo Welt! GmbH, All rights reserved.
-* @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v3
+* @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
 */
 namespace BlueSpice\CustomMenu;
 
-class Extension extends \BlueSpice\Extension {}
+class Extension extends \BlueSpice\Extension {
+}

@@ -24,7 +24,7 @@
  * @package    BlueSpice_Extensions
  * @subpackage TopMenuBarCustomizer
  * @copyright  Copyright (C) 2016 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-2.0-or-later
  * @filesource
  */
 
@@ -36,7 +36,7 @@
  * @subpackage TopMenuBarCustomizer
  */
 class MenuParser {
-	public static $aNavigationSiteTemplate = array(
+	public static $aNavigationSiteTemplate = [
 		'id' => '',
 		'href' => '',
 		'text' => '',
@@ -44,18 +44,17 @@ class MenuParser {
 		'level' => 1,
 		'containsactive' => false,
 		'external' => false,
-	);
+	];
 
 	/**
 	 * Getter for $aNavigationSites array
-	 * @param \Title $title
-	 * @param boolean $bForceReload
+	 * @param \Title|null $title
 	 * @return array
 	 */
 	public static function getNavigationSites( \Title $title = null ) {
-		$menu = array();
+		$menu = [];
 
-		if( !$title || !$title->exists() ) {
+		if ( !$title || !$title->exists() ) {
 			return $menu;
 		}
 
@@ -66,9 +65,9 @@ class MenuParser {
 
 		$menu = self::parseArticleContentLines(
 			$aLines,
-			9999, //scaling will be done on rendering
-			9999, //scaling will be done on rendering
-			9999 //scaling will be done on rendering
+			9999, // scaling will be done on rendering
+			9999, // scaling will be done on rendering
+			9999 // scaling will be done on rendering
 		);
 
 		return $menu;
@@ -82,70 +81,77 @@ class MenuParser {
 	 * @param type $iPassed
 	 * @return Array
 	 */
-	private static function parseArticleContentLines( $aLines, $iAllowedLevels = 2, $iMaxMainEntries = 5, $iMaxSubEntries = 20, $aApps = array(), $iPassed = 0 ) {
-		$iMaxEntrys = ( $iPassed === 0 ) ? $iMaxMainEntries -1 : $iMaxSubEntries -1;
+	private static function parseArticleContentLines(
+		$aLines,
+		$iAllowedLevels = 2,
+		$iMaxMainEntries = 5,
+		$iMaxSubEntries = 20,
+		$aApps = [],
+		$iPassed = 0
+	) {
+		$iMaxEntrys = ( $iPassed === 0 ) ? $iMaxMainEntries - 1 : $iMaxSubEntries - 1;
 
 		if ( $iAllowedLevels < 1 || $iMaxEntrys < 1 ) {
 			return $aApps;
 		}
 
 		$iPassed++;
-		$aChildLines = array();
-		$iCount = count($aLines);
+		$aChildLines = [];
+		$iCount = count( $aLines );
 		$i = 0;
 		for ( $i; $i < $iCount; $i++ ) {
-			$aLines[$i] = trim($aLines[$i]);
-			//prevents from lines without * and list starts without parent item
-			if ( strpos( $aLines[$i], '*' ) !== 0 || (strpos( $aLines[$i], '**' ) === 0 &&  $i == 0)) {
+			$aLines[$i] = trim( $aLines[$i] );
+			// prevents from lines without * and list starts without parent item
+			if ( strpos( $aLines[$i], '*' ) !== 0 || ( strpos( $aLines[$i], '**' ) === 0 && $i == 0 ) ) {
 				continue;
 			}
 
 			if ( strpos( $aLines[$i], '**' ) === 0 ) {
-				if($iPassed < $iAllowedLevels) {
-					$aChildLines[] = substr($aLines[$i], 1);
+				if ( $iPassed < $iAllowedLevels ) {
+					$aChildLines[] = substr( $aLines[$i], 1 );
 				}
 				continue;
 			}
 			if ( !empty( $aChildLines ) ) {
-				$iLastKey = key( array_slice( $aApps, -1, 1, TRUE ) );
+				$iLastKey = key( array_slice( $aApps, -1, 1, true ) );
 				$aApps[$iLastKey]['children'] = self::parseArticleContentLines(
 					$aChildLines,
 					$iAllowedLevels,
 					$iMaxMainEntries,
 					$iMaxSubEntries,
-					array(),
+					[],
 					$iPassed
 				);
-				foreach( $aApps[$iLastKey]['children'] as $aChildApps ) {
-					if( !$aChildApps['active'] && !$aChildApps['containsactive'] ) {
+				foreach ( $aApps[$iLastKey]['children'] as $aChildApps ) {
+					if ( !$aChildApps['active'] && !$aChildApps['containsactive'] ) {
 						continue;
 					}
 					$aApps[$iLastKey]['containsactive'] = true;
 					break;
 				}
-				$aChildLines = array();
+				$aChildLines = [];
 			}
 
-			if ( count($aApps) > $iMaxEntrys) {
+			if ( count( $aApps ) > $iMaxEntrys ) {
 				continue;
 			}
 
-			$aApp = self::parseSingleLine( substr($aLines[$i], 1) );
-			if( empty($aApp) ) {
+			$aApp = self::parseSingleLine( substr( $aLines[$i], 1 ) );
+			if ( empty( $aApp ) ) {
 				continue;
 			}
 
 			$aApp['level'] = $iPassed;
 			$aApps[] = $aApp;
 		}
-		//add childern to the last element
-		if( !empty( $aChildLines ) ) {
+		// add childern to the last element
+		if ( !empty( $aChildLines ) ) {
 			$iLastKey = key( array_slice( $aApps, -1, 1, true ) );
 			$aApps[$iLastKey]['children'] = self::parseArticleContentLines( $aChildLines,
 				$iAllowedLevels,
 				$iMaxMainEntries,
 				$iMaxSubEntries,
-				array(),
+				[],
 				$iPassed
 			);
 			foreach ( $aApps[$iLastKey]['children'] as $aChildApps ) {
@@ -171,36 +177,39 @@ class MenuParser {
 		global $wgTitle, $wgServer, $wgScriptPath;
 		$newApp = static::$aNavigationSiteTemplate;
 
-		$aAppParts = explode( '|', trim ( $sLine ) );
-		foreach( $aAppParts as $key => $val ) {
+		$aAppParts = explode( '|', trim( $sLine ) );
+		foreach ( $aAppParts as $key => $val ) {
 			$aAppParts[$key ] = trim( $val );
 		}
-		if( empty($aAppParts[0]) ) {
-			return array();
+		if ( empty( $aAppParts[0] ) ) {
+			return [];
 		}
 		$newApp['id'] = $aAppParts[0];
 
-		if( !empty( $aAppParts[1] ) ) {
+		if ( !empty( $aAppParts[1] ) ) {
 			$aParsedUrl = wfParseUrl( $aAppParts[1] );
-			if( $aParsedUrl !== false ) {
-				if(preg_match('# |\\*#',$aParsedUrl['host'])) {
-					//TODO: Use status ojb on BeforeArticleSave to detect parse errors
+			if ( $aParsedUrl !== false ) {
+				if ( preg_match( '# |\\*#', $aParsedUrl['host'] ) ) {
+					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				}
-				if( $aParsedUrl['scheme'] == 'http' || $aParsedUrl['scheme'] == 'https' ) {
-					$sQuery = !empty( $aParsedUrl['query'] ) ? '?'.$aParsedUrl['query'] : '';
-					if( !isset($aParsedUrl['path']) ) $aParsedUrl['path'] = '';
-					$newApp['href'] = $aParsedUrl['scheme'].$aParsedUrl['delimiter'].$aParsedUrl['host'].$aParsedUrl['path'].$sQuery;
+				if ( $aParsedUrl['scheme'] == 'http' || $aParsedUrl['scheme'] == 'https' ) {
+					$sQuery = !empty( $aParsedUrl['query'] ) ? '?' . $aParsedUrl['query'] : '';
+					if ( !isset( $aParsedUrl['path'] ) ) {
+						$aParsedUrl['path'] = '';
+					}
+					$newApp['href'] = $aParsedUrl['scheme'] . $aParsedUrl['delimiter'] .
+						$aParsedUrl['host'] . $aParsedUrl['path'] . $sQuery;
 					$newApp['external'] = true;
 				}
-			} else if( strpos($aAppParts[1], '?') === 0 ) { //?action=blog
+			} elseif ( strpos( $aAppParts[1], '?' ) === 0 ) { // ?action=blog
 				$newApp['href'] = $wgServer.$wgScriptPath.'/'.$aAppParts[1];
 			} else {
-				$oTitle = Title::newFromText( trim($aAppParts[1]) );
-				if( is_null($oTitle) ) {
-					//TODO: Use status ojb on BeforeArticleSave to detect parse errors
+				$oTitle = Title::newFromText( trim( $aAppParts[1] ) );
+				if ( is_null( $oTitle ) ) {
+					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				} else {
 					$newApp['href'] = $oTitle->getFullURL();
-					if( $oTitle->equals($wgTitle) ) {
+					if ( $oTitle->equals( $wgTitle ) ) {
 						$newApp['active'] = true;
 					}
 				}
@@ -209,7 +218,7 @@ class MenuParser {
 			$newApp['href'] = $wgServer.$wgScriptPath;
 		}
 
-		if( !empty( $aAppParts[2] ) ) {
+		if ( !empty( $aAppParts[2] ) ) {
 			$newApp['text'] = $aAppParts[2];
 		}
 
@@ -225,21 +234,21 @@ class MenuParser {
 	 * @return type
 	 */
 	public static function toWikiText( $aNavigationSites, $sWikiText = '', $sPrefix = '*' ) {
-		foreach( $aNavigationSites as $aNavigationSite ) {
+		foreach ( $aNavigationSites as $aNavigationSite ) {
 			$sText = $sHref = '';
 
-			if( !empty($aNavigationSite['href']) ) {
+			if ( !empty( $aNavigationSite['href'] ) ) {
 				$sHref = '|';
 
-				if( !isset($aNavigationSite['external']) || !$aNavigationSite['external'] ) {
-					//extract Title from url - maybe not 100% accurate
+				if ( !isset( $aNavigationSite['external'] ) || !$aNavigationSite['external'] ) {
+					// extract Title from url - maybe not 100% accurate
 					global $wgArticlePath;
 					$aInternalUrl = explode(
-						substr($wgArticlePath, 0, -2), //remove $1
-						'A'.$aNavigationSite['href'] //Added A - url could be relative
+						substr( $wgArticlePath, 0, -2 ), // remove $1
+						'A'.$aNavigationSite['href'] // Added A - url could be relative
 					);
 
-					if( !isset($aInternalUrl[1]) ) {
+					if ( !isset( $aInternalUrl[1] ) ) {
 						$sHref .= $aNavigationSite['href'];
 					} else {
 						$sHref .= $aInternalUrl[1];
@@ -261,15 +270,17 @@ class MenuParser {
 				} else {
 					$sHref .= $aNavigationSite['href'];
 				}
-				if( !empty($aNavigationSite['text']) ) {
+				if ( !empty( $aNavigationSite['text'] ) ) {
 					$sText = '|'.$aNavigationSite['text'];
 				}
 			}
 
 			$sWikiText .= "$sPrefix{$aNavigationSite['id']}$sHref$sText\n";
-			if( empty($aNavigationSite['children']) ) continue;
+			if ( empty( $aNavigationSite['children'] ) ) {
+				continue;
+			}
 
-			$sWikiText = self::toWikiText($aNavigationSite['children'], $sWikiText, "*$sPrefix");
+			$sWikiText = self::toWikiText( $aNavigationSite['children'], $sWikiText, "*$sPrefix" );
 		}
 		return $sWikiText;
 	}

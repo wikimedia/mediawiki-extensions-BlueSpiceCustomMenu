@@ -7,7 +7,7 @@ class InvalidateHeaderMenu extends \BlueSpice\Hook\PageContentSaveComplete {
 	protected function skipProcessing() {
 		$title = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" //'TopBarMenu' in the past
+			"CustomMenu/Header" // 'TopBarMenu' in the past
 		);
 		if ( !$this->wikipage->getTitle()->equals( $title ) ) {
 			return true;
@@ -18,7 +18,7 @@ class InvalidateHeaderMenu extends \BlueSpice\Hook\PageContentSaveComplete {
 	protected function doProcess() {
 		$menu = $this->getServices()->getService( 'BSCustomMenuFactory' )
 			->getMenu( 'header' );
-		if( !$menu ) {
+		if ( !$menu ) {
 			return true;
 		}
 		$menu->invalidate();
