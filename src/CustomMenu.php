@@ -124,7 +124,7 @@ abstract class CustomMenu implements ICustomMenu {
 	 * @return int
 	 */
 	public function numberOfLevels() {
-		return 2;
+		return 1;
 	}
 
 	/**
