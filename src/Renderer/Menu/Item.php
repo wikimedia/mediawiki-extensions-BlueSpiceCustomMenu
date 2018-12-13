@@ -24,6 +24,7 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	public function __construct( \Config $config, Params $params, LinkRenderer $linkRenderer = null ) {
 		parent::__construct( $config, $params, $linkRenderer );
 		$this->args[static::PARAM_TAG] = 'li';
+		$this->args[static::PARAM_CLASS] = '';
 		$this->args[static::PARAM_HREF] = $params->get(
 			static::PARAM_HREF,
 			'#'
@@ -60,6 +61,9 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 		}
 		$this->args[static::PARAM_CLASS]
 			.= " level-{$this->args[static::PARAM_LEVEL]}";
+		if ( $this->args[static::PARAM_CHILDREN] ) {
+			$this->args[static::PARAM_CLASS] .= ' contains-children';
+		}
 	}
 
 	protected function makeTagContent() {
