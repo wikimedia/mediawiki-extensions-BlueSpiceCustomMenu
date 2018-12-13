@@ -24,7 +24,9 @@
 			},
 			"RendererRegistry": {
 				"custommenu": "\\BlueSpice\\CustomMenu\\Renderer\\Menu",
-				"custommenuitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Item"
+				"custommenuitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Item",
+				"custommenuheader": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Header",
+				"custommenuheaderitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Header\\Item"
 			}
 		},
 		"BlueSpiceCustomMenu": {
