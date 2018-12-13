@@ -4,6 +4,7 @@ namespace BlueSpice\CustomMenu\CustomMenu;
 
 use BlueSpice\Data\RecordSet;
 use BlueSpice\Data\Record;
+use BlueSpice\Services;
 
 class Header extends \BlueSpice\CustomMenu\CustomMenu {
 
@@ -26,6 +27,16 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 			return $records;
 		}
 		return $this->getDefaultRecords();
+	}
+
+	/**
+	 * @return Menu
+	 */
+	public function getRenderer() {
+		return Services::getInstance()->getBSRendererFactory()->get(
+			'custommenuheader',
+			$this->getParams()
+		);
 	}
 
 	/**
