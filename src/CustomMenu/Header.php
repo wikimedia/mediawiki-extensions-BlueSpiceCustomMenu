@@ -77,7 +77,7 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 			$entry['children'] = new RecordSet( $children );
 		}
 
-		return new Record( $entry );
+		return new Record( (object)$entry );
 	}
 
 	public function numberOfLevels() {
