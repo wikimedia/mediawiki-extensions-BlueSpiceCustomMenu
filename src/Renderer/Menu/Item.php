@@ -61,25 +61,38 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 		}
 		$this->args[static::PARAM_CLASS]
 			.= " level-{$this->args[static::PARAM_LEVEL]}";
-		if ( $this->args[static::PARAM_CHILDREN] ) {
+		if ( $this->hasChildren() ) {
 			$this->args[static::PARAM_CLASS] .= ' contains-children';
 		}
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
+	protected function hasChildren() {
+		$numLevels = $this->getCustomMenu()->numberOfLevels();
+		$curLevel = $this->args[static::PARAM_LEVEL];
+		if ( $curLevel >= $numLevels ) {
+			return false;
+		}
+		return !empty( $this->args[static::PARAM_CHILDREN] );
+	}
+
+	/**
+	 *
+	 * @return string HTML
+	 */
 	protected function makeTagContent() {
+		$level = $this->args[static::PARAM_LEVEL] + 1;
 		$content = '';
-		$content .= \Html::element( 'a', [
-			static::PARAM_HREF => $this->args[static::PARAM_HREF],
-			'title' => $this->args[static::PARAM_TEXT]
-		], $this->args[static::PARAM_TEXT] );
+		$content .= $this->makeItemAnchor();
 
 		if ( !$this->args[static::PARAM_CHILDREN] instanceof RecordSet ) {
 			return $content;
 		}
 		$level = $this->args[static::PARAM_LEVEL] + 1;
-		$content .= \Html::openElement( 'ul', [
-			static::PARAM_CLASS => " child-menu level-$level",
-		] );
+		$content .= $this->makeChildMenuOpeningTag( $level );
 		$counter = 0;
 		$menu = $this->getCustomMenu();
 		if ( $menu->numberOfLevels() >= $level ) {
@@ -94,9 +107,63 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 				}
 			}
 		}
-		$content .= \Html::closeElement( 'ul' );
+		$content .= $this->makeChildMenuClosingTag();
 
 		return $content;
+	}
+
+	/**
+	 *
+	 * @return string HTML
+	 */
+	protected function makeItemAnchor() {
+		return \Html::element(
+			'a',
+			$this->makeItemAnchorAttribs(),
+			$this->args[static::PARAM_TEXT]
+		);
+	}
+
+	/**
+	 *
+	 * @return array
+	 */
+	protected function makeItemAnchorAttribs() {
+		return [
+			static::PARAM_HREF => $this->args[static::PARAM_HREF],
+			'title' => $this->args[static::PARAM_TEXT]
+		];
+	}
+
+	/**
+	 *
+	 * @param int $level
+	 * @return string HTML
+	 */
+	protected function makeChildMenuOpeningTag( $level ) {
+		return \Html::openElement(
+			'ul',
+			$this->makeChildMenuOpeningTagAttribs( $level )
+		);
+	}
+
+	/**
+	 *
+	 * @return string HTML
+	 */
+	protected function makeChildMenuClosingTag() {
+		return \Html::closeElement( 'ul' );
+	}
+
+	/**
+	 *
+	 * @param int $level
+	 * @return array
+	 */
+	protected function makeChildMenuOpeningTagAttribs( $level ) {
+		return [
+			static::PARAM_CLASS => " child-menu level-$level",
+		];
 	}
 
 }

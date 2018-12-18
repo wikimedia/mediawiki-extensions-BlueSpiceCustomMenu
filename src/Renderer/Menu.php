@@ -53,6 +53,10 @@ class Menu extends \BlueSpice\Renderer {
 		return $content;
 	}
 
+	/**
+	 *
+	 * @return string HTML
+	 */
 	protected function makeTagContent() {
 		$content = '';
 		$menu = $this->getCustomMenu();
@@ -81,7 +85,7 @@ class Menu extends \BlueSpice\Renderer {
 			[ static::PARAM_CUSTOM_MENU => $this->getCustomMenu() ]
 		);
 		return Services::getInstance()->getBSRendererFactory()->get(
-			'custommenuitem',
+			$this->makeItemRendererKey(),
 			new Params( $params )
 		)->render();
 	}
@@ -108,4 +112,11 @@ class Menu extends \BlueSpice\Renderer {
 		return $this->args;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
+	protected function makeItemRendererKey() {
+		return 'custommenuitem';
+	}
 }
