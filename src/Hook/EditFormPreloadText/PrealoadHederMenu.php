@@ -37,7 +37,7 @@ class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
 	}
 
 	protected function recordToLegacyParserItem( $record ) {
-		$item = $record->getData();
+		$item = (array)$record->getData();
 		if ( !isset( $item['children'] ) || !$item['children'] instanceof RecordSet ) {
 			return $item;
 		}
