@@ -129,10 +129,18 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	 * @return array
 	 */
 	protected function makeItemAnchorAttribs() {
-		return [
+		$attribs = [
 			static::PARAM_HREF => $this->args[static::PARAM_HREF],
 			'title' => $this->args[static::PARAM_TEXT]
 		];
+
+		if ( !$this->args[static::PARAM_EXTERNAL] ) {
+			return $attribs;
+		}
+
+		$attribs['target'] = $this->config->get( 'ExternalLinkTarget' );
+
+		return $attribs;
 	}
 
 	/**
