@@ -140,4 +140,11 @@ abstract class CustomMenu implements ICustomMenu {
 	public function numberOfSubEntries() {
 		return static::NUM_ENTRIES_UNLIMITED;
 	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getEditURL() {
+		return null;
+	}
 }

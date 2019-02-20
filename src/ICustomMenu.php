@@ -40,4 +40,8 @@ interface ICustomMenu {
 	 */
 	public function numberOfSubEntries();
 
+	/**
+	 * @return string|null
+	 */
+	public function getEditURL();
 }

@@ -92,4 +92,17 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 		return $this->config->get( 'CustomMenuHeaderNumberOfSubEntries' );
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
+	public function getEditURL() {
+		$title = \Title::makeTitle(
+			NS_MEDIAWIKI,
+			"CustomMenu/Header"
+		);
+
+		return $title->getEditURL();
+	}
+
 }
