@@ -97,7 +97,7 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 		$menu = $this->getCustomMenu();
 		if ( $menu->numberOfLevels() >= $level ) {
 			foreach ( $this->args[static::PARAM_CHILDREN]->getRecords() as $record ) {
-				$counter ++;
+				$counter++;
 				$content .= $this->renderItem( $record );
 				if ( $menu->numberOfSubEntries() == $menu::NUM_ENTRIES_UNLIMITED ) {
 					continue;

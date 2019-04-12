@@ -202,7 +202,7 @@ class MenuParser {
 					$newApp['external'] = true;
 				}
 			} elseif ( strpos( $aAppParts[1], '?' ) === 0 ) { // ?action=blog
-				$newApp['href'] = $wgServer.$wgScriptPath.'/'.$aAppParts[1];
+				$newApp['href'] = $wgServer . $wgScriptPath . '/' . $aAppParts[1];
 			} else {
 				$oTitle = Title::newFromText( trim( $aAppParts[1] ) );
 				if ( is_null( $oTitle ) ) {
@@ -215,7 +215,7 @@ class MenuParser {
 				}
 			}
 		} else {
-			$newApp['href'] = $wgServer.$wgScriptPath;
+			$newApp['href'] = $wgServer . $wgScriptPath;
 		}
 
 		if ( !empty( $aAppParts[2] ) ) {
@@ -245,7 +245,7 @@ class MenuParser {
 					global $wgArticlePath;
 					$aInternalUrl = explode(
 						substr( $wgArticlePath, 0, -2 ), // remove $1
-						'A'.$aNavigationSite['href'] // Added A - url could be relative
+						'A' . $aNavigationSite['href'] // Added A - url could be relative
 					);
 
 					if ( !isset( $aInternalUrl[1] ) ) {
@@ -271,7 +271,7 @@ class MenuParser {
 					$sHref .= $aNavigationSite['href'];
 				}
 				if ( !empty( $aNavigationSite['text'] ) ) {
-					$sText = '|'.$aNavigationSite['text'];
+					$sText = '|' . $aNavigationSite['text'];
 				}
 			}
 
