@@ -29,7 +29,7 @@ class Menu extends \BlueSpice\Renderer {
 		);
 		if ( !$this->customMenu instanceof ICustomMenu ) {
 			throw new \MWException(
-				"param '" . static::PARAM_CUSTOM_MENU ."' must be an instance of '" . ICustomMenu::class . "'"
+				"param '" . static::PARAM_CUSTOM_MENU . "' must be an instance of '" . ICustomMenu::class . "'"
 			);
 		}
 		$this->args[static::PARAM_TAG] = 'ul';
@@ -62,7 +62,7 @@ class Menu extends \BlueSpice\Renderer {
 		$menu = $this->getCustomMenu();
 		$counter = 0;
 		foreach ( $menu->getData()->getRecords() as $record ) {
-			$counter ++;
+			$counter++;
 			$content .= $this->renderItem( $record );
 			if ( $menu->numberOfMainEntries() == $menu::NUM_ENTRIES_UNLIMITED ) {
 				continue;
