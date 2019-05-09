@@ -86,7 +86,7 @@ abstract class CustomMenu implements ICustomMenu {
 	 */
 	protected function getDefaultRecords( $records = [] ) {
 		\Hooks::run( 'BSCustomMenuDefaultRecords', [
-			$this->getKey()
+			$this->getKey(),
 			& $records
 		] );
 		return $records;
