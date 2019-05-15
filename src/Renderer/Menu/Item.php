@@ -2,6 +2,9 @@
 
 namespace BlueSpice\CustomMenu\Renderer\Menu;
 
+use Config;
+use IContextSource;
+use Html;
 use MediaWiki\Linker\LinkRenderer;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Data\RecordSet;
@@ -16,13 +19,17 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	const PARAM_TEXT = 'text';
 
 	/**
-	 *
-	 * @param \Config $config
+	 * Constructor
+	 * @param Config $config
 	 * @param Params $params
 	 * @param LinkRenderer|null $linkRenderer
+	 * @param IContextSource|null $context
+	 * @param string $name | ''
 	 */
-	public function __construct( \Config $config, Params $params, LinkRenderer $linkRenderer = null ) {
-		parent::__construct( $config, $params, $linkRenderer );
+	protected function __construct( Config $config, Params $params,
+		LinkRenderer $linkRenderer = null, IContextSource $context = null,
+		$name = '' ) {
+		parent::__construct( $config, $params, $linkRenderer, $context, $name );
 		$this->args[static::PARAM_TAG] = 'li';
 		$this->args[static::PARAM_CLASS] = '';
 		$this->args[static::PARAM_HREF] = $params->get(
@@ -117,7 +124,7 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	 * @return string HTML
 	 */
 	protected function makeItemAnchor() {
-		return \Html::element(
+		return Html::element(
 			'a',
 			$this->makeItemAnchorAttribs(),
 			$this->args[static::PARAM_TEXT]
@@ -149,7 +156,7 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	 * @return string HTML
 	 */
 	protected function makeChildMenuOpeningTag( $level ) {
-		return \Html::openElement(
+		return Html::openElement(
 			'ul',
 			$this->makeChildMenuOpeningTagAttribs( $level )
 		);
@@ -160,7 +167,7 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	 * @return string HTML
 	 */
 	protected function makeChildMenuClosingTag() {
-		return \Html::closeElement( 'ul' );
+		return Html::closeElement( 'ul' );
 	}
 
 	/**
