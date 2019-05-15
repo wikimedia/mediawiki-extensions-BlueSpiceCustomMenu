@@ -2,6 +2,9 @@
 
 namespace BlueSpice\CustomMenu\Renderer;
 
+use Config;
+use IContextSource;
+use MWException;
 use MediaWiki\Linker\LinkRenderer;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Services;
@@ -17,18 +20,23 @@ class Menu extends \BlueSpice\Renderer {
 	protected $customMenu = null;
 
 	/**
-	 * @param \Config $config
+	 * Constructor
+	 * @param Config $config
 	 * @param Params $params
 	 * @param LinkRenderer|null $linkRenderer
+	 * @param IContextSource|null $context
+	 * @param string $name | ''
 	 */
-	public function __construct( \Config $config, Params $params, LinkRenderer $linkRenderer = null ) {
-		parent::__construct( $config, $params, $linkRenderer );
+	protected function __construct( Config $config, Params $params,
+		LinkRenderer $linkRenderer = null, IContextSource $context = null,
+		$name = '' ) {
+		parent::__construct( $config, $params, $linkRenderer, $context, $name );
 		$this->customMenu = $params->get(
 			static::PARAM_CUSTOM_MENU,
 			false
 		);
 		if ( !$this->customMenu instanceof ICustomMenu ) {
-			throw new \MWException(
+			throw new MWException(
 				"param '" . static::PARAM_CUSTOM_MENU . "' must be an instance of '" . ICustomMenu::class . "'"
 			);
 		}

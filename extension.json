@@ -23,10 +23,10 @@
 				}
 			},
 			"RendererRegistry": {
-				"custommenu": "\\BlueSpice\\CustomMenu\\Renderer\\Menu",
-				"custommenuitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Item",
-				"custommenuheader": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Header",
-				"custommenuheaderitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Header\\Item"
+				"custommenu": "\\BlueSpice\\CustomMenu\\Renderer\\Menu::factory",
+				"custommenuitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Item::factory",
+				"custommenuheader": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Header::factory",
+				"custommenuheaderitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Header\\Item::factory"
 			}
 		},
 		"BlueSpiceCustomMenu": {
