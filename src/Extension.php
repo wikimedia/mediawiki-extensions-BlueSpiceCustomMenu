@@ -19,7 +19,7 @@
 * This file is part of BlueSpice MediaWiki
 * For further information visit https://bluespice.com
 *
-* @author     Patric Wirth <wirth@hallowelt.com>
+* @author     Patric Wirth
 * @package    Bluespice_Extensions
 * @version    3.1.0-alpha
 * @subpackage CustomMenu
