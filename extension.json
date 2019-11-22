@@ -82,7 +82,7 @@
 		"PageContentSaveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageContentSaveComplete\\InvalidateHeaderMenu::callback",
 		"TitleMoveComplete": "\\BlueSpice\\CustomMenu\\Hook\\TitleMoveComplete\\InvalidateHeaderMenu::callback",
 		"LoadExtensionSchemaUpdates": "\\BlueSpice\\CustomMenu\\Hook\\LoadExtensionSchemaUpdates\\AddMigrateTopBarMenu::callback",
-		"OutputPageBodyAttributes": "\\BlueSpice\\CustomMenu\\Hook\\OutputPageBodyAttributes\\AddOutputPageBodyClass::onOutputPageBodyAttributes"
+		"OutputPageBodyAttributes": "\\BlueSpice\\CustomMenu\\Hook\\OutputPageBodyAttributes\\AddOutputPageBodyClass::callback"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "resources",

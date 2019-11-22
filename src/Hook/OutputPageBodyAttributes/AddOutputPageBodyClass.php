@@ -2,29 +2,34 @@
 
 namespace BlueSpice\CustomMenu\Hook\OutputPageBodyAttributes;
 
-class AddOutputPageBodyClass {
+use BlueSpice\Hook\OutputPageBodyAttributes;
+
+class AddOutputPageBodyClass extends OutputPageBodyAttributes {
 
 	/**
-	 * Adds extra classes to custom menu body
-	 * @param OutputPage $out
-	 * @param Skin $skin
-	 * @param array &$bodyAttrs
+	 *
+	 * @return bool
 	 */
-	public function onOutputPageBodyAttributes( \OutputPage $out, \Skin $skin, &$bodyAttrs ) {
-		$class = 'bs-cusom-menu-active';
-
-		$items = explode( ' ', $bodyAttrs[ 'class' ] );
-
-		$classes = [];
-		foreach ( $items as $item ) {
-			if ( ( $item === '' ) || ( $item === ' ' ) ) {
-					continue;
+	protected function skipProcessing() {
+		foreach ( explode( ' ', $this->bodyAttrs[ 'class' ] ) as $class ) {
+			if ( empty( $class ) ) {
+				continue;
 			}
-			$classes[] = trim( $item );
+			if ( trim( $class ) !== 'bs-cusom-menu-active' ) {
+				continue;
+			}
+			return true;
 		}
-
-		if ( !in_array( $class, $classes ) ) {
-			$bodyAttrs[ 'class' ] .= ' ' . $class . ' ';
-		}
+		return false;
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
+	protected function doProcess() {
+		$this->bodyAttrs[ 'class' ] .= ' bs-cusom-menu-active ';
+		return true;
+	}
+
 }
