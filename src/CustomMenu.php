@@ -75,7 +75,8 @@ abstract class CustomMenu implements ICustomMenu {
 		\BsCacheHelper::set(
 			$this->getCacheKey(),
 			$this->data,
-			60 * 1440 // max cache time 24h
+			// max cache time 24h
+			60 * 1440
 		);
 		return $this->data;
 	}

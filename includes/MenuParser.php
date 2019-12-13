@@ -28,6 +28,8 @@
  * @filesource
  */
 
+use BlueSpice\Services;
+
 /**
  * TODO: Also re-write this parser or may even use some Treeparser from
  * Foundation !
@@ -65,9 +67,12 @@ class MenuParser {
 
 		$menu = self::parseArticleContentLines(
 			$aLines,
-			9999, // scaling will be done on rendering
-			9999, // scaling will be done on rendering
-			9999 // scaling will be done on rendering
+			// scaling will be done on rendering
+			9999,
+			// scaling will be done on rendering
+			9999,
+			// scaling will be done on rendering
+			9999
 		);
 
 		return $menu;
@@ -169,12 +174,11 @@ class MenuParser {
 	/**
 	 * Parses a single menu item
 	 * TODO: Clean up
-	 * @global Title $wgTitle
 	 * @param String $sLine
 	 * @return Array - Single parsed menu item (app)
 	 */
 	public static function parseSingleLine( $sLine ) {
-		global $wgTitle, $wgServer, $wgScriptPath;
+		$config = Services::getInstance()->getConfigFactory()->makeConfig( 'bsg' );
 		$newApp = static::$aNavigationSiteTemplate;
 
 		$aAppParts = explode( '|', trim( $sLine ) );
@@ -201,21 +205,24 @@ class MenuParser {
 						$aParsedUrl['host'] . $aParsedUrl['path'] . $sQuery;
 					$newApp['external'] = true;
 				}
-			} elseif ( strpos( $aAppParts[1], '?' ) === 0 ) { // ?action=blog
-				$newApp['href'] = $wgServer . $wgScriptPath . '/' . $aAppParts[1];
+			} elseif ( strpos( $aAppParts[1], '?' ) === 0 ) {
+				// ?action=blog
+				$newApp['href'] = $config->get( 'Server' )
+					. $config->get( 'ScriptPath' )
+					. '/' . $aAppParts[1];
 			} else {
 				$oTitle = Title::newFromText( trim( $aAppParts[1] ) );
 				if ( is_null( $oTitle ) ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				} else {
 					$newApp['href'] = $oTitle->getFullURL();
-					if ( $oTitle->equals( $wgTitle ) ) {
+					if ( $oTitle->equals( RequestContext::getMain()->getTitle() ) ) {
 						$newApp['active'] = true;
 					}
 				}
 			}
 		} else {
-			$newApp['href'] = $wgServer . $wgScriptPath;
+			$newApp['href'] = $config->get( 'Server' ) . $config->get( 'ScriptPath' );
 		}
 
 		if ( !empty( $aAppParts[2] ) ) {
@@ -227,7 +234,6 @@ class MenuParser {
 
 	/**
 	 * Returns wikitext list from recursively processed array
-	 * @global string $wgArticlePath
 	 * @param array $aNavigationSites
 	 * @param string $sWikiText
 	 * @param string $sPrefix
@@ -244,8 +250,10 @@ class MenuParser {
 					// extract Title from url - maybe not 100% accurate
 					global $wgArticlePath;
 					$aInternalUrl = explode(
-						substr( $wgArticlePath, 0, -2 ), // remove $1
-						'A' . $aNavigationSite['href'] // Added A - url could be relative
+						// remove $1
+						substr( $wgArticlePath, 0, -2 ),
+						// Added A - url could be relative
+						'A' . $aNavigationSite['href']
 					);
 
 					if ( !isset( $aInternalUrl[1] ) ) {
