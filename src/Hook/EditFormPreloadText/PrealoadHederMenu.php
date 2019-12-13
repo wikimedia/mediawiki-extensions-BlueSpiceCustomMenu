@@ -2,14 +2,20 @@
 
 namespace BlueSpice\CustomMenu\Hook\EditFormPreloadText;
 
+use BlueSpice\Data\IRecord;
 use BlueSpice\Data\RecordSet;
 
 class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function skipProcessing() {
 		$title = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" // 'TopBarMenu' in the past
+			// 'TopBarMenu' in the past
+			"CustomMenu/Header"
 		);
 		if ( !$this->title || !$this->title->equals( $title ) ) {
 			return true;
@@ -20,6 +26,10 @@ class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function doProcess() {
 		$menu = $this->getServices()->getService( 'BSCustomMenuFactory' )
 			->getMenu( 'header' );
@@ -36,6 +46,11 @@ class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
 		return true;
 	}
 
+	/**
+	 *
+	 * @param IRecord $record
+	 * @return array
+	 */
 	protected function recordToLegacyParserItem( $record ) {
 		$item = (array)$record->getData();
 		if ( !isset( $item['children'] ) || !$item['children'] instanceof RecordSet ) {

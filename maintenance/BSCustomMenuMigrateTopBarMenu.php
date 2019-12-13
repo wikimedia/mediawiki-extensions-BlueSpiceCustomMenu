@@ -5,6 +5,10 @@ require_once "$IP/maintenance/Maintenance.php";
 
 class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function noDataToMigrate() {
 		$oldTitle = \Title::makeTitle(
 			NS_MEDIAWIKI,
@@ -15,7 +19,8 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 		}
 		$newTitle = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" // 'TopBarMenu' in the past
+			// 'TopBarMenu' in the past
+			"CustomMenu/Header"
 		);
 		if ( $newTitle && $newTitle->exists() ) {
 			return true;
@@ -23,6 +28,10 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function doDBUpdates() {
 		if ( $this->noDataToMigrate() ) {
 			$this->output( "TopBarMenu -> No data to migrate\n" );
@@ -36,7 +45,8 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 		);
 		$newTitle = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" // 'TopBarMenu' in the past
+			// 'TopBarMenu' in the past
+			"CustomMenu/Header"
 		);
 		try{
 			$move = new \MovePage( $oldTitle, $newTitle );
@@ -53,11 +63,19 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return User
+	 */
 	protected function getMaintenanceUser() {
 		return \BlueSpice\Services::getInstance()->getBSUtilityFactory()
 			->getMaintenanceUser()->getUser();
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function getUpdateKey() {
 		return 'TopBarMenu';
 	}

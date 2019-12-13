@@ -15,7 +15,8 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	protected function getRecords() {
 		$title = \Title::makeTitle(
 			NS_MEDIAWIKI,
-			"CustomMenu/Header" // 'TopBarMenu' in the past
+			// 'TopBarMenu' in the past
+			"CustomMenu/Header"
 		);
 
 		if ( $title && $title->exists() ) {
@@ -68,6 +69,11 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 		return parent::getDefaultRecords( $records );
 	}
 
+	/**
+	 *
+	 * @param array $entry
+	 * @return Record
+	 */
 	protected function legacyParserItemToRecord( $entry ) {
 		if ( !empty( $entry['children'] ) ) {
 			$children = [];
