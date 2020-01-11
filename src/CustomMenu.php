@@ -7,6 +7,7 @@ use BlueSpice\Renderer\Params;
 use BlueSpice\CustomMenu\Renderer\Menu;
 use BlueSpice\Data\RecordSet;
 use BlueSpice\Data\Record;
+use BlueSpice\UtilityFactory;
 
 abstract class CustomMenu implements ICustomMenu {
 
@@ -26,22 +27,34 @@ abstract class CustomMenu implements ICustomMenu {
 	protected $config = null;
 
 	/**
+	 *
+	 * @var UtilityFactory
+	 */
+	protected $util = null;
+
+	/**
 	 * @param \Config $config
 	 * @param string $key
+	 * @param UtilityFactory $util
 	 */
-	protected function __construct( \Config $config, $key ) {
+	protected function __construct( \Config $config, $key, UtilityFactory $util ) {
 		$this->config = $config;
 		$this->key = $key;
+		$this->util = $util;
 	}
 
 	/**
 	 *
 	 * @param \Config $config
 	 * @param string $key
+	 * @param UtilityFactory|null $util
 	 * @return CustomMenu
 	 */
-	public static function getInstance( \Config $config, $key ) {
-		return new static( $config, $key );
+	public static function getInstance( \Config $config, $key, UtilityFactory $util = null ) {
+		if ( !$util ) {
+			$util = Services::getInstance()->getBSUtilityFactory();
+		}
+		return new static( $config, $key, $util );
 	}
 
 	/**
@@ -67,12 +80,12 @@ abstract class CustomMenu implements ICustomMenu {
 	 * @return RecordSet
 	 */
 	public function getData() {
-		$this->data = \BsCacheHelper::get( $this->getCacheKey() );
+		$this->data = $this->util->getCacheHelper()->get( $this->getCacheKey() );
 		if ( $this->data ) {
 			return $this->data;
 		}
 		$this->data = new RecordSet( $this->getRecords() );
-		\BsCacheHelper::set(
+		$this->util->getCacheHelper()->set(
 			$this->getCacheKey(),
 			$this->data,
 			// max cache time 24h
@@ -109,7 +122,7 @@ abstract class CustomMenu implements ICustomMenu {
 	 * @return string
 	 */
 	protected function getCacheKey() {
-		return \BsCacheHelper::getCacheKey(
+		return $this->util->getCacheHelper()->getCacheKey(
 			'BlueSpice',
 			'CustomMenu',
 			static::class
@@ -117,7 +130,7 @@ abstract class CustomMenu implements ICustomMenu {
 	}
 
 	public function invalidate() {
-		\BsCacheHelper::invalidateCache( $this->getCacheKey() );
+		$this->util->getCacheHelper()->invalidate( $this->getCacheKey() );
 		$this->data = null;
 	}
 
