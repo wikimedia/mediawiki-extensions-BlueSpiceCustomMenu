@@ -81,9 +81,12 @@ class MenuParser {
 	/**
 	 * Returns recursively all parsed menu items
 	 * TODO: Clean up
-	 * @param type $aLines
-	 * @param type $aApps
-	 * @param type $iPassed
+	 * @param array $aLines
+	 * @param int $iAllowedLevels
+	 * @param int $iMaxMainEntries
+	 * @param int $iMaxSubEntries
+	 * @param array $aApps
+	 * @param int $iPassed
 	 * @return Array
 	 */
 	private static function parseArticleContentLines(
@@ -212,7 +215,7 @@ class MenuParser {
 					. '/' . $aAppParts[1];
 			} else {
 				$oTitle = Title::newFromText( trim( $aAppParts[1] ) );
-				if ( is_null( $oTitle ) ) {
+				if ( $oTitle === null ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				} else {
 					$newApp['href'] = $oTitle->getFullURL();

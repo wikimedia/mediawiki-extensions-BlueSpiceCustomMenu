@@ -2,11 +2,11 @@
 
 namespace BlueSpice\CustomMenu;
 
-use BlueSpice\Services;
-use BlueSpice\Renderer\Params;
 use BlueSpice\CustomMenu\Renderer\Menu;
-use BlueSpice\Data\RecordSet;
 use BlueSpice\Data\Record;
+use BlueSpice\Data\RecordSet;
+use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
 
 abstract class CustomMenu implements ICustomMenu {
 

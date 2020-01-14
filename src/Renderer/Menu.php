@@ -2,14 +2,14 @@
 
 namespace BlueSpice\CustomMenu\Renderer;
 
-use Config;
-use IContextSource;
-use MWException;
-use MediaWiki\Linker\LinkRenderer;
-use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use BlueSpice\CustomMenu\ICustomMenu;
 use BlueSpice\Data\Record;
+use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
+use Config;
+use IContextSource;
+use MediaWiki\Linker\LinkRenderer;
+use MWException;
 
 class Menu extends \BlueSpice\Renderer {
 	const PARAM_CUSTOM_MENU = 'custommenu';

@@ -2,8 +2,8 @@
 
 namespace BlueSpice\CustomMenu\CustomMenu;
 
-use BlueSpice\Data\RecordSet;
 use BlueSpice\Data\Record;
+use BlueSpice\Data\RecordSet;
 use BlueSpice\Services;
 
 class Header extends \BlueSpice\CustomMenu\CustomMenu {

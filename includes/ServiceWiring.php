@@ -1,7 +1,7 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
 use BlueSpice\ExtensionAttributeBasedRegistry;
+use MediaWiki\MediaWikiServices;
 
 return [
 
