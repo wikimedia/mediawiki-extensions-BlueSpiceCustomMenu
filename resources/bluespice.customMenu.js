@@ -1,4 +1,0 @@
-
-( function( mw, $ ){
-
-})( mediaWiki, jQuery );
