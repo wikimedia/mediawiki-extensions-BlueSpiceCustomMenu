@@ -50,18 +50,6 @@
 		"MenuParser": "includes/MenuParser.php",
 		"BSCustomMenuMigrateTopBarMenu": "maintenance/BSCustomMenuMigrateTopBarMenu.php"
 	},
-	"ResourceModules": {
-		"ext.bluespice.custommenu": {
-			"scripts": "bluespice.customMenu.js",
-			"dependencies": [
-				"mediawiki.util"
-			]
-		},
-		"ext.bluespice.custommenu.styles": {
-			"styles": "bluespice.customMenu.less",
-			"class": "\\BlueSpice\\ResourceModule\\LessVars"
-		}
-	},
 	"config_prefix": "bsg",
 	"config": {
 		"CustomMenuHeaderNumberOfLevels": {
@@ -75,7 +63,6 @@
 		}
 	},
 	"Hooks": {
-		"BeforePageDisplay": "\\BlueSpice\\CustomMenu\\Hook\\BeforePageDisplay\\AddResources::callback",
 		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\CustomMenu\\Hook\\SkinTemplateOutputPageBeforeExec\\AddCustomMenus::callback",
 		"EditFormPreloadText": "\\BlueSpice\\CustomMenu\\Hook\\EditFormPreloadText\\PrealoadHederMenu::callback",
 		"ArticleDeleteComplete": "\\BlueSpice\\CustomMenu\\Hook\\ArticleDeleteComplete\\InvalidateHeaderMenu::callback",
@@ -83,10 +70,6 @@
 		"TitleMoveComplete": "\\BlueSpice\\CustomMenu\\Hook\\TitleMoveComplete\\InvalidateHeaderMenu::callback",
 		"LoadExtensionSchemaUpdates": "\\BlueSpice\\CustomMenu\\Hook\\LoadExtensionSchemaUpdates\\AddMigrateTopBarMenu::callback",
 		"OutputPageBodyAttributes": "\\BlueSpice\\CustomMenu\\Hook\\OutputPageBodyAttributes\\AddOutputPageBodyClass::callback"
-	},
-	"ResourceFileModulePaths": {
-		"localBasePath": "resources",
-		"remoteExtPath": "BlueSpiceCustomMenu/resources"
 	},
 	"manifest_version": 2
 }
