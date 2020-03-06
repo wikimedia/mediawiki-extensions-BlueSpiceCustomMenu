@@ -92,7 +92,7 @@ class Menu extends \BlueSpice\Renderer {
 			(array)$record->getData(),
 			[ static::PARAM_CUSTOM_MENU => $this->getCustomMenu() ]
 		);
-		return Services::getInstance()->getBSRendererFactory()->get(
+		return Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			$this->makeItemRendererKey(),
 			new Params( $params )
 		)->render();

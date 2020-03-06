@@ -68,7 +68,7 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 	 * @return User
 	 */
 	protected function getMaintenanceUser() {
-		return \BlueSpice\Services::getInstance()->getBSUtilityFactory()
+		return \BlueSpice\Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 	}
 
