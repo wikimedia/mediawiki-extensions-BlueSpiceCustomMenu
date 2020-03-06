@@ -34,7 +34,7 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	 * @return Menu
 	 */
 	public function getRenderer() {
-		return Services::getInstance()->getBSRendererFactory()->get(
+		return Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'custommenuheader',
 			$this->getParams()
 		);

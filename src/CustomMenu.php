@@ -52,7 +52,7 @@ abstract class CustomMenu implements ICustomMenu {
 	 */
 	public static function getInstance( \Config $config, $key, UtilityFactory $util = null ) {
 		if ( !$util ) {
-			$util = Services::getInstance()->getBSUtilityFactory();
+			$util = Services::getInstance()->getService( 'BSUtilityFactory' );
 		}
 		return new static( $config, $key, $util );
 	}
@@ -70,7 +70,7 @@ abstract class CustomMenu implements ICustomMenu {
 	 * @return Menu
 	 */
 	public function getRenderer() {
-		return Services::getInstance()->getBSRendererFactory()->get(
+		return Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'custommenu',
 			$this->getParams()
 		);
