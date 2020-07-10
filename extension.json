@@ -66,7 +66,7 @@
 		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\CustomMenu\\Hook\\SkinTemplateOutputPageBeforeExec\\AddCustomMenus::callback",
 		"EditFormPreloadText": "\\BlueSpice\\CustomMenu\\Hook\\EditFormPreloadText\\PrealoadHederMenu::callback",
 		"ArticleDeleteComplete": "\\BlueSpice\\CustomMenu\\Hook\\ArticleDeleteComplete\\InvalidateHeaderMenu::callback",
-		"PageContentSaveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageContentSaveComplete\\InvalidateHeaderMenu::callback",
+		"PageSaveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageSaveComplete\\InvalidateHeaderMenu::callback",
 		"TitleMoveComplete": "\\BlueSpice\\CustomMenu\\Hook\\TitleMoveComplete\\InvalidateHeaderMenu::callback",
 		"LoadExtensionSchemaUpdates": "\\BlueSpice\\CustomMenu\\Hook\\LoadExtensionSchemaUpdates\\AddMigrateTopBarMenu::callback",
 		"OutputPageBodyAttributes": "\\BlueSpice\\CustomMenu\\Hook\\OutputPageBodyAttributes\\AddOutputPageBodyClass::callback"
