@@ -1,8 +1,8 @@
 <?php
 
-namespace BlueSpice\CustomMenu\Hook\PageContentSaveComplete;
+namespace BlueSpice\CustomMenu\Hook\PageSaveComplete;
 
-class InvalidateHeaderMenu extends \BlueSpice\Hook\PageContentSaveComplete {
+class InvalidateHeaderMenu extends \BlueSpice\Hook\PageSaveComplete {
 
 	/**
 	 *
@@ -14,7 +14,7 @@ class InvalidateHeaderMenu extends \BlueSpice\Hook\PageContentSaveComplete {
 			// 'TopBarMenu' in the past
 			"CustomMenu/Header"
 		);
-		if ( !$this->wikipage->getTitle()->equals( $title ) ) {
+		if ( !$this->wikiPage->getTitle()->equals( $title ) ) {
 			return true;
 		}
 		return false;
