@@ -1,10 +1,10 @@
 <?php
 
-namespace BlueSpice\CustomMenu\Hook\SkinTemplateOutputPageBeforeExec;
+namespace BlueSpice\CustomMenu\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
 
-use BlueSpice\Hook\SkinTemplateOutputPageBeforeExec;
+use BlueSpice\Calumma\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
 
-class AddCustomMenus extends SkinTemplateOutputPageBeforeExec {
+class AddCustomMenus extends ChameleonSkinTemplateOutputPageBeforeExec {
 
 	protected function doProcess() {
 		$factory = $this->getServices()->getService( 'BSCustomMenuFactory' );
