@@ -5,10 +5,10 @@ namespace BlueSpice\CustomMenu\Renderer;
 use BlueSpice\CustomMenu\ICustomMenu;
 use BlueSpice\Data\Record;
 use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use Config;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\MediaWikiServices;
 use MWException;
 
 class Menu extends \BlueSpice\Renderer {
@@ -92,7 +92,7 @@ class Menu extends \BlueSpice\Renderer {
 			(array)$record->getData(),
 			[ static::PARAM_CUSTOM_MENU => $this->getCustomMenu() ]
 		);
-		return Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		return MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			$this->makeItemRendererKey(),
 			new Params( $params )
 		)->render();

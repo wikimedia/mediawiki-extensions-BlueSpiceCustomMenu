@@ -28,7 +28,7 @@
  * @filesource
  */
 
-use BlueSpice\Services;
+use MediaWiki\MediaWikiServices;
 
 /**
  * TODO: Also re-write this parser or may even use some Treeparser from
@@ -181,7 +181,7 @@ class MenuParser {
 	 * @return Array - Single parsed menu item (app)
 	 */
 	public static function parseSingleLine( $sLine ) {
-		$config = Services::getInstance()->getConfigFactory()->makeConfig( 'bsg' );
+		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'bsg' );
 		$newApp = static::$aNavigationSiteTemplate;
 
 		$aAppParts = explode( '|', trim( $sLine ) );
