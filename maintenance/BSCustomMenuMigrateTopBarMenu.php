@@ -3,6 +3,8 @@
 $IP = dirname( dirname( dirname( __DIR__ ) ) );
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\MediaWikiServices;
+
 class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 
 	/**
@@ -68,7 +70,7 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 	 * @return User
 	 */
 	protected function getMaintenanceUser() {
-		return \BlueSpice\Services::getInstance()->getService( 'BSUtilityFactory' )
+		return MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 	}
 

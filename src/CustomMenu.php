@@ -6,8 +6,8 @@ use BlueSpice\CustomMenu\Renderer\Menu;
 use BlueSpice\Data\Record;
 use BlueSpice\Data\RecordSet;
 use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use BlueSpice\UtilityFactory;
+use MediaWiki\MediaWikiServices;
 
 abstract class CustomMenu implements ICustomMenu {
 
@@ -52,7 +52,7 @@ abstract class CustomMenu implements ICustomMenu {
 	 */
 	public static function getInstance( \Config $config, $key, UtilityFactory $util = null ) {
 		if ( !$util ) {
-			$util = Services::getInstance()->getService( 'BSUtilityFactory' );
+			$util = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' );
 		}
 		return new static( $config, $key, $util );
 	}
@@ -70,7 +70,7 @@ abstract class CustomMenu implements ICustomMenu {
 	 * @return Menu
 	 */
 	public function getRenderer() {
-		return Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		return MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			'custommenu',
 			$this->getParams()
 		);

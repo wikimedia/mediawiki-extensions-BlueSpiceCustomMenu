@@ -4,7 +4,7 @@ namespace BlueSpice\CustomMenu\CustomMenu;
 
 use BlueSpice\Data\Record;
 use BlueSpice\Data\RecordSet;
-use BlueSpice\Services;
+use MediaWiki\MediaWikiServices;
 
 class Header extends \BlueSpice\CustomMenu\CustomMenu {
 
@@ -34,7 +34,7 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	 * @return Menu
 	 */
 	public function getRenderer() {
-		return Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		return MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			'custommenuheader',
 			$this->getParams()
 		);
