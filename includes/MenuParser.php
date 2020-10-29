@@ -87,7 +87,7 @@ class MenuParser {
 	 * @param int $iMaxSubEntries
 	 * @param array $aApps
 	 * @param int $iPassed
-	 * @return Array
+	 * @return array
 	 */
 	private static function parseArticleContentLines(
 		$aLines,
@@ -177,8 +177,8 @@ class MenuParser {
 	/**
 	 * Parses a single menu item
 	 * TODO: Clean up
-	 * @param String $sLine
-	 * @return Array - Single parsed menu item (app)
+	 * @param string $sLine
+	 * @return array - Single parsed menu item (app)
 	 */
 	public static function parseSingleLine( $sLine ) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'bsg' );

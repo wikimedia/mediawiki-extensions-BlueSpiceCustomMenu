@@ -8,7 +8,7 @@ class Factory {
 
 	/**
 	 *
-	 * @var ICustomMenu[];
+	 * @var ICustomMenu[]
 	 */
 	protected $instances = [];
 
