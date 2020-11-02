@@ -59,9 +59,12 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 			'children' => [],
 		] ];
 		// legacy hook
-		\Hooks::run( 'BSTopMenuBarCustomizerRegisterNavigationSites', [
-			&$menu
-		] );
+		MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSTopMenuBarCustomizerRegisterNavigationSites',
+			[
+				&$menu
+			]
+		);
 
 		foreach ( $menu as $entry ) {
 			$records[] = $this->legacyParserItemToRecord( $entry );

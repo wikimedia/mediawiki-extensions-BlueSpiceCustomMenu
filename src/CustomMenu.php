@@ -99,10 +99,13 @@ abstract class CustomMenu implements ICustomMenu {
 	 * @return Record[]
 	 */
 	protected function getDefaultRecords( $records = [] ) {
-		\Hooks::run( 'BSCustomMenuDefaultRecords', [
-			$this->getKey(),
-			& $records
-		] );
+		MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSCustomMenuDefaultRecords',
+			[
+				$this->getKey(),
+				&$records
+			]
+		);
 		return $records;
 	}
 
