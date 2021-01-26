@@ -2,7 +2,7 @@
 
 namespace BlueSpice\CustomMenu\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
 
-use BlueSpice\Calumma\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
+use BlueSpice\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
 
 class AddCustomMenus extends ChameleonSkinTemplateOutputPageBeforeExec {
 
