@@ -1,20 +1,28 @@
 <?php
 
-namespace BlueSpice\CustomMenu\Hook\TitleMoveComplete;
+namespace BlueSpice\CustomMenu\Hook\PageMoveComplete;
 
-class InvalidateHeaderMenu extends \BlueSpice\Hook\TitleMoveComplete {
+use BlueSpice\Hook\PageMoveComplete;
+use Title;
+
+class InvalidateHeaderMenu extends PageMoveComplete {
 
 	/**
 	 *
 	 * @return bool
 	 */
 	protected function skipProcessing() {
-		$title = \Title::makeTitle(
+		$title = Title::makeTitle(
 			NS_MEDIAWIKI,
 			// 'TopBarMenu' in the past
 			"CustomMenu/Header"
 		);
-		if ( !$this->title->equals( $title ) ) {
+		$new = Title::newFromLinkTarget( $this->new );
+		$old = Title::newFromLinkTarget( $this->old );
+		if ( !$new || !$old ) {
+			return true;
+		}
+		if ( !$new->equals( $title ) && !$old->equals( $title ) ) {
 			return true;
 		}
 		return false;

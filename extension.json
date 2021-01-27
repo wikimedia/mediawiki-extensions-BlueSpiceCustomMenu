@@ -67,7 +67,7 @@
 		"EditFormPreloadText": "\\BlueSpice\\CustomMenu\\Hook\\EditFormPreloadText\\PrealoadHederMenu::callback",
 		"ArticleDeleteComplete": "\\BlueSpice\\CustomMenu\\Hook\\ArticleDeleteComplete\\InvalidateHeaderMenu::callback",
 		"PageSaveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageSaveComplete\\InvalidateHeaderMenu::callback",
-		"TitleMoveComplete": "\\BlueSpice\\CustomMenu\\Hook\\TitleMoveComplete\\InvalidateHeaderMenu::callback",
+		"PageMoveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageMoveComplete\\InvalidateHeaderMenu::callback",
 		"LoadExtensionSchemaUpdates": "\\BlueSpice\\CustomMenu\\Hook\\LoadExtensionSchemaUpdates\\AddMigrateTopBarMenu::callback",
 		"OutputPageBodyAttributes": "\\BlueSpice\\CustomMenu\\Hook\\OutputPageBodyAttributes\\AddOutputPageBodyClass::callback"
 	},
