@@ -195,6 +195,7 @@ class MenuParser {
 
 		if ( !empty( $aAppParts[1] ) ) {
 			$aParsedUrl = wfParseUrl( $aAppParts[1] );
+
 			if ( $aParsedUrl !== false ) {
 				if ( preg_match( '# |\\*#', $aParsedUrl['host'] ) ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
@@ -204,8 +205,14 @@ class MenuParser {
 					if ( !isset( $aParsedUrl['path'] ) ) {
 						$aParsedUrl['path'] = '';
 					}
-					$newApp['href'] = $aParsedUrl['scheme'] . $aParsedUrl['delimiter'] .
-						$aParsedUrl['host'] . $aParsedUrl['path'] . $sQuery;
+
+					$newBaseUrl = $aParsedUrl['scheme'] . $aParsedUrl['delimiter'] . $aParsedUrl['host'];
+					if ( isset( $aParsedUrl['port'] ) ) {
+						$newBaseUrl .= ':' . $aParsedUrl['port'];
+					}
+
+					$newApp['href'] = $newBaseUrl . $aParsedUrl['path'] . $sQuery;
+
 					$newApp['external'] = true;
 				}
 			} elseif ( strpos( $aAppParts[1], '?' ) === 0 ) {
