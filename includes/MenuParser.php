@@ -213,6 +213,10 @@ class MenuParser {
 
 					$newApp['href'] = $newBaseUrl . $aParsedUrl['path'] . $sQuery;
 
+					if ( isset( $aParsedUrl['fragment'] ) ) {
+						$newApp['href'] .= '#' . $aParsedUrl['fragment'];
+					}
+
 					$newApp['external'] = true;
 				}
 			} elseif ( strpos( $aAppParts[1], '?' ) === 0 ) {
