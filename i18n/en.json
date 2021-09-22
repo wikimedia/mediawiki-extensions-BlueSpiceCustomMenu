@@ -4,5 +4,7 @@
 			"Patric Wirth"
 		]
 	},
-	"bs-custommenu-desc": "Provides customizable menus"
+	"bs-custommenu-desc": "Provides customizable menus",
+	"bs-custommenu-navbar-button-title": "Custom menu",
+	"bs-custommenu-navbar-button-aria-label": "Custom menu"
 }

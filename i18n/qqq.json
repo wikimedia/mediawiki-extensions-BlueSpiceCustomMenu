@@ -4,5 +4,7 @@
 			"Patric Wirth"
 		]
 	},
-	"bs-custommenu-desc": "The description of BlueSpiceCustomMenu used in Extension credits."
+	"bs-custommenu-desc": "The description of BlueSpiceCustomMenu used in Extension credits.",
+	"bs-custommenu-navbar-button-title": "Title attribute for the button that opens the menu with custom links",
+	"bs-custommenu-navbar-button-aria-label": "Aria label attribute for the button that opens the menu with custom links"
 }
