@@ -4,6 +4,7 @@ namespace BlueSpice\CustomMenu\Component;
 
 use BlueSpice\CustomMenu\ICustomMenu;
 use BlueSpice\Data\Record;
+use BlueSpice\Data\RecordSet;
 use Html;
 use IContextSource;
 use Message;
@@ -159,7 +160,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	 * @return string
 	 */
 	private function getRecordHtml( $record ): string {
-		if ( empty( $record->get( 'children' )->getRecords() ) ) {
+		if ( !$record->get( 'children', false ) instanceof RecordSet ) {
 			return '';
 		}
 		$id = Sanitizer::escapeIdForAttribute( $record->get( 'id' ) );
