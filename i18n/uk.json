@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Piramidion"
 		]
 	},
-	"bs-custommenu-desc": "Надає налаштовні меню"
+	"bs-custommenu-desc": "Надає налаштовні меню",
+	"bs-custommenu-navbar-button-title": "Спеціальне меню",
+	"bs-custommenu-navbar-button-aria-label": "Спеціальне меню"
 }
