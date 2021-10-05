@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Romanko Mikhail"
 		]
 	},
-	"bs-custommenu-desc": "Предоставляет настраиваемые меню"
+	"bs-custommenu-desc": "Предоставляет настраиваемые меню",
+	"bs-custommenu-navbar-button-title": "Пользовательское меню",
+	"bs-custommenu-navbar-button-aria-label": "Пользовательское меню"
 }
