@@ -12,20 +12,28 @@ class DiscoverySkin implements MWStakeCommonUIRegisterSkinSlotComponents {
 	 * @inheritDoc
 	 */
 	public function onMWStakeCommonUIRegisterSkinSlotComponents( $registry ): void {
-		$factory = MediaWikiServices::getInstance()->getService( 'BSCustomMenuFactory' );
-		$menu = $factory->getMenu( 'header' );
+		$menu = $this->getServices()->getService( 'BSCustomMenuFactory' )->getMenu( 'header' );
 		if ( !$menu ) {
 			return;
 		}
+		$permissionManager = $this->getServices()->getPermissionManager();
 		$registry->register(
 			'NavbarPrimaryItems',
 			[
 				"cm-bluespice-item" => [
-					'factory' => function () use ( $menu ) {
-						return new CustomMenuButton( $menu );
+					'factory' => function () use ( $menu, $permissionManager ) {
+						return new CustomMenuButton( $menu, $permissionManager );
 					}
 				]
 			]
 		);
+	}
+
+	/**
+	 *
+	 * @return MediaWikiServices
+	 */
+	private function getServices() {
+		return MediaWikiServices::getInstance();
 	}
 }
