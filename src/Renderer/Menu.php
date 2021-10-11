@@ -12,7 +12,7 @@ use MediaWiki\MediaWikiServices;
 use MWException;
 
 class Menu extends \BlueSpice\Renderer {
-	const PARAM_CUSTOM_MENU = 'custommenu';
+	public const PARAM_CUSTOM_MENU = 'custommenu';
 
 	/**
 	 * @var ICustomMenu
