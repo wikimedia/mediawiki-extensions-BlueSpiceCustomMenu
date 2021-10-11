@@ -54,7 +54,16 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	 */
 	public function shouldRender( IContextSource $context ) : bool {
 		$this->context = $context;
-		return !empty( $this->menu->getData()->getRecords() );
+		if ( empty( $this->menu->getData()->getRecords() ) ) {
+			return false;
+		}
+		foreach ( $this->menu->getData()->getRecords() as $record ) {
+			if ( !$record->get( 'children', false ) instanceof RecordSet ) {
+				continue;
+			}
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -112,6 +121,9 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	public function getSubComponents() : array {
 		$items = [];
 		foreach ( $this->menu->getData()->getRecords() as $record ) {
+			if ( !$record->get( 'children', false ) instanceof RecordSet ) {
+				continue;
+			}
 			$text = $record->get( 'text', '' );
 			if ( empty( $text ) ) {
 				$text = $record->get( 'id' );
@@ -184,9 +196,6 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	 * @return string
 	 */
 	private function getRecordHtml( $record ): string {
-		if ( !$record->get( 'children', false ) instanceof RecordSet ) {
-			return '';
-		}
 		$id = Sanitizer::escapeIdForAttribute( $record->get( 'id' ) );
 		$html = Html::openElement( 'ul', [
 			'id' => "cm-menu-children-$id",
