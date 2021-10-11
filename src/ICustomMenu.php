@@ -3,7 +3,7 @@
 namespace BlueSpice\CustomMenu;
 
 interface ICustomMenu {
-	const NUM_ENTRIES_UNLIMITED = -1;
+	public const NUM_ENTRIES_UNLIMITED = -1;
 
 	/**
 	 * @return \BlueSpice\Renderer

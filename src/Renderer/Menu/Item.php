@@ -10,13 +10,13 @@ use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
 
 class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
-	const PARAM_HREF = 'href';
-	const PARAM_CHILDREN = 'children';
-	const PARAM_LEVEL = 'level';
-	const PARAM_EXTERNAL = 'external';
-	const PARAM_CONTAINS_ACTIVE = 'containsactive';
-	const PARAM_IS_ACTIVE = 'active';
-	const PARAM_TEXT = 'text';
+	public const PARAM_HREF = 'href';
+	public const PARAM_CHILDREN = 'children';
+	public const PARAM_LEVEL = 'level';
+	public const PARAM_EXTERNAL = 'external';
+	public const PARAM_CONTAINS_ACTIVE = 'containsactive';
+	public const PARAM_IS_ACTIVE = 'active';
+	public const PARAM_TEXT = 'text';
 
 	/**
 	 * Constructor
