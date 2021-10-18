@@ -63,8 +63,8 @@
 		}
 	},
 	"HookHandlers": {
-		"discovery-skin": {
-			"class": "\\BlueSpice\\CustomMenu\\HookHandler\\DiscoverySkin"
+		"common-user-interface": {
+			"class": "\\BlueSpice\\CustomMenu\\HookHandler\\CommonUserInterface"
 		}
 	},
 	"Hooks": {
@@ -75,7 +75,7 @@
 		"PageMoveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageMoveComplete\\InvalidateHeaderMenu::callback",
 		"LoadExtensionSchemaUpdates": "\\BlueSpice\\CustomMenu\\Hook\\LoadExtensionSchemaUpdates\\AddMigrateTopBarMenu::callback",
 		"OutputPageBodyAttributes": "\\BlueSpice\\CustomMenu\\Hook\\OutputPageBodyAttributes\\AddOutputPageBodyClass::callback",
-		"MWStakeCommonUIRegisterSkinSlotComponents": "discovery-skin"
+		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface"
 	},
 	"manifest_version": 2
 }
