@@ -6,7 +6,7 @@ use BlueSpice\CustomMenu\Component\CustomMenuButton;
 use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\CommonUserInterface\Hook\MWStakeCommonUIRegisterSkinSlotComponents;
 
-class DiscoverySkin implements MWStakeCommonUIRegisterSkinSlotComponents {
+class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 
 	/**
 	 * @inheritDoc
