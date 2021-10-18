@@ -6,5 +6,7 @@
 	},
 	"bs-custommenu-desc": "منوهای قابل تنظیم را ارائه می‌دهد",
 	"bs-custommenu-navbar-button-title": "منوی سفارشی",
-	"bs-custommenu-navbar-button-aria-label": "منوی سفارشی"
+	"bs-custommenu-navbar-button-aria-label": "منوی سفارشی",
+	"bs-custommenu-editlink-text": "ویرایش منو",
+	"bs-custommenu-editlink-title": "ویرایش منو"
 }

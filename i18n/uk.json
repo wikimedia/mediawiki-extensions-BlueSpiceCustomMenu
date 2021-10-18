@@ -7,5 +7,7 @@
 	},
 	"bs-custommenu-desc": "Надає налаштовні меню",
 	"bs-custommenu-navbar-button-title": "Спеціальне меню",
-	"bs-custommenu-navbar-button-aria-label": "Спеціальне меню"
+	"bs-custommenu-navbar-button-aria-label": "Спеціальне меню",
+	"bs-custommenu-editlink-text": "Редагувати меню",
+	"bs-custommenu-editlink-title": "Редагувати меню"
 }

@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Nieszczarda2",
 			"Red Winged Duck"
 		]
 	},
-	"bs-custommenu-desc": "Забясьпечвае мэню з магчымасьцю наладкі"
+	"bs-custommenu-desc": "Забясьпечвае мэню з магчымасьцю наладкі",
+	"bs-custommenu-editlink-text": "Рэдагаваць мэню",
+	"bs-custommenu-editlink-title": "Рэдагаваць мэню"
 }

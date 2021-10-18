@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abuluntu",
 			"Jon Harald Søby"
 		]
 	},
-	"bs-custommenu-desc": "Tilbyr egendefinerbare menyer"
+	"bs-custommenu-desc": "Tilbyr egendefinerbare menyer",
+	"bs-custommenu-navbar-button-title": "Tilpasset meny",
+	"bs-custommenu-navbar-button-aria-label": "Tilpasset meny",
+	"bs-custommenu-editlink-text": "Rediger meny",
+	"bs-custommenu-editlink-title": "Rediger meny"
 }
