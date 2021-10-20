@@ -4,5 +4,9 @@
 			"Joetaras"
 		]
 	},
-	"bs-custommenu-desc": "Dèje le menù personalizzabbele"
+	"bs-custommenu-desc": "Dèje le menù personalizzabbele",
+	"bs-custommenu-navbar-button-title": "Menù personalizzate",
+	"bs-custommenu-navbar-button-aria-label": "Menù personalizzate",
+	"bs-custommenu-editlink-text": "Cange 'u menu",
+	"bs-custommenu-editlink-title": "Cange 'u menu"
 }

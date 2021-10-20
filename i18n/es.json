@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Destinid10 2",
 			"Fitoschido"
 		]
 	},
-	"bs-custommenu-desc": "Proporciona menús personalizables"
+	"bs-custommenu-desc": "Proporciona menús personalizables",
+	"bs-custommenu-navbar-button-title": "Menú personalizado",
+	"bs-custommenu-navbar-button-aria-label": "Menú personalizado"
 }

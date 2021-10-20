@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda"
+			"Hedda",
+			"Melissadilara"
 		]
 	},
-	"bs-custommenu-desc": "Özelleştirilebilir menüler oluşturur"
+	"bs-custommenu-desc": "Özelleştirilebilir menüler oluşturur",
+	"bs-custommenu-editlink-text": "Menüyü Düzenle",
+	"bs-custommenu-editlink-title": "Menüyü düzenle"
 }

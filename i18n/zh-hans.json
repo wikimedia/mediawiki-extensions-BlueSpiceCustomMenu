@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Shimamura Sakura",
+			"TsuyaMarisa",
 			"佛壁灯"
 		]
 	},
-	"bs-custommenu-desc": "提供可自定义菜单"
+	"bs-custommenu-desc": "提供可自定义菜单",
+	"bs-custommenu-navbar-button-title": "自定义菜单",
+	"bs-custommenu-navbar-button-aria-label": "自定义设置"
 }
