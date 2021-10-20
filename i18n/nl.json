@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"Robin van der Vliet"
 		]
 	},
-	"bs-custommenu-desc": "Voegt aanpasbare menus toe"
+	"bs-custommenu-desc": "Voegt aanpasbare menus toe",
+	"bs-custommenu-navbar-button-title": "Aangepast menu",
+	"bs-custommenu-navbar-button-aria-label": "Aangepast menu",
+	"bs-custommenu-editlink-text": "Menu bewerken",
+	"bs-custommenu-editlink-title": "Menu bewerken"
 }
