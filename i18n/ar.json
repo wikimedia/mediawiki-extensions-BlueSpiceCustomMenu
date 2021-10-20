@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"ديفيد"
+			"ديفيد",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
-	"bs-custommenu-desc": "يوفر قوائم قابلة للتخصيص"
+	"bs-custommenu-desc": "يوفر قوائم قابلة للتخصيص",
+	"bs-custommenu-navbar-button-aria-label": "قائمة مخصصة"
 }

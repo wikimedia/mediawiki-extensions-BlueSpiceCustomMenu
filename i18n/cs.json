@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fraxinus.cs"
+		]
+	},
+	"bs-custommenu-navbar-button-title": "Vlastní menu",
+	"bs-custommenu-navbar-button-aria-label": "Vlastní menu"
+}

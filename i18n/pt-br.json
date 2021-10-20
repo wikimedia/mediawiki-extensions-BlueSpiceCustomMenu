@@ -5,5 +5,9 @@
 			"Eduardoaddad"
 		]
 	},
-	"bs-custommenu-desc": "Fornece menus customizáveis"
+	"bs-custommenu-desc": "Fornece menus customizáveis",
+	"bs-custommenu-navbar-button-title": "Menu customizado",
+	"bs-custommenu-navbar-button-aria-label": "Menu customizado",
+	"bs-custommenu-editlink-text": "Editar menu",
+	"bs-custommenu-editlink-title": "Editar menu"
 }

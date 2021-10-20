@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"DreZhsh",
 			"Gomoko"
 		]
 	},
-	"bs-custommenu-desc": "Fournit des menus personnalisables"
+	"bs-custommenu-desc": "Fournit des menus personnalisables",
+	"bs-custommenu-navbar-button-title": "Menu personnalisé",
+	"bs-custommenu-navbar-button-aria-label": "Menu personnalisé",
+	"bs-custommenu-editlink-text": "Modifier le menu",
+	"bs-custommenu-editlink-title": "Modifier le menu"
 }

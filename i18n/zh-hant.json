@@ -4,5 +4,9 @@
 			"Kly"
 		]
 	},
-	"bs-custommenu-desc": "提供可自定義選單"
+	"bs-custommenu-desc": "提供可自定義選單",
+	"bs-custommenu-navbar-button-title": "自訂選單",
+	"bs-custommenu-navbar-button-aria-label": "自訂選單",
+	"bs-custommenu-editlink-text": "編輯選單",
+	"bs-custommenu-editlink-title": "編輯選單"
 }
