@@ -3,10 +3,13 @@
 		"authors": [
 			"Shimamura Sakura",
 			"TsuyaMarisa",
-			"佛壁灯"
+			"佛壁灯",
+			"落花有意12138"
 		]
 	},
 	"bs-custommenu-desc": "提供可自定义菜单",
 	"bs-custommenu-navbar-button-title": "自定义菜单",
-	"bs-custommenu-navbar-button-aria-label": "自定义设置"
+	"bs-custommenu-navbar-button-aria-label": "自定义设置",
+	"bs-custommenu-editlink-text": "编辑菜单",
+	"bs-custommenu-editlink-title": "编辑菜单"
 }
