@@ -200,7 +200,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 		$html = Html::openElement( 'ul', [
 			'id' => "cm-menu-children-$id",
 			'aria-label-by' => "cm-menu-head-$id",
-			'class' => 'ist-group menu-card-body menu-list'
+			'class' => 'list-group menu-card-body menu-list'
 		] );
 
 		foreach ( $record->get( 'children' )->getRecords() as $child ) {
