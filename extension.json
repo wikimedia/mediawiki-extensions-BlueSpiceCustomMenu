@@ -46,6 +46,17 @@
 	"AutoloadNamespaces": {
 		"BlueSpice\\CustomMenu\\": "src/"
 	},
+	"ResourceModules": {
+		"ext.bluespice.custom-menu.styles": {
+			"styles": [
+				"bluespice.custom-menu.styles.css"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "BlueSpiceCustomMenu/resources"
+	},
 	"AutoloadClasses": {
 		"MenuParser": "includes/MenuParser.php",
 		"BSCustomMenuMigrateTopBarMenu": "maintenance/BSCustomMenuMigrateTopBarMenu.php"

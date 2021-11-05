@@ -74,6 +74,14 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	}
 
 	/**
+	 *
+	 * @inheritDoc
+	 */
+	public function getRequiredRLStyles(): array {
+		return [ "ext.bluespice.custom-menu.styles" ];
+	}
+
+	/**
 	 * @return array
 	 */
 	public function getContainerClasses(): array {
@@ -168,7 +176,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 			new SimpleCard( [
 				'id' => 'cm-mm',
 				'classes' => [
-					'mecm-menu',
+					'mega-menu',
 					'async',
 					'd-flex',
 					'justify-content-center',
@@ -219,4 +227,5 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 		$html .= Html::closeElement( 'ul' );
 		return $html;
 	}
+
 }
