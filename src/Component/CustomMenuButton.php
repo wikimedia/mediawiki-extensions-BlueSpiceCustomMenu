@@ -180,7 +180,10 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 					'async',
 					'd-flex',
 					'justify-content-center',
-					'flex-row'
+					'flex-md-row',
+					'flex-lg-row',
+					'flex-xl-row',
+					'flex-xxl-row'
 				],
 				'items' => $items
 			] ),
