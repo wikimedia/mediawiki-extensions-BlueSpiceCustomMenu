@@ -210,7 +210,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 		$id = Sanitizer::escapeIdForAttribute( $record->get( 'id' ) );
 		$html = Html::openElement( 'ul', [
 			'id' => "cm-menu-children-$id",
-			'aria-label-by' => "cm-menu-head-$id",
+			'aria-labelledby' => "cm-menu-head-$id",
 			'class' => 'list-group menu-card-body menu-list'
 		] );
 
