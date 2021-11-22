@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aefgh39622"
+			"Aefgh39622",
+			"RYOUMA1117"
 		]
 	},
-	"bs-custommenu-desc": "カスタマイズ可能なメニューを提供する"
+	"bs-custommenu-desc": "カスタマイズ可能なメニューを提供する",
+	"bs-custommenu-navbar-button-title": "カスタムメニュー",
+	"bs-custommenu-navbar-button-aria-label": "カスタムメニュー",
+	"bs-custommenu-editlink-text": "メニューを編集",
+	"bs-custommenu-editlink-title": "メニューを編集"
 }
