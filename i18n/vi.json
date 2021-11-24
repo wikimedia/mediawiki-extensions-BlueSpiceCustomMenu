@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Leduyquang753"
+			"Leduyquang753",
+			"Ioe2015"
 		]
 	},
-	"bs-custommenu-desc": "Cung cấp các menu tùy biến được"
+	"bs-custommenu-desc": "Cung cấp các bảng chọn tùy biến"
 }
