@@ -7,12 +7,14 @@ use BlueSpice\Data\Record;
 use BlueSpice\Data\RecordSet;
 use Html;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCard;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardHeader;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleDropdownIcon;
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleLinklistGroupFromArray;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTextLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
 use Sanitizer;
@@ -142,7 +144,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				'classes' => [ 'card-mn' ],
 				'items' => [
 					new SimpleCardHeader( [
-						'id' => "cm-menu-head-$id",
+						'id' => "cm-menu-$id-head",
 						'classes' => [ 'menu-title' ],
 						'items' => [
 							new Literal(
@@ -151,10 +153,14 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 							)
 						]
 					] ),
-					new Literal(
-						"cm-menu-list-items-$id",
-						$this->getRecordHtml( $record )
-					),
+					new SimpleLinklistGroupFromArray( [
+						'id' => "cm-menu-list-items-$id",
+						'classes' => [ 'menu-card-body', 'menu-list', 'll-dft' ],
+						'links' => $this->getRecordLinkDefinition( $record ),
+						'aria' => [
+							'labelledby' => "cm-menu-list-items-$id-head"
+						],
+					] )
 				]
 			] );
 		}
@@ -204,31 +210,29 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 
 	/**
 	 * @param Record $record
-	 * @return string
+	 * @return array
 	 */
-	private function getRecordHtml( $record ): string {
-		$id = Sanitizer::escapeIdForAttribute( $record->get( 'id' ) );
-		$html = Html::openElement( 'ul', [
-			'id' => "cm-menu-children-$id",
-			'aria-labelledby' => "cm-menu-head-$id",
-			'class' => 'list-group menu-card-body menu-list'
-		] );
-
+	private function getRecordLinkDefinition( $record ): array {
+		$links = [];
 		foreach ( $record->get( 'children' )->getRecords() as $child ) {
+			$id = Sanitizer::escapeIdForAttribute( $child->get( 'id' ) );
 			$text = $child->get( 'text', '' );
 			if ( empty( $text ) ) {
 				$text = $child->get( 'id' );
 			}
-			$html .= Html::openElement( 'li' );
-			$html .= Html::element( 'a', [
+			$links[$id] = [
+				'id' => $id,
 				'href' => $child->get( 'href', '' ),
+				'text' => $text,
 				'title' => $text,
-				'arial-label' => $text,
-			], $text );
-			$html .= Html::closeElement( 'li' );
+				'aria-label' => $text
+			];
 		}
-		$html .= Html::closeElement( 'ul' );
-		return $html;
+
+		$services = MediaWikiServices::getInstance();
+		/** @var LinkFormatter */
+		$linkFormatter = $services->getService( 'MWStakeLinkFormatter' );
+		return $linkFormatter->formatLinks( $links );
 	}
 
 }

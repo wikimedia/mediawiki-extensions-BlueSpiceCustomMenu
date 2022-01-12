@@ -229,7 +229,11 @@ class MenuParser {
 				if ( $oTitle === null ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				} else {
-					$newApp['href'] = $oTitle->getFullURL();
+					$newApp['href'] = $oTitle->getLocalURL();
+					if ( $oTitle->hasFragment() ) {
+						$newApp['href'] .= $oTitle->getFragmentForURL();
+					}
+
 					if ( $oTitle->equals( RequestContext::getMain()->getTitle() ) ) {
 						$newApp['active'] = true;
 					}
