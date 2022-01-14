@@ -158,7 +158,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 						'classes' => [ 'menu-card-body', 'menu-list', 'll-dft' ],
 						'links' => $this->getRecordLinkDefinition( $record ),
 						'aria' => [
-							'labelledby' => "cm-menu-list-items-$id-head"
+							'labelledby' => "cm-menu-$id-head"
 						],
 					] )
 				]
