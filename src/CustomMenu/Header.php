@@ -5,6 +5,7 @@ namespace BlueSpice\CustomMenu\CustomMenu;
 use BlueSpice\Data\Record;
 use BlueSpice\Data\RecordSet;
 use MediaWiki\MediaWikiServices;
+use MenuParser;
 
 class Header extends \BlueSpice\CustomMenu\CustomMenu {
 
@@ -20,7 +21,8 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 		);
 
 		if ( $title && $title->exists() ) {
-			$menu = \MenuParser::getNavigationSites( $title );
+			$menuObj = new MenuParser();
+			$menu = $menuObj->getNavigationSites( $title );
 			$records = [];
 			foreach ( $menu as $entry ) {
 				$records[] = $this->legacyParserItemToRecord( $entry );
