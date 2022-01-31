@@ -38,6 +38,23 @@ use MediaWiki\MediaWikiServices;
  * @subpackage TopMenuBarCustomizer
  */
 class MenuParser {
+	/**
+	 * $currentTitle
+	 */
+
+	private $currentTitle = null;
+
+	/**
+	 *
+	 * @param array|null $currentTitle
+	 */
+	public function __construct( $currentTitle = null ) {
+		$this->currentTitle = $currentTitle;
+		if ( $this->currentTitle == null ) {
+			$this->currentTitle = RequestContext::getMain()->getTitle();
+		}
+	}
+
 	public static $aNavigationSiteTemplate = [
 		'id' => '',
 		'href' => '',
@@ -53,19 +70,18 @@ class MenuParser {
 	 * @param \Title|null $title
 	 * @return array
 	 */
-	public static function getNavigationSites( \Title $title = null ) {
+	public function getNavigationSites( \Title $title = null ) {
 		$menu = [];
 
 		if ( !$title || !$title->exists() ) {
 			return $menu;
 		}
-
 		$sContent = BsPageContentProvider::getInstance()
 			->getContentFromTitle( $title );
 
 		$aLines = explode( "\n", trim( $sContent ) );
 
-		$menu = self::parseArticleContentLines(
+		$menu = $this->parseArticleContentLines(
 			$aLines,
 			// scaling will be done on rendering
 			9999,
@@ -74,7 +90,6 @@ class MenuParser {
 			// scaling will be done on rendering
 			9999
 		);
-
 		return $menu;
 	}
 
@@ -89,7 +104,7 @@ class MenuParser {
 	 * @param int $iPassed
 	 * @return Array
 	 */
-	private static function parseArticleContentLines(
+	private function parseArticleContentLines(
 		$aLines,
 		$iAllowedLevels = 2,
 		$iMaxMainEntries = 5,
@@ -122,7 +137,7 @@ class MenuParser {
 			}
 			if ( !empty( $aChildLines ) ) {
 				$iLastKey = key( array_slice( $aApps, -1, 1, true ) );
-				$aApps[$iLastKey]['children'] = self::parseArticleContentLines(
+				$aApps[$iLastKey]['children'] = $this->parseArticleContentLines(
 					$aChildLines,
 					$iAllowedLevels,
 					$iMaxMainEntries,
@@ -144,7 +159,7 @@ class MenuParser {
 				continue;
 			}
 
-			$aApp = self::parseSingleLine( substr( $aLines[$i], 1 ) );
+			$aApp = $this->parseSingleLine( substr( $aLines[$i], 1 ) );
 			if ( empty( $aApp ) ) {
 				continue;
 			}
@@ -155,7 +170,7 @@ class MenuParser {
 		// add childern to the last element
 		if ( !empty( $aChildLines ) ) {
 			$iLastKey = key( array_slice( $aApps, -1, 1, true ) );
-			$aApps[$iLastKey]['children'] = self::parseArticleContentLines( $aChildLines,
+			$aApps[$iLastKey]['children'] = $this->parseArticleContentLines( $aChildLines,
 				$iAllowedLevels,
 				$iMaxMainEntries,
 				$iMaxSubEntries,
@@ -180,7 +195,7 @@ class MenuParser {
 	 * @param String $sLine
 	 * @return Array - Single parsed menu item (app)
 	 */
-	public static function parseSingleLine( $sLine ) {
+	public function parseSingleLine( $sLine ) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'bsg' );
 		$newApp = static::$aNavigationSiteTemplate;
 
@@ -200,7 +215,10 @@ class MenuParser {
 				if ( preg_match( '# |\\*#', $aParsedUrl['host'] ) ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				}
-				if ( $aParsedUrl['scheme'] == 'http' || $aParsedUrl['scheme'] == 'https' ) {
+				$protocols = explode( '|', preg_replace( '/\\\\/', '', wfUrlProtocols() ) );
+				if ( in_array( strtolower( $aParsedUrl['scheme'] ), $protocols )
+				|| in_array( strtolower( $aParsedUrl['scheme'] ) . ':', $protocols )
+				|| in_array( $aParsedUrl['scheme'] . '://', $protocols ) ) {
 					$sQuery = !empty( $aParsedUrl['query'] ) ? '?' . $aParsedUrl['query'] : '';
 					if ( !isset( $aParsedUrl['path'] ) ) {
 						$aParsedUrl['path'] = '';
@@ -234,7 +252,7 @@ class MenuParser {
 						$newApp['href'] .= $oTitle->getFragmentForURL();
 					}
 
-					if ( $oTitle->equals( RequestContext::getMain()->getTitle() ) ) {
+					if ( $oTitle->equals( $this->currentTitle ) ) {
 						$newApp['active'] = true;
 					}
 				}
@@ -257,7 +275,7 @@ class MenuParser {
 	 * @param string $sPrefix
 	 * @return type
 	 */
-	public static function toWikiText( $aNavigationSites, $sWikiText = '', $sPrefix = '*' ) {
+	public function toWikiText( $aNavigationSites, $sWikiText = '', $sPrefix = '*' ) {
 		foreach ( $aNavigationSites as $aNavigationSite ) {
 			$sText = $sHref = '';
 
@@ -306,7 +324,7 @@ class MenuParser {
 				continue;
 			}
 
-			$sWikiText = self::toWikiText( $aNavigationSite['children'], $sWikiText, "*$sPrefix" );
+			$sWikiText = $this->toWikiText( $aNavigationSite['children'], $sWikiText, "*$sPrefix" );
 		}
 		return $sWikiText;
 	}

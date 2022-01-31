@@ -4,8 +4,9 @@ namespace BlueSpice\CustomMenu\Hook\EditFormPreloadText;
 
 use BlueSpice\Data\IRecord;
 use BlueSpice\Data\RecordSet;
+use MenuParser;
 
-class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
+class PreloadHeaderMenu extends \BlueSpice\Hook\EditFormPreloadText {
 
 	/**
 	 *
@@ -42,7 +43,8 @@ class PrealoadHederMenu extends \BlueSpice\Hook\EditFormPreloadText {
 			$items[] = $this->recordToLegacyParserItem( $record );
 		}
 
-		$this->text = \MenuParser::toWikiText( $items );
+		$textObj = new MenuParser();
+		$this->text = $textObj->toWikiText( $items );
 		return true;
 	}
 
