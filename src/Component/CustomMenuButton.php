@@ -136,7 +136,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 			}
 			$text = $record->get( 'text', '' );
 			if ( empty( $text ) ) {
-				$text = $record->get( 'id' );
+				$text = $record->get( 'id', '' );
 			}
 			$id = Sanitizer::escapeIdForAttribute( $record->get( 'id' ) );
 			$items[] = new SimpleCard( [
@@ -215,10 +215,10 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	private function getRecordLinkDefinition( $record ): array {
 		$links = [];
 		foreach ( $record->get( 'children' )->getRecords() as $child ) {
-			$id = Sanitizer::escapeIdForAttribute( $child->get( 'id' ) );
+			$id = Sanitizer::escapeIdForAttribute( $child->get( 'id', '' ) );
 			$text = $child->get( 'text', '' );
 			if ( empty( $text ) ) {
-				$text = $child->get( 'id' );
+				$text = $child->get( 'id', '' );
 			}
 			$links[$id] = [
 				'id' => $id,
@@ -228,7 +228,6 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				'aria-label' => $text
 			];
 		}
-
 		$services = MediaWikiServices::getInstance();
 		/** @var LinkFormatter */
 		$linkFormatter = $services->getService( 'MWStakeLinkFormatter' );
