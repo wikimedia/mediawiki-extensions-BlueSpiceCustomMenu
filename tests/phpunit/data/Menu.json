@@ -12,10 +12,48 @@
 				"id": "id-mediawiki",
 				"href": "http://mediawiki.org",
 				"text": "mw.org",
-				"active": "",
+				"active": false,
 				"level": 2,
-				"containsactive": "",
-				"external": 1
+				"containsactive": false,
+				"external": true
+			},
+			{
+				"id": "menuparsertest0",
+				"href": "mglof://some/resource",
+				"text": "No ID",
+				"active": false,
+				"level": 2,
+				"containsactive": false,
+				"external": true
+			}
+		]
+	},
+	{
+		"id": "menuparsertest1",
+		"href": "",
+		"text": "Some label",
+		"active": false,
+		"level": 1,
+		"containsactive": true,
+		"external": false,
+		"children": [
+			{
+				"id": "menuparsertest2",
+				"href": "/wiki/CurrentTitle",
+				"text": "You are here",
+				"active": true,
+				"level": 2,
+				"containsactive": false,
+				"external": false
+			},
+			{
+				"id": "not-a-valid-protocol",
+				"href": "/wiki/Not://a/valid/protocol",
+				"text": "Bad",
+				"active": false,
+				"level": 2,
+				"containsactive": false,
+				"external": false
 			}
 		]
 	}
