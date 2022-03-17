@@ -1,2 +1,6 @@
 	* nt-wiki|Main_Page|REL1_35
 	** id-mediawiki|http://mediawiki.org|mw.org
+	** mglof://some/resource|No ID
+	* Some label
+	** CurrentTitle|You are here
+	** not-a-valid-protocol|not://a/valid/protocol|Bad

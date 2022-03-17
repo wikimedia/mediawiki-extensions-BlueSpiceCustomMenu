@@ -13,35 +13,30 @@ use Title;
  */
 class MenuParserTest extends MediaWikiIntegrationTestCase {
 
-	public function addDBDataOnce() {
+	/**
+	 * @covers MenuParser::getNavigationSites
+	 */
+	public function testGetNavigationSites() {
 		$this->insertPage(
 			'MenuParserTest',
 			file_get_contents( __DIR__ . '/data/Menu.wiki' )
 		);
-	}
 
-	/**
-	 * @covers MenuParser::getNavigationSites
-	 * @dataProvider provideGetNavigationSitesData
-	 */
-	public function testGetNavigationSites( $expected ) {
 		$this->setMwGlobals( [
-			'wgArticlePath' => '/wiki/$1'
+			'wgServer' => 'https://somewiki.local',
+			'wgScriptPath' => '/w',
+			'wgArticlePath' => '/wiki/$1',
+			'wgUrlProtocols' => [ 'http://', 'https://', 'tel:', 'mglof://' ]
 		] );
-		$title = Title::newFromText( 'MenuParserTest' );
-		$parser = new GlobalMenuParser( $title );
-		$this->assertEquals( $expected, $parser->getNavigationSites( $title ) );
-	}
+		$inputWikiText = file_get_contents( __DIR__ . '/data/Menu.wiki' );
 
-	/**
-	 *
-	 * @return array
-	 */
-	public function provideGetNavigationSitesData() {
-		return [
-			[
-				FormatJson::decode( file_get_contents( __DIR__ . '/data/Menu.json' ), true )
-			],
-		];
+		$currentTitle = Title::newFromText( 'CurrentTitle' );
+		$sourceTitle = Title::newFromText( 'MenuParserTest' );
+
+		$parser = new GlobalMenuParser( $currentTitle );
+
+		$expected = FormatJson::decode( file_get_contents( __DIR__ . '/data/Menu.json' ), true );
+		$actual = $parser->getNavigationSites( $sourceTitle );
+		$this->assertEquals( $expected, $actual );
 	}
 }
