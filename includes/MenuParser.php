@@ -38,14 +38,19 @@ use MediaWiki\MediaWikiServices;
  * @subpackage TopMenuBarCustomizer
  */
 class MenuParser {
+
 	/**
 	 * @var Title
 	 */
 	private $currentTitle = null;
 
 	/**
-	 *
-	 * @param array|null $currentTitle
+	 * @var Title
+	 */
+	private $sourceTitle = null;
+
+	/**
+	 * @param Title|null $currentTitle
 	 */
 	public function __construct( $currentTitle = null ) {
 		$this->currentTitle = $currentTitle;
@@ -66,15 +71,16 @@ class MenuParser {
 
 	/**
 	 * Getter for $aNavigationSites array
-	 * @param \Title|null $title
+	 * @param Title|null $title
 	 * @return array
 	 */
-	public function getNavigationSites( \Title $title = null ) {
+	public function getNavigationSites( ?Title $title ) {
 		$menu = [];
 
 		if ( !$title || !$title->exists() ) {
 			return $menu;
 		}
+		$this->sourceTitle = $title;
 		$sContent = BsPageContentProvider::getInstance()
 			->getContentFromTitle( $title );
 
@@ -188,6 +194,15 @@ class MenuParser {
 		return $aApps;
 	}
 
+	/** @var int */
+	private static $idCounter = 0;
+
+	private function makeId() {
+		$base = strtolower( $this->sourceTitle->getPrefixedDBkey() );
+		$id = Sanitizer::escapeIdForAttribute( $base . static::$idCounter++ );
+		return $id;
+	}
+
 	/**
 	 * Parses a single menu item
 	 * TODO: Clean up
@@ -205,37 +220,46 @@ class MenuParser {
 		if ( empty( $aAppParts[0] ) ) {
 			return [];
 		}
+
+		// Just a text label -> `MediaWiki:Sidebar` compatible syntax
+		if ( count( $aAppParts ) === 1 ) {
+			$newApp['id'] = $this->makeId();
+			$newApp['text'] = $aAppParts[0];
+			return $newApp;
+		}
+
+		// Explicit ID omitted -> `MediaWiki:Sidebar` compatible syntax
+		if ( count( $aAppParts ) === 2 ) {
+			array_unshift( $aAppParts, $this->makeId() );
+		}
+
 		$newApp['id'] = $aAppParts[0];
-
 		if ( !empty( $aAppParts[1] ) ) {
+			// `wfParseUrl` already checks against `$wgUrlProtocols`.
+			// If the protocol is not allowed, it will return `false`
 			$aParsedUrl = wfParseUrl( $aAppParts[1] );
-
 			if ( $aParsedUrl !== false ) {
 				if ( preg_match( '# |\\*#', $aParsedUrl['host'] ) ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				}
-				$protocols = explode( '|', preg_replace( '/\\\\/', '', wfUrlProtocols() ) );
-				if ( in_array( strtolower( $aParsedUrl['scheme'] ), $protocols )
-				|| in_array( strtolower( $aParsedUrl['scheme'] ) . ':', $protocols )
-				|| in_array( $aParsedUrl['scheme'] . '://', $protocols ) ) {
-					$sQuery = !empty( $aParsedUrl['query'] ) ? '?' . $aParsedUrl['query'] : '';
-					if ( !isset( $aParsedUrl['path'] ) ) {
-						$aParsedUrl['path'] = '';
-					}
 
-					$newBaseUrl = $aParsedUrl['scheme'] . $aParsedUrl['delimiter'] . $aParsedUrl['host'];
-					if ( isset( $aParsedUrl['port'] ) ) {
-						$newBaseUrl .= ':' . $aParsedUrl['port'];
-					}
-
-					$newApp['href'] = $newBaseUrl . $aParsedUrl['path'] . $sQuery;
-
-					if ( isset( $aParsedUrl['fragment'] ) ) {
-						$newApp['href'] .= '#' . $aParsedUrl['fragment'];
-					}
-
-					$newApp['external'] = true;
+				$sQuery = !empty( $aParsedUrl['query'] ) ? '?' . $aParsedUrl['query'] : '';
+				if ( !isset( $aParsedUrl['path'] ) ) {
+					$aParsedUrl['path'] = '';
 				}
+
+				$newBaseUrl = $aParsedUrl['scheme'] . $aParsedUrl['delimiter'] . $aParsedUrl['host'];
+				if ( isset( $aParsedUrl['port'] ) ) {
+					$newBaseUrl .= ':' . $aParsedUrl['port'];
+				}
+
+				$newApp['href'] = $newBaseUrl . $aParsedUrl['path'] . $sQuery;
+
+				if ( isset( $aParsedUrl['fragment'] ) ) {
+					$newApp['href'] .= '#' . $aParsedUrl['fragment'];
+				}
+
+				$newApp['external'] = true;
 			} elseif ( strpos( $aAppParts[1], '?' ) === 0 ) {
 				// ?action=blog
 				$newApp['href'] = $config->get( 'Server' )
