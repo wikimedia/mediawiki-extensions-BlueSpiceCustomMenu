@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Steeve815"
 		]
 	},
-	"bs-custommenu-desc": "מספק תפריטים להתאמה אישית"
+	"bs-custommenu-desc": "מספק תפריטים להתאמה אישית",
+	"bs-custommenu-editlink-text": "עריכת התפריט"
 }
