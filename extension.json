@@ -33,6 +33,16 @@
 			"Registry": {
 				"header": "\\BlueSpice\\CustomMenu\\CustomMenu\\Header::getInstance"
 			}
+		},
+		"MenuEditor": {
+			"Menus": {
+				"custommenu": {
+					"class": "BlueSpice\\CustomMenu\\MenuEditor\\Header",
+					"services": [
+						"HookContainer"
+					]
+				}
+			}
 		}
 	},
 	"MessagesDirs": {
@@ -50,6 +60,14 @@
 		"ext.bluespice.custom-menu.styles": {
 			"styles": [
 				"bluespice.custom-menu.styles.css"
+			]
+		},
+		"ext.bluespice.custom-menu.menueditor": {
+			"scripts": [
+				"menueditor/HeaderTree.js"
+			],
+			"dependencies": [
+				"ext.menuEditor.tree"
 			]
 		}
 	},
