@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"GpieroMW",
 			"Joetaras"
 		]
 	},
-	"bs-custommenu-desc": "Fornisce menu personalizzabili"
+	"bs-custommenu-desc": "Fornisce menu personalizzabili",
+	"bs-custommenu-navbar-button-title": "Menu personalizzato",
+	"bs-custommenu-navbar-button-aria-label": "Menu personalizzato",
+	"bs-custommenu-editlink-text": "Modifica menu",
+	"bs-custommenu-editlink-title": "Modifica menu"
 }
