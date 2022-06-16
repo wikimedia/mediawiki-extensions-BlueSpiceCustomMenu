@@ -6,9 +6,7 @@ use BlueSpice\Hook\LoadExtensionSchemaUpdates;
 
 class AddMigrateTopBarMenu extends LoadExtensionSchemaUpdates {
 	protected function doProcess() {
-		$this->updater->addPostDatabaseUpdateMaintenance(
-			'BSCustomMenuMigrateTopBarMenu'
-		);
+		$this->updater->addPostDatabaseUpdateMaintenance( \BSCustomMenuMigrateTopBarMenu::class );
 		return true;
 	}
 
