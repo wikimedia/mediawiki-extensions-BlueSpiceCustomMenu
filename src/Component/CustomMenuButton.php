@@ -6,6 +6,7 @@ use BlueSpice\CustomMenu\ICustomMenu;
 use BlueSpice\Data\Record;
 use BlueSpice\Data\RecordSet;
 use Html;
+use HtmlArmor;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
@@ -138,6 +139,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 			if ( empty( $text ) ) {
 				$text = $record->get( 'id', '' );
 			}
+			$text = HtmlArmor::getHtml( $text );
 			$id = Sanitizer::escapeIdForAttribute( $record->get( 'id' ) );
 			$items[] = new SimpleCard( [
 				'id' => "cm-menu-$id",
