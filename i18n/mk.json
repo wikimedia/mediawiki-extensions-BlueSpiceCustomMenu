@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Vlad5250"
 		]
 	},
-	"bs-custommenu-desc": "Овозможува прилагодливи менија"
+	"bs-custommenu-desc": "Овозможува прилагодливи менија",
+	"bs-custommenu-editlink-text": "Уреди мени",
+	"bs-custommenu-editlink-title": "Уреди мени"
 }
