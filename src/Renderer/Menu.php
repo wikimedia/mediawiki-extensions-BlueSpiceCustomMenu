@@ -7,7 +7,6 @@ use BlueSpice\Renderer\Params;
 use Config;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
-use MediaWiki\MediaWikiServices;
 use MWException;
 use MWStake\MediaWiki\Component\DataStore\Record;
 
@@ -92,7 +91,7 @@ class Menu extends \BlueSpice\Renderer {
 			(array)$record->getData(),
 			[ static::PARAM_CUSTOM_MENU => $this->getCustomMenu() ]
 		);
-		return MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
+		return $this->services->getService( 'BSRendererFactory' )->get(
 			$this->makeItemRendererKey(),
 			new Params( $params )
 		)->render();
