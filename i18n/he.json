@@ -6,5 +6,8 @@
 		]
 	},
 	"bs-custommenu-desc": "מספק תפריטים להתאמה אישית",
-	"bs-custommenu-editlink-text": "עריכת התפריט"
+	"bs-custommenu-editlink-text": "עריכת התפריט",
+	"bs-custommenu-navbar-button-title": "תפריט מותאם",
+	"bs-custommenu-navbar-button-aria-label": "תפריט מותאם",
+	"bs-custommenu-editlink-title": "עריכת התפריט"
 }
