@@ -2,12 +2,12 @@
 
 namespace BlueSpice\CustomMenu\Renderer\Menu;
 
-use BlueSpice\Data\RecordSet;
 use BlueSpice\Renderer\Params;
 use Config;
 use Html;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use MWStake\MediaWiki\Component\DataStore\RecordSet;
 
 class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	public const PARAM_HREF = 'href';

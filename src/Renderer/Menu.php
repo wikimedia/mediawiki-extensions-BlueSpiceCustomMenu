@@ -3,13 +3,13 @@
 namespace BlueSpice\CustomMenu\Renderer;
 
 use BlueSpice\CustomMenu\ICustomMenu;
-use BlueSpice\Data\Record;
 use BlueSpice\Renderer\Params;
 use Config;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MediaWikiServices;
 use MWException;
+use MWStake\MediaWiki\Component\DataStore\Record;
 
 class Menu extends \BlueSpice\Renderer {
 	public const PARAM_CUSTOM_MENU = 'custommenu';
