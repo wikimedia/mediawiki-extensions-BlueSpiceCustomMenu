@@ -2,9 +2,9 @@
 
 namespace BlueSpice\CustomMenu\Hook\EditFormPreloadText;
 
-use BlueSpice\Data\IRecord;
-use BlueSpice\Data\RecordSet;
 use MenuParser;
+use MWStake\MediaWiki\Component\DataStore\IRecord;
+use MWStake\MediaWiki\Component\DataStore\RecordSet;
 
 class PreloadHeaderMenu extends \BlueSpice\Hook\EditFormPreloadText {
 
