@@ -2,6 +2,8 @@
 
 namespace BlueSpice\CustomMenu;
 
+use MWStake\MediaWiki\Component\DataStore\RecordSet;
+
 interface ICustomMenu {
 	public const NUM_ENTRIES_UNLIMITED = -1;
 
@@ -11,7 +13,7 @@ interface ICustomMenu {
 	public function getRenderer();
 
 	/**
-	 * @return \BlueSpice\Data\RecordSet
+	 * @return RecordSet
 	 */
 	public function getData();
 

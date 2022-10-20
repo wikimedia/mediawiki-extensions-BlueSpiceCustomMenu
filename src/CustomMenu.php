@@ -3,11 +3,11 @@
 namespace BlueSpice\CustomMenu;
 
 use BlueSpice\CustomMenu\Renderer\Menu;
-use BlueSpice\Data\Record;
-use BlueSpice\Data\RecordSet;
 use BlueSpice\Renderer\Params;
 use BlueSpice\UtilityFactory;
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\DataStore\Record;
+use MWStake\MediaWiki\Component\DataStore\RecordSet;
 
 abstract class CustomMenu implements ICustomMenu {
 
