@@ -39,7 +39,7 @@
 				"custommenu": {
 					"class": "BlueSpice\\CustomMenu\\MenuEditor\\Header",
 					"services": [
-						"HookContainer"
+						"MWStakeWikitextParserFactory"
 					]
 				}
 			}
