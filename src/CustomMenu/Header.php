@@ -2,10 +2,10 @@
 
 namespace BlueSpice\CustomMenu\CustomMenu;
 
-use BlueSpice\Data\Record;
-use BlueSpice\Data\RecordSet;
 use MediaWiki\MediaWikiServices;
 use MenuParser;
+use MWStake\MediaWiki\Component\DataStore\Record;
+use MWStake\MediaWiki\Component\DataStore\RecordSet;
 
 class Header extends \BlueSpice\CustomMenu\CustomMenu {
 
