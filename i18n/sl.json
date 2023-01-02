@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"bs-custommenu-desc": "Zagotavlja prilagodljive menije",
+	"bs-custommenu-navbar-button-title": "Meni po meri",
+	"bs-custommenu-navbar-button-aria-label": "Meni po meri",
+	"bs-custommenu-editlink-text": "Uredi meni",
+	"bs-custommenu-editlink-title": "Uredi meni"
+}
