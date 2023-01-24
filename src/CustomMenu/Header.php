@@ -50,11 +50,12 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	protected function getDefaultRecords( $records = [] ) {
 		$currentTitle = \RequestContext::getMain()->getTitle();
 		$mainPage = \Title::newMainPage();
+		$active = $currentTitle ? $currentTitle->equals( $mainPage ) : false;
 		$menu = [ [
 			'id' => 'nt-wiki',
 			'href' => $mainPage->getFullURL(),
 			'text' => $this->config->get( 'Sitename' ),
-			'active' => $currentTitle->equals( $mainPage ),
+			'active' => $active,
 			'level' => 1,
 			'containsactive' => false,
 			'external' => false,
