@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-global-assign
 ext = ext || {};
 ext.custommenu = ext.custommenu || {};
 ext.custommenu.menueditor = {};
@@ -8,7 +9,7 @@ ext.custommenu.menueditor.HeaderTree = function ( cfg ) {
 
 OO.inheritClass( ext.custommenu.menueditor.HeaderTree, ext.menueditor.ui.data.tree.MediawikiSidebarTree );
 
-ext.custommenu.menueditor.HeaderTree.prototype.getPossibleNodesForLevel = function( lvl ) {
+ext.custommenu.menueditor.HeaderTree.prototype.getPossibleNodesForLevel = function ( lvl ) {
 	switch ( lvl ) {
 		case 0:
 			return [ 'menu-raw-text' ];
