@@ -3,5 +3,11 @@
 	"extends": [
 		"wikimedia/client-es5",
 		"wikimedia/mediawiki"
-	]
+	],
+	"globals": {
+		"ext": "readonly"
+	},
+	"rules": {
+		"no-implicit-globals": "off"
+	}
 }
