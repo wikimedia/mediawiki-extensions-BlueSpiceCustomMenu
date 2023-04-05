@@ -1,11 +1,19 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 $IP = dirname( dirname( dirname( __DIR__ ) ) );
 require_once "$IP/maintenance/Maintenance.php";
 
-use MediaWiki\MediaWikiServices;
-
 class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
+
+	/** @var MediaWikiServices */
+	protected $services = null;
+
+	public function __construct() {
+		parent::__construct();
+		$this->services = MediaWikiServices::getInstance();
+	}
 
 	/**
 	 *
@@ -51,7 +59,7 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 			"CustomMenu/Header"
 		);
 		try{
-			$move = new \MovePage( $oldTitle, $newTitle );
+			$move = $this->services->getMovePageFactory()->newMovePage( $oldTitle, $newTitle );
 			$move->move(
 				$this->getMaintenanceUser(),
 				"TopMenuBarCustomizer => CustomMenu",
@@ -70,8 +78,7 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 	 * @return User
 	 */
 	protected function getMaintenanceUser() {
-		return MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
-			->getMaintenanceUser()->getUser();
+		return $this->services->getService( 'BSUtilityFactory' )->getMaintenanceUser()->getUser();
 	}
 
 	/**
