@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"bs-custommenu-desc": "Sudaro galimybę tinkintiems meniu",
+	"bs-custommenu-navbar-button-title": "Tinkintas meniu",
+	"bs-custommenu-navbar-button-aria-label": "Tinkintas meniu",
+	"bs-custommenu-editlink-text": "Redaguoti meniu",
+	"bs-custommenu-editlink-title": "Redaguoti meniu"
+}
