@@ -177,6 +177,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				'id' => "{$this->getId()}-edit-link",
 				'href' => $this->menu->getEditURL(),
 				'text' => $this->context->msg( 'bs-custommenu-editlink-text' ),
+				'classes' => [ 'mm-edit-link' ],
 				'title' => $this->context->msg( 'bs-custommenu-editlink-title' ),
 				'aria-label' => $this->context->msg( 'bs-custommenu-editlink-title' ),
 			] );
