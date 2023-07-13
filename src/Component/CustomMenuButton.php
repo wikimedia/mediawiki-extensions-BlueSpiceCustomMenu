@@ -11,6 +11,7 @@ use MediaWiki\Permissions\PermissionManager;
 use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCard;
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardBody;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardHeader;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleDropdownIcon;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleLinklistGroupFromArray;
@@ -185,16 +186,15 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 			new SimpleCard( [
 				'id' => 'cm-mm',
 				'classes' => [
-					'mega-menu',
-					'async',
-					'd-flex',
-					'justify-content-center',
-					'flex-md-row',
-					'flex-lg-row',
-					'flex-xl-row',
-					'flex-xxl-row'
+					'mega-menu', 'd-flex', 'justify-content-center'
 				],
-				'items' => $items
+				'items' => [
+					new SimpleCardBody( [
+						'id' => 'cm-mm-megamn-body',
+						'classes' => [ 'd-flex', 'mega-menu-wrapper' ],
+						'items' => $items
+					] )
+				]
 			] ),
 			new Literal(
 				'cm-mm-div',
