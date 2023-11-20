@@ -2,5 +2,9 @@
 	"@metadata": {
 		"authors": []
 	},
-	"bs-custommenu-desc": "Omogućava prilagodljive menije"
+	"bs-custommenu-desc": "Omogućava prilagodljive menije",
+	"bs-custommenu-navbar-button-title": "Prilagođavanje menija",
+	"bs-custommenu-navbar-button-aria-label": "Prilagodi meni",
+	"bs-custommenu-editlink-text": "Uredi meni",
+	"bs-custommenu-editlink-title": "Uređivanje menija"
 }
