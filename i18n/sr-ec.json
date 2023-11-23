@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"BadDog"
+			"BadDog",
+			"Kizule"
 		]
 	},
-	"bs-custommenu-desc": "Омогућава прилагодљиве меније"
+	"bs-custommenu-desc": "Омогућава прилагодљиве меније",
+	"bs-custommenu-navbar-button-title": "Прилагођавање менија",
+	"bs-custommenu-navbar-button-aria-label": "Прилагоди мени",
+	"bs-custommenu-editlink-text": "Уреди мени",
+	"bs-custommenu-editlink-title": "Уређивање менија"
 }

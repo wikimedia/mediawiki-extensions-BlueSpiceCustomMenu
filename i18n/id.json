@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Veracious"
+		]
+	},
+	"bs-custommenu-desc": "Menyediakan menu yang dapat disesuaikan",
+	"bs-custommenu-navbar-button-title": "Menu kustom",
+	"bs-custommenu-navbar-button-aria-label": "Menu kustom",
+	"bs-custommenu-editlink-text": "Sunting menu",
+	"bs-custommenu-editlink-title": "Sunting menu"
+}

@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"bs-custommenu-navbar-button-title": "Долара меню",
+	"bs-custommenu-navbar-button-aria-label": "Долара меню",
+	"bs-custommenu-editlink-text": "Тайе меню",
+	"bs-custommenu-editlink-title": "Тайе меню"
+}
