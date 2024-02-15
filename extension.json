@@ -103,7 +103,7 @@
 		"PageSaveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageSaveComplete\\InvalidateHeaderMenu::callback",
 		"PageMoveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageMoveComplete\\InvalidateHeaderMenu::callback",
 		"LoadExtensionSchemaUpdates": "\\BlueSpice\\CustomMenu\\Hook\\LoadExtensionSchemaUpdates\\AddMigrateTopBarMenu::callback",
-		"BSUsageTrackerRegisterCollectors": "\\BlueSpice\\CustomMenu\\Hook\\BSUsageTrackerRegisterCollectors\\NoOfUserCustomMenus::callback",
+		"BSUsageTrackerRegisterCollectors": "\\BlueSpice\\CustomMenu\\Hook\\BSUsageTrackerRegisterCollectors\\NoOfCustomMegaMenus::callback",
 		"OutputPageBodyAttributes": "\\BlueSpice\\CustomMenu\\Hook\\OutputPageBodyAttributes\\AddOutputPageBodyClass::callback",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface"
 	},
