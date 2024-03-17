@@ -58,7 +58,7 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 			// 'TopBarMenu' in the past
 			"CustomMenu/Header"
 		);
-		try{
+		try {
 			$move = $this->services->getMovePageFactory()->newMovePage( $oldTitle, $newTitle );
 			$move->move(
 				$this->getMaintenanceUser(),
