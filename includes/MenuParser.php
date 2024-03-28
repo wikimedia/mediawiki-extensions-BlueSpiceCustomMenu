@@ -210,7 +210,8 @@ class MenuParser {
 	 * @return array - Single parsed menu item (app)
 	 */
 	public function parseSingleLine( $sLine ) {
-		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'bsg' );
+		$services = MediaWikiServices::getInstance();
+		$config = $services->getConfigFactory()->makeConfig( 'bsg' );
 		$newApp = static::$aNavigationSiteTemplate;
 
 		$aAppParts = explode( '|', trim( $sLine ) );
@@ -237,7 +238,8 @@ class MenuParser {
 		if ( !empty( $aAppParts[1] ) ) {
 			// `wfParseUrl` already checks against `$wgUrlProtocols`.
 			// If the protocol is not allowed, it will return `false`
-			$aParsedUrl = wfParseUrl( $aAppParts[1] );
+			$urlUtils = $services->getUrlUtils();
+			$aParsedUrl = $urlUtils->parse( $aAppParts[1] );
 			if ( $aParsedUrl !== false ) {
 				if ( preg_match( '# |\\*#', $aParsedUrl['host'] ) ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
