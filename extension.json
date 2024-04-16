@@ -97,7 +97,6 @@
 		}
 	},
 	"Hooks": {
-		"ChameleonSkinTemplateOutputPageBeforeExec": "\\BlueSpice\\CustomMenu\\Hook\\ChameleonSkinTemplateOutputPageBeforeExec\\AddCustomMenus::callback",
 		"EditFormPreloadText": "\\BlueSpice\\CustomMenu\\Hook\\EditFormPreloadText\\PreloadHeaderMenu::callback",
 		"ArticleDeleteComplete": "\\BlueSpice\\CustomMenu\\Hook\\ArticleDeleteComplete\\InvalidateHeaderMenu::callback",
 		"PageSaveComplete": "\\BlueSpice\\CustomMenu\\Hook\\PageSaveComplete\\InvalidateHeaderMenu::callback",
