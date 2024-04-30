@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rail"
+			"Rail",
+			"WaldiSt"
 		]
 	},
-	"bs-custommenu-desc": "Dodaje konfigurowalne menu"
+	"bs-custommenu-desc": "Dodaje konfigurowalne menu",
+	"bs-custommenu-editlink-text": "Edytuj menu",
+	"bs-custommenu-editlink-title": "Edytuj menu"
 }
