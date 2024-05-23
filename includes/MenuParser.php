@@ -59,6 +59,7 @@ class MenuParser {
 		}
 	}
 
+	/** @var array */
 	public static $aNavigationSiteTemplate = [
 		'id' => '',
 		'href' => '',
@@ -298,7 +299,7 @@ class MenuParser {
 	 * @param array $aNavigationSites
 	 * @param string $sWikiText
 	 * @param string $sPrefix
-	 * @return type
+	 * @return string
 	 */
 	public function toWikiText( $aNavigationSites, $sWikiText = '', $sPrefix = '*' ) {
 		foreach ( $aNavigationSites as $aNavigationSite ) {
