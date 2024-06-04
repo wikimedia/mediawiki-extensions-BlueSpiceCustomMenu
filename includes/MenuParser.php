@@ -241,7 +241,7 @@ class MenuParser {
 			// If the protocol is not allowed, it will return `false`
 			$urlUtils = $services->getUrlUtils();
 			$aParsedUrl = $urlUtils->parse( $aAppParts[1] );
-			if ( $aParsedUrl !== false ) {
+			if ( $aParsedUrl !== null ) {
 				if ( preg_match( '# |\\*#', $aParsedUrl['host'] ) ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				}
