@@ -3,6 +3,7 @@
 namespace BlueSpice\CustomMenu\Tests;
 
 use MediaWiki\Json\FormatJson;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use MenuParser as GlobalMenuParser;
@@ -22,11 +23,11 @@ class MenuParserTest extends MediaWikiIntegrationTestCase {
 			file_get_contents( __DIR__ . '/data/Menu.wiki' )
 		);
 
-		$this->setMwGlobals( [
-			'wgServer' => 'https://somewiki.local',
-			'wgScriptPath' => '/w',
-			'wgArticlePath' => '/wiki/$1',
-			'wgUrlProtocols' => [ 'http://', 'https://', 'tel:', 'mglof://' ]
+		$this->overrideConfigValues( [
+			MainConfigNames::Server => 'https://somewiki.local',
+			MainConfigNames::ScriptPath => '/w',
+			MainConfigNames::ArticlePath => '/wiki/$1',
+			MainConfigNames::UrlProtocols => [ 'http://', 'https://', 'tel:', 'mglof://' ],
 		] );
 		$inputWikiText = file_get_contents( __DIR__ . '/data/Menu.wiki' );
 
