@@ -160,7 +160,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 						'id' => "cm-menu-list-items-$id",
 						'classes' => [ 'menu-card-body', 'menu-list', 'll-dft' ],
 						'links' => $this->getRecordLinkDefinition( $record ),
-						'role' => 'menu',
+						'role' => 'group',
 						'item-role' => 'presentation',
 						'aria' => [
 							'labelledby' => "cm-menu-$id-head"
@@ -231,7 +231,6 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				'text' => $text,
 				'title' => $text,
 				'aria-label' => $text,
-				'role' => 'menuitem'
 			];
 		}
 		$services = MediaWikiServices::getInstance();
