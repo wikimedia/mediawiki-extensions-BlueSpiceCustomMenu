@@ -3,7 +3,7 @@
 namespace BlueSpice\CustomMenu\MenuEditor;
 
 use MediaWiki\Extension\MenuEditor\Menu\MediawikiSidebar;
-use Title;
+use MediaWiki\Title\Title;
 
 class Header extends MediawikiSidebar {
 
