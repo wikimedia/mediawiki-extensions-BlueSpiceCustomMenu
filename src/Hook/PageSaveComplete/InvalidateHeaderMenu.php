@@ -2,6 +2,8 @@
 
 namespace BlueSpice\CustomMenu\Hook\PageSaveComplete;
 
+use MediaWiki\Title\Title;
+
 class InvalidateHeaderMenu extends \BlueSpice\Hook\PageSaveComplete {
 
 	/**
@@ -9,7 +11,7 @@ class InvalidateHeaderMenu extends \BlueSpice\Hook\PageSaveComplete {
 	 * @return bool
 	 */
 	protected function skipProcessing() {
-		$title = \Title::makeTitle(
+		$title = Title::makeTitle(
 			NS_MEDIAWIKI,
 			// 'TopBarMenu' in the past
 			"CustomMenu/Header"

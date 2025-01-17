@@ -2,6 +2,8 @@
 
 namespace BlueSpice\CustomMenu\Hook\ArticleDeleteComplete;
 
+use MediaWiki\Title\Title;
+
 class InvalidateHeaderMenu extends \BlueSpice\Hook\ArticleDeleteComplete {
 
 	/**
@@ -9,7 +11,7 @@ class InvalidateHeaderMenu extends \BlueSpice\Hook\ArticleDeleteComplete {
 	 * @return bool
 	 */
 	protected function skipProcessing() {
-		$title = \Title::makeTitle(
+		$title = Title::makeTitle(
 			NS_MEDIAWIKI,
 			// 'TopBarMenu' in the past
 			"CustomMenu/Header"

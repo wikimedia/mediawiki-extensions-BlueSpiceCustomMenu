@@ -3,7 +3,7 @@
 namespace BlueSpice\CustomMenu\Hook\PageMoveComplete;
 
 use BlueSpice\Hook\PageMoveComplete;
-use Title;
+use MediaWiki\Title\Title;
 
 class InvalidateHeaderMenu extends PageMoveComplete {
 

@@ -2,6 +2,7 @@
 
 namespace BlueSpice\CustomMenu\Hook\EditFormPreloadText;
 
+use MediaWiki\Title\Title;
 use MenuParser;
 use MWStake\MediaWiki\Component\DataStore\IRecord;
 use MWStake\MediaWiki\Component\DataStore\RecordSet;
@@ -13,7 +14,7 @@ class PreloadHeaderMenu extends \BlueSpice\Hook\EditFormPreloadText {
 	 * @return bool
 	 */
 	protected function skipProcessing() {
-		$title = \Title::makeTitle(
+		$title = Title::makeTitle(
 			NS_MEDIAWIKI,
 			// 'TopBarMenu' in the past
 			"CustomMenu/Header"
