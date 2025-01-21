@@ -2,6 +2,7 @@
 
 namespace BlueSpice\CustomMenu\CustomMenu;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MenuParser;
@@ -49,7 +50,7 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	 * @return Record[]
 	 */
 	protected function getDefaultRecords( $records = [] ) {
-		$currentTitle = \RequestContext::getMain()->getTitle();
+		$currentTitle = RequestContext::getMain()->getTitle();
 		$mainPage = Title::newMainPage();
 		$active = $currentTitle ? $currentTitle->equals( $mainPage ) : false;
 		$menu = [ [
