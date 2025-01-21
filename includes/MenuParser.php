@@ -28,6 +28,7 @@
  * @filesource
  */
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
