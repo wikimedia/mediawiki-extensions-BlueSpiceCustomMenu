@@ -5,7 +5,7 @@ namespace BlueSpice\CustomMenu\Component;
 use BlueSpice\CustomMenu\ICustomMenu;
 use Html;
 use HtmlArmor;
-use IContextSource;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Permissions\PermissionManager;
