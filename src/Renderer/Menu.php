@@ -4,8 +4,8 @@ namespace BlueSpice\CustomMenu\Renderer;
 
 use BlueSpice\CustomMenu\ICustomMenu;
 use BlueSpice\Renderer\Params;
-use Config;
 use IContextSource;
+use MediaWiki\Config\Config;
 use MediaWiki\Linker\LinkRenderer;
 use MWException;
 use MWStake\MediaWiki\Component\DataStore\Record;

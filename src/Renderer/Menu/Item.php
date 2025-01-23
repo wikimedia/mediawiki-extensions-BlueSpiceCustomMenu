@@ -3,9 +3,9 @@
 namespace BlueSpice\CustomMenu\Renderer\Menu;
 
 use BlueSpice\Renderer\Params;
-use Config;
 use Html;
 use IContextSource;
+use MediaWiki\Config\Config;
 use MediaWiki\Linker\LinkRenderer;
 use MWStake\MediaWiki\Component\DataStore\RecordSet;
 

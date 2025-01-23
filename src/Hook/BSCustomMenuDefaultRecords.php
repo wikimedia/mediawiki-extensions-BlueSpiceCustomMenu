@@ -27,8 +27,8 @@
 namespace BlueSpice\CustomMenu\Hook;
 
 use BlueSpice\Hook;
-use Config;
 use IContextSource;
+use MediaWiki\Config\Config;
 use MWStake\MediaWiki\Component\DataStore\Record;
 
 abstract class BSCustomMenuDefaultRecords extends Hook {

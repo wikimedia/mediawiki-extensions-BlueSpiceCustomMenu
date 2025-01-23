@@ -3,6 +3,7 @@
 namespace BlueSpice\CustomMenu;
 
 use BlueSpice\ExtensionAttributeBasedRegistry;
+use MediaWiki\Config\Config;
 
 class Factory {
 
@@ -20,14 +21,14 @@ class Factory {
 
 	/**
 	 *
-	 * @var \Config
+	 * @var Config
 	 */
 	protected $config = null;
 
 	/**
 	 *
 	 * @param ExtensionAttributeBasedRegistry $registry
-	 * @param \Config $config
+	 * @param Config $config
 	 */
 	public function __construct( $registry, $config ) {
 		$this->registry = $registry;

@@ -5,6 +5,7 @@ namespace BlueSpice\CustomMenu;
 use BlueSpice\CustomMenu\Renderer\Menu;
 use BlueSpice\Renderer\Params;
 use BlueSpice\UtilityFactory;
+use MediaWiki\Config\Config;
 use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\DataStore\Record;
 use MWStake\MediaWiki\Component\DataStore\RecordSet;
@@ -22,7 +23,7 @@ abstract class CustomMenu implements ICustomMenu {
 	protected $key = '';
 
 	/**
-	 * @var \Config
+	 * @var Config
 	 */
 	protected $config = null;
 
@@ -33,11 +34,11 @@ abstract class CustomMenu implements ICustomMenu {
 	protected $util = null;
 
 	/**
-	 * @param \Config $config
+	 * @param Config $config
 	 * @param string $key
 	 * @param UtilityFactory $util
 	 */
-	protected function __construct( \Config $config, $key, UtilityFactory $util ) {
+	protected function __construct( Config $config, $key, UtilityFactory $util ) {
 		$this->config = $config;
 		$this->key = $key;
 		$this->util = $util;
@@ -45,12 +46,12 @@ abstract class CustomMenu implements ICustomMenu {
 
 	/**
 	 *
-	 * @param \Config $config
+	 * @param Config $config
 	 * @param string $key
 	 * @param UtilityFactory|null $util
 	 * @return CustomMenu
 	 */
-	public static function getInstance( \Config $config, $key, UtilityFactory $util = null ) {
+	public static function getInstance( Config $config, $key, UtilityFactory $util = null ) {
 		if ( !$util ) {
 			$util = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' );
 		}
