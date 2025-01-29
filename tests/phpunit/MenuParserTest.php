@@ -2,7 +2,7 @@
 
 namespace BlueSpice\CustomMenu\Tests;
 
-use FormatJson;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use MenuParser as GlobalMenuParser;
