@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
