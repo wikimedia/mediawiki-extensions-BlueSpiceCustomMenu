@@ -8,6 +8,7 @@ use MediaWiki\Context\IContextSource;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
+use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Permissions\PermissionManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCard;
@@ -19,7 +20,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTextLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
 use MWStake\MediaWiki\Component\DataStore\Record;
 use MWStake\MediaWiki\Component\DataStore\RecordSet;
-use Sanitizer;
 
 class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponent {
 
