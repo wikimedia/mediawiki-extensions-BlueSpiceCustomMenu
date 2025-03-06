@@ -1,8 +1,6 @@
-@media ( min-width: 768px ) {
-	#cm-mm {
-		background-image: url("../resources/images/grid-3x3-gap-fill.svg");
-		background-size: 30vh 30vh;
-		background-repeat: no-repeat;
-		background-position: right;
-	}
+#cm-mm {
+	background-image: url("../resources/images/grid-3x3-gap-fill.svg");
+	background-size: 30vh 30vh;
+	background-repeat: no-repeat;
+	background-position: right;
 }
