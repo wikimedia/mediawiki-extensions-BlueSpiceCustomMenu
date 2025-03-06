@@ -9,14 +9,13 @@ use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Sanitizer;
-use MediaWiki\Permissions\PermissionManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\RestrictedTextLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCard;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardBody;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardHeader;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleDropdownIcon;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleLinklistGroupFromArray;
-use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTextLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
 use MWStake\MediaWiki\Component\DataStore\Record;
 use MWStake\MediaWiki\Component\DataStore\RecordSet;
@@ -31,12 +30,6 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 
 	/**
 	 *
-	 * @var PermissionManager
-	 */
-	protected $permissionManager = null;
-
-	/**
-	 *
 	 * @var IContextSource
 	 */
 	protected $context = null;
@@ -44,11 +37,9 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	/**
 	 *
 	 * @param ICustomMenu $menu
-	 * @param PermissionManager $permissionManager
 	 */
-	public function __construct( ICustomMenu $menu, PermissionManager $permissionManager ) {
+	public function __construct( ICustomMenu $menu ) {
 		$this->menu = $menu;
-		$this->permissionManager = $permissionManager;
 		parent::__construct( [] );
 	}
 
@@ -169,12 +160,9 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				]
 			] );
 		}
-		$isAllowedEdit = $this->permissionManager->userHasRight(
-			$this->context->getUser(),
-			'editinterface'
-		);
-		if ( $isAllowedEdit && !empty( $this->menu->getEditURL() ) ) {
-			$items[] = new SimpleTextLink( [
+
+		if ( !empty( $this->menu->getEditURL() ) ) {
+			$items[] = new RestrictedTextLink( [
 				'role' => 'link',
 				'id' => "{$this->getId()}-edit-link",
 				'href' => $this->menu->getEditURL(),
@@ -182,6 +170,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				'classes' => [ 'mm-edit-link' ],
 				'title' => $this->context->msg( 'bs-custommenu-editlink-title' ),
 				'aria-label' => $this->context->msg( 'bs-custommenu-editlink-title' ),
+				'permissions' => [ 'editinterface' ]
 			] );
 		}
 		return [

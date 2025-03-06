@@ -58,9 +58,9 @@
 	},
 	"ResourceModules": {
 		"ext.bluespice.custom-menu.styles": {
-			"styles": [
-				"bluespice.custom-menu.styles.css"
-			]
+			"styles": {
+				"bluespice.custom-menu.styles.css": { "media": "all and ( min-width: 768px )" }
+			}
 		},
 		"ext.bluespice.custom-menu.menueditor": {
 			"scripts": [

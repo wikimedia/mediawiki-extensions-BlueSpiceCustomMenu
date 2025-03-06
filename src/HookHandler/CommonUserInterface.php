@@ -16,13 +16,12 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 		if ( !$menu ) {
 			return;
 		}
-		$permissionManager = $this->getServices()->getPermissionManager();
 		$registry->register(
 			'NavbarPrimaryItems',
 			[
 				"cm-bluespice-item" => [
-					'factory' => static function () use ( $menu, $permissionManager ) {
-						return new CustomMenuButton( $menu, $permissionManager );
+					'factory' => static function () use ( $menu, ) {
+						return new CustomMenuButton( $menu );
 					}
 				]
 			]
