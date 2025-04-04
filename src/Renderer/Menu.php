@@ -26,9 +26,10 @@ class Menu extends \BlueSpice\Renderer {
 	 * @param IContextSource|null $context
 	 * @param string $name | ''
 	 */
-	protected function __construct( Config $config, Params $params,
-		LinkRenderer $linkRenderer = null, IContextSource $context = null,
-		$name = '' ) {
+	protected function __construct(
+		Config $config, Params $params, ?LinkRenderer $linkRenderer = null,
+		?IContextSource $context = null, $name = ''
+	) {
 		parent::__construct( $config, $params, $linkRenderer, $context, $name );
 		$this->customMenu = $params->get(
 			static::PARAM_CUSTOM_MENU,

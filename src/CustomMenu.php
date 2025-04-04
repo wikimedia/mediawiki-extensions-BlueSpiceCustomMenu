@@ -51,7 +51,7 @@ abstract class CustomMenu implements ICustomMenu {
 	 * @param UtilityFactory|null $util
 	 * @return CustomMenu
 	 */
-	public static function getInstance( Config $config, $key, UtilityFactory $util = null ) {
+	public static function getInstance( Config $config, $key, ?UtilityFactory $util = null ) {
 		if ( !$util ) {
 			$util = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' );
 		}
