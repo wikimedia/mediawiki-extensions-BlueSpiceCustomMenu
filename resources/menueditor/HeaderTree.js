@@ -1,7 +1,4 @@
-// eslint-disable-next-line no-global-assign
-ext = ext || {};
-ext.custommenu = ext.custommenu || {};
-ext.custommenu.menueditor = {};
+bs.util.registerNamespace( 'ext.custommenu.menueditor' );
 
 ext.custommenu.menueditor.HeaderTree = function ( cfg ) {
 	ext.custommenu.menueditor.HeaderTree.parent.call( this, cfg );
