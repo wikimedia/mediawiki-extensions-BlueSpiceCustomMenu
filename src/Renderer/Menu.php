@@ -4,10 +4,10 @@ namespace BlueSpice\CustomMenu\Renderer;
 
 use BlueSpice\CustomMenu\ICustomMenu;
 use BlueSpice\Renderer\Params;
+use InvalidArgumentException;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Linker\LinkRenderer;
-use MWException;
 use MWStake\MediaWiki\Component\DataStore\Record;
 
 class Menu extends \BlueSpice\Renderer {
@@ -25,6 +25,7 @@ class Menu extends \BlueSpice\Renderer {
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
 	 * @param string $name | ''
+	 * @throws InvalidArgumentException
 	 */
 	protected function __construct(
 		Config $config, Params $params, ?LinkRenderer $linkRenderer = null,
@@ -36,7 +37,7 @@ class Menu extends \BlueSpice\Renderer {
 			false
 		);
 		if ( !$this->customMenu instanceof ICustomMenu ) {
-			throw new MWException(
+			throw new InvalidArgumentException(
 				"param '" . static::PARAM_CUSTOM_MENU . "' must be an instance of '" . ICustomMenu::class . "'"
 			);
 		}
