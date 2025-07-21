@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"bs-custommenu-desc": "Ofrece menús personalizables",
+	"bs-custommenu-navbar-button-title": "Menú personalizado",
+	"bs-custommenu-navbar-button-aria-label": "Menú personalizado",
+	"bs-custommenu-editlink-text": "Editar o menú",
+	"bs-custommenu-editlink-title": "Editar o menú"
+}
