@@ -27,6 +27,9 @@
 				"custommenuitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Item::factory",
 				"custommenuheader": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Header::factory",
 				"custommenuheaderitem": "\\BlueSpice\\CustomMenu\\Renderer\\Menu\\Header\\Item::factory"
+			},
+			"ConfigDefinitionRegistry": {
+				"ShowCustomMenuHeader": "\\BlueSpice\\CustomMenu\\ConfigDefinition\\ShowCustomMenuHeader::getInstance"
 			}
 		},
 		"BlueSpiceCustomMenu": {
@@ -89,11 +92,17 @@
 		},
 		"CustomMenuHeaderNumberOfSubEntries": {
 			"value": 10
+		},
+		"ShowCustomMenuHeader": {
+			"value": true
 		}
 	},
 	"HookHandlers": {
 		"common-user-interface": {
-			"class": "\\BlueSpice\\CustomMenu\\HookHandler\\CommonUserInterface"
+			"class": "\\BlueSpice\\CustomMenu\\HookHandler\\CommonUserInterface",
+			"services": [
+				"BSCustomMenuFactory", "ConfigFactory"
+			]
 		}
 	},
 	"Hooks": {

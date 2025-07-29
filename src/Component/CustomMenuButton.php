@@ -14,32 +14,23 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Component\RestrictedTextLink
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCard;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardBody;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardHeader;
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardText;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleDropdownIcon;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleLinklistGroupFromArray;
 use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 use MWStake\MediaWiki\Component\DataStore\Record;
 use MWStake\MediaWiki\Component\DataStore\RecordSet;
 
 class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponent {
 
-	/**
-	 *
-	 * @var ICustomMenu
-	 */
-	protected $menu = null;
-
-	/**
-	 *
-	 * @var IContextSource
-	 */
+	/** @var IContextSource */
 	protected $context = null;
 
 	/**
-	 *
 	 * @param ICustomMenu $menu
 	 */
-	public function __construct( ICustomMenu $menu ) {
-		$this->menu = $menu;
+	public function __construct( private readonly ICustomMenu $menu ) {
 		parent::__construct( [] );
 	}
 
@@ -49,16 +40,8 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	 */
 	public function shouldRender( IContextSource $context ): bool {
 		$this->context = $context;
-		if ( empty( $this->menu->getData()->getRecords() ) ) {
-			return false;
-		}
-		foreach ( $this->menu->getData()->getRecords() as $record ) {
-			if ( !$record->get( 'children', false ) instanceof RecordSet ) {
-				continue;
-			}
-			return true;
-		}
-		return false;
+
+		return true;
 	}
 
 	/**
@@ -122,43 +105,29 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	 * @inheritDoc
 	 */
 	public function getSubComponents(): array {
-		$items = [];
-		foreach ( $this->menu->getData()->getRecords() as $record ) {
-			if ( !$record->get( 'children', false ) instanceof RecordSet ) {
-				continue;
-			}
-			$text = $record->get( 'text', '' );
-			if ( empty( $text ) ) {
-				$text = $record->get( 'id', '' );
-			}
-			$text = HtmlArmor::getHtml( $text );
-			$id = Sanitizer::escapeIdForAttribute( $record->get( 'id' ) );
-			$items[] = new SimpleCard( [
-				'id' => "cm-menu-$id",
-				'classes' => [ 'card-mn' ],
-				'items' => [
-					new SimpleCardHeader( [
-						'id' => "cm-menu-$id-head",
-						'classes' => [ 'menu-title' ],
-						'items' => [
-							new Literal(
-								"cm-menu-title-$id",
-								$text
-							)
-						]
-					] ),
-					new SimpleLinklistGroupFromArray( [
-						'id' => "cm-menu-list-items-$id",
-						'classes' => [ 'menu-card-body', 'menu-list', 'll-dft' ],
-						'links' => $this->getRecordLinkDefinition( $record ),
-						'role' => 'group',
-						'item-role' => 'presentation',
-						'aria' => [
-							'labelledby' => "cm-menu-$id-head"
-						],
-					] )
-				]
-			] );
+		$records = $this->menu->getData()->getRecords();
+
+		// Insert placeholder text
+		if ( empty( $records ) ) {
+			$items = [
+				new SimpleCard( [
+					'id' => "cm-menu-0",
+					'classes' => [ 'card-mn' ],
+					'items' => [
+						new SimpleCardText( [
+							'id' => "cm-menu-0-head",
+							'classes' => [ 'menu-title' ],
+							'items' => [
+								new Literal(
+									"cm-menu-title-0", Message::newFromKey( "bs-custommenu-no-entries" )->escaped()
+								)
+							]
+						] )
+					]
+				] )
+			];
+		} else {
+			$items = $this->populateItems( $this->menu->getData()->getRecords() );
 		}
 
 		if ( !empty( $this->menu->getEditURL() ) ) {
@@ -173,6 +142,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				'permissions' => [ 'editinterface' ]
 			] );
 		}
+
 		return [
 			new SimpleCard( [
 				'id' => 'cm-mm',
@@ -192,6 +162,59 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				Html::element( 'div', [ 'id' => 'cm-mm-div', 'class' => 'mm-bg' ] )
 			)
 		];
+	}
+
+	/**
+	 * Populate the items for the menu from the records.
+	 *
+	 * @param Record[] $records
+	 *
+	 * @return array
+	 */
+	private function populateItems( array $records ): array {
+		$items = [];
+		foreach ( $records as $record ) {
+			if ( !$record->get( 'children', false ) instanceof RecordSet ) {
+				continue;
+			}
+			$text = $record->get( 'text', '' );
+			if ( empty( $text ) ) {
+				$text = $record->get( 'id', '' );
+			}
+			$text = HtmlArmor::getHtml( $text );
+			$id = Sanitizer::escapeIdForAttribute( $record->get( 'id' ) );
+			$items[] = new SimpleCard( [
+				'id' => "cm-menu-$id",
+				'classes' => [ 'card-mn' ],
+				'items' => [
+					new SimpleCardHeader( [
+						'id' => "cm-menu-$id-head",
+						'classes' => [ 'menu-title' ],
+						'items' => [
+							new Literal(
+								"cm-menu-title-$id", $text
+							)
+						]
+					] ),
+					new SimpleLinklistGroupFromArray( [
+						'id' => "cm-menu-list-items-$id",
+						'classes' => [
+							'menu-card-body',
+							'menu-list',
+							'll-dft'
+						],
+						'links' => $this->getRecordLinkDefinition( $record ),
+						'role' => 'group',
+						'item-role' => 'presentation',
+						'aria' => [
+							'labelledby' => "cm-menu-$id-head"
+						],
+					] )
+				]
+			] );
+		}
+
+		return $items;
 	}
 
 	/**
