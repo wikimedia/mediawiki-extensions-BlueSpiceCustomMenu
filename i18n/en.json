@@ -5,8 +5,11 @@
 		]
 	},
 	"bs-custommenu-desc": "Provides customizable menus",
-	"bs-custommenu-navbar-button-title": "Custom menu",
-	"bs-custommenu-navbar-button-aria-label": "Custom menu",
+	"bs-custommenu-navbar-button-title": "Extended menu",
+	"bs-custommenu-navbar-button-aria-label": "Extended menu",
 	"bs-custommenu-editlink-text": "Edit menu",
-	"bs-custommenu-editlink-title": "Edit menu"
+	"bs-custommenu-editlink-title": "Edit menu",
+	"bs-custommenu-no-entries": "No entries have been created for this menu yet",
+	"bs-pref-custommenu-show-custom-menu-header": "Show extended menu",
+	"bs-pref-custommenu-show-custom-menu-header-help": "Enable this option to display the extended menu in the header of the page"
 }
