@@ -2,12 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
+			"McDutchie",
 			"Robin van der Vliet"
 		]
 	},
 	"bs-custommenu-desc": "Voegt aanpasbare menus toe",
-	"bs-custommenu-navbar-button-title": "Aangepast menu",
-	"bs-custommenu-navbar-button-aria-label": "Aangepast menu",
+	"bs-custommenu-navbar-button-title": "Uitgebreid menu",
+	"bs-custommenu-navbar-button-aria-label": "Uitgebreid menu",
 	"bs-custommenu-editlink-text": "Menu bewerken",
-	"bs-custommenu-editlink-title": "Menu bewerken"
+	"bs-custommenu-editlink-title": "Menu bewerken",
+	"bs-custommenu-no-entries": "Er zijn nog geen vermeldingen voor dit menu aangemaakt",
+	"bs-pref-custommenu-show-custom-menu-header": "Uitgebreid menu weergeven",
+	"bs-pref-custommenu-show-custom-menu-header-help": "Schakel deze optie in om het uitgebreide menu in de koptekst van de pagina weer te geven"
 }

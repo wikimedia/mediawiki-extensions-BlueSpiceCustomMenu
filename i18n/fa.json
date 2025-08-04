@@ -5,8 +5,9 @@
 		]
 	},
 	"bs-custommenu-desc": "منوهای قابل تنظیم را ارائه می‌دهد",
-	"bs-custommenu-navbar-button-title": "منوی سفارشی",
-	"bs-custommenu-navbar-button-aria-label": "منوی سفارشی",
+	"bs-custommenu-navbar-button-title": "منوی گسترش‌یافته",
+	"bs-custommenu-navbar-button-aria-label": "منوی گسترش‌یافته",
 	"bs-custommenu-editlink-text": "ویرایش منو",
-	"bs-custommenu-editlink-title": "ویرایش منو"
+	"bs-custommenu-editlink-title": "ویرایش منو",
+	"bs-pref-custommenu-show-custom-menu-header": "نمایش منوی گسترش‌یافته"
 }
