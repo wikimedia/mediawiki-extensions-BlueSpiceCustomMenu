@@ -3,12 +3,13 @@
 		"authors": [
 			"Aca",
 			"BadDog",
-			"Kizule"
+			"Kizule",
+			"Milicevic01"
 		]
 	},
 	"bs-custommenu-desc": "Омогућава прилагодљиве меније",
-	"bs-custommenu-navbar-button-title": "Прилагођавање менија",
-	"bs-custommenu-navbar-button-aria-label": "Прилагоди мени",
+	"bs-custommenu-navbar-button-title": "Проширени мени",
+	"bs-custommenu-navbar-button-aria-label": "Проширени мени",
 	"bs-custommenu-editlink-text": "Уреди мени",
 	"bs-custommenu-editlink-title": "Уређивање менија"
 }
