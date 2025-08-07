@@ -2,12 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"DreZhsh",
-			"Gomoko"
+			"Gomoko",
+			"JLTRY"
 		]
 	},
 	"bs-custommenu-desc": "Fournit des menus personnalisables",
-	"bs-custommenu-navbar-button-title": "Menu personnalisé",
-	"bs-custommenu-navbar-button-aria-label": "Menu personnalisé",
+	"bs-custommenu-navbar-button-title": "Menu étendu",
+	"bs-custommenu-navbar-button-aria-label": "Menu étendu",
 	"bs-custommenu-editlink-text": "Modifier le menu",
-	"bs-custommenu-editlink-title": "Modifier le menu"
+	"bs-custommenu-editlink-title": "Modifier le menu",
+	"bs-custommenu-no-entries": "Aucune entrée n'a encore été créée pour ce menu",
+	"bs-pref-custommenu-show-custom-menu-header": "Afficher le menu étendu"
 }
