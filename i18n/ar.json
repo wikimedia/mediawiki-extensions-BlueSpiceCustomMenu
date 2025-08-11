@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Meno25",
 			"ديفيد",
 			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"bs-custommenu-desc": "يوفر قوائم قابلة للتخصيص",
-	"bs-custommenu-navbar-button-title": "قائمة مخصصة",
-	"bs-custommenu-navbar-button-aria-label": "قائمة مخصصة",
+	"bs-custommenu-navbar-button-title": "القائمة الموسعة",
+	"bs-custommenu-navbar-button-aria-label": "القائمة الموسعة",
 	"bs-custommenu-editlink-text": "عدل القائمة",
 	"bs-custommenu-editlink-title": "عدل القائمة"
 }
