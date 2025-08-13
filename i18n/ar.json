@@ -10,5 +10,8 @@
 	"bs-custommenu-navbar-button-title": "القائمة الموسعة",
 	"bs-custommenu-navbar-button-aria-label": "القائمة الموسعة",
 	"bs-custommenu-editlink-text": "عدل القائمة",
-	"bs-custommenu-editlink-title": "عدل القائمة"
+	"bs-custommenu-editlink-title": "عدل القائمة",
+	"bs-custommenu-no-entries": "لم يتم إنشاء أي إدخالات لهذه القائمة بعد",
+	"bs-pref-custommenu-show-custom-menu-header": "إظهار القائمة الموسعة",
+	"bs-pref-custommenu-show-custom-menu-header-help": "قم بتمكين هذا الخيار لعرض القائمة الموسعة في رأس الصفحة"
 }
