@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"JeffreyKim"
+			"JeffreyKim",
+			"Ktchankt"
 		]
 	},
 	"bs-custommenu-navbar-button-title": "擴充咗嘅選單",
 	"bs-custommenu-navbar-button-aria-label": "擴充咗嘅選單",
-	"bs-custommenu-no-entries": "呢個選單仲未有任何條目建立",
+	"bs-custommenu-no-entries": "呢個選單仲未有任何項目",
 	"bs-pref-custommenu-show-custom-menu-header": "顯示擴充咗嘅選單",
 	"bs-pref-custommenu-show-custom-menu-header-help": "啟用呢個選項就可以喺頁面標題入面顯示擴展選單"
 }
