@@ -10,5 +10,6 @@
 	"bs-custommenu-navbar-button-title": "תפריט מורחב",
 	"bs-custommenu-navbar-button-aria-label": "תפריט מורחב",
 	"bs-custommenu-editlink-text": "עריכת התפריט",
-	"bs-custommenu-editlink-title": "עריכת התפריט"
+	"bs-custommenu-editlink-title": "עריכת התפריט",
+	"bs-pref-custommenu-show-custom-menu-header": "הצגת תפריט מורחב"
 }
