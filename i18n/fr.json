@@ -3,7 +3,8 @@
 		"authors": [
 			"DreZhsh",
 			"Gomoko",
-			"JLTRY"
+			"JLTRY",
+			"Derugon"
 		]
 	},
 	"bs-custommenu-desc": "Fournit des menus personnalisables",
@@ -12,5 +13,6 @@
 	"bs-custommenu-editlink-text": "Modifier le menu",
 	"bs-custommenu-editlink-title": "Modifier le menu",
 	"bs-custommenu-no-entries": "Aucune entrée n'a encore été créée pour ce menu",
-	"bs-pref-custommenu-show-custom-menu-header": "Afficher le menu étendu"
+	"bs-pref-custommenu-show-custom-menu-header": "Afficher le menu étendu",
+	"bs-pref-custommenu-show-custom-menu-header-help": "Activez cette option pour afficher le menu étendu dans l’entête de la page"
 }
