@@ -4,3 +4,15 @@
 	background-repeat: no-repeat;
 	background-position: right;
 }
+
+#cm-empty-menu {
+	background-image: url( ../resources/images/menu.svg );
+	background-size: 80px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: rgba( 62, 83, 137, 0.1 );
+	border-radius: 50%;
+	height: 120px;
+	width: 120px;
+	margin: 1rem auto;
+}
