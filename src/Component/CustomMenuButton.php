@@ -14,7 +14,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Component\RestrictedTextLink
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCard;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardBody;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardHeader;
-use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardText;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleDropdownIcon;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleLinklistGroupFromArray;
 use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
@@ -105,29 +104,33 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	 * @inheritDoc
 	 */
 	public function getSubComponents(): array {
-		$records = $this->menu->getData()->getRecords();
+		$items = $this->populateItems( $this->menu->getData()->getRecords() );
 
 		// Insert placeholder text
-		if ( empty( $records ) ) {
+		if ( empty( $items ) ) {
 			$items = [
 				new SimpleCard( [
 					'id' => "cm-menu-0",
 					'classes' => [ 'card-mn' ],
 					'items' => [
-						new SimpleCardText( [
+						new SimpleCardBody( [
 							'id' => "cm-menu-0-head",
 							'classes' => [ 'menu-title' ],
 							'items' => [
 								new Literal(
-									"cm-menu-title-0", Message::newFromKey( "bs-custommenu-no-entries" )->escaped()
+									"cm-empty-menu",
+									Html::element( 'div', [ 'id' => 'cm-empty-menu', 'class' => 'cm-empty-menu' ] )
+								),
+								new Literal(
+									"cm-menu-title-0",
+									Html::element( 'p', [],
+										Message::newFromKey( "bs-custommenu-no-entries-label" )->escaped() )
 								)
 							]
 						] )
 					]
 				] )
 			];
-		} else {
-			$items = $this->populateItems( $this->menu->getData()->getRecords() );
 		}
 
 		if ( !empty( $this->menu->getEditURL() ) ) {
