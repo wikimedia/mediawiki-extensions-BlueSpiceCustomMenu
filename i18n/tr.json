@@ -3,12 +3,13 @@
 		"authors": [
 			"Hedda",
 			"Joseph",
-			"Melissadilara"
+			"Melissadilara",
+			"SaldırganSincap"
 		]
 	},
 	"bs-custommenu-desc": "Özelleştirilebilir menüler oluşturur",
-	"bs-custommenu-navbar-button-title": "Özel menü",
-	"bs-custommenu-navbar-button-aria-label": "Özel menü",
+	"bs-custommenu-navbar-button-title": "Genişletilmiş menü",
+	"bs-custommenu-navbar-button-aria-label": "Genişletilmiş menü",
 	"bs-custommenu-editlink-text": "Menüyü Düzenle",
 	"bs-custommenu-editlink-title": "Menüyü düzenle"
 }
