@@ -10,8 +10,7 @@
 	"bs-custommenu-navbar-button-aria-label": "Seitenspezifisches Menü",
 	"bs-custommenu-editlink-text": "Menü bearbeiten",
 	"bs-custommenu-editlink-title": "Menü bearbeiten",
-	"bs-custommenu-no-entries": "Es wurden noch keine Einträge für dieses Menü erstellt",
+	"bs-custommenu-no-entries-label": "Dieses Menü enthält aktuell keine Einträge",
 	"bs-pref-custommenu-show-custom-menu-header": "Erweitertes Menü anzeigen",
-	"bs-pref-custommenu-show-custom-menu-header-help": "Diese Option aktivieren, um das erweiterte Menü im Kopfbereich der Seite anzuzeigen",
-	"bs-custommenu-no-entries-label": "Dieses Menü enthält aktuell keine Einträge"
+	"bs-pref-custommenu-show-custom-menu-header-help": "Diese Option aktivieren, um das erweiterte Menü im Kopfbereich der Seite anzuzeigen"
 }

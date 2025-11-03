@@ -9,7 +9,7 @@
 	"bs-custommenu-navbar-button-aria-label": "Aria label attribute for the button that opens the menu with custom links",
 	"bs-custommenu-editlink-text": "Text for the link, that allowes editing the menu.\n{{Identical|Edit menu}}",
 	"bs-custommenu-editlink-title": "Title for the link, that allowes editing the menu.\n{{Identical|Edit menu}}",
+	"bs-custommenu-no-entries-label": "Label menu dropdown if there are no entries",
 	"bs-pref-custommenu-show-custom-menu-header": "Label for the preference to show the extended menu",
-	"bs-pref-custommenu-show-custom-menu-header-help": "Help text for the preference to show the extended menu.\n{{Identical|Show extended menu}}",
-	"bs-custommenu-no-entries-label": "Label menu dropdown if there are no entries"
+	"bs-pref-custommenu-show-custom-menu-header-help": "Help text for the preference to show the extended menu.\n{{Identical|Show extended menu}}"
 }

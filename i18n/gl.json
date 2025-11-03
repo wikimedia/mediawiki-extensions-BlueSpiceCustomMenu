@@ -9,7 +9,7 @@
 	"bs-custommenu-navbar-button-aria-label": "Menú ampliado",
 	"bs-custommenu-editlink-text": "Editar o menú",
 	"bs-custommenu-editlink-title": "Editar o menú",
-	"bs-custommenu-no-entries": "Aínda non se crearon entradas para este menú",
+	"bs-custommenu-no-entries-label": "Nestes intres este menú non ten entradas",
 	"bs-pref-custommenu-show-custom-menu-header": "Mostrar o menú ampliado",
 	"bs-pref-custommenu-show-custom-menu-header-help": "Activa esta opción para mostrar o menú ampliado na cabeceira da páxina"
 }
