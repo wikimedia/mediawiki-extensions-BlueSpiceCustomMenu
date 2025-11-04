@@ -9,7 +9,7 @@
 	"bs-custommenu-navbar-button-aria-label": "Menu extendite",
 	"bs-custommenu-editlink-text": "Modificar menu",
 	"bs-custommenu-editlink-title": "Modificar menu",
-	"bs-custommenu-no-entries": "Necun entrata ha ancora essite create pro iste menu",
+	"bs-custommenu-no-entries-label": "Iste menu actualmente non ha entratas",
 	"bs-pref-custommenu-show-custom-menu-header": "Monstrar menu extendite",
 	"bs-pref-custommenu-show-custom-menu-header-help": "Activa iste option pro monstrar le menu extendite al initio del pagina"
 }
