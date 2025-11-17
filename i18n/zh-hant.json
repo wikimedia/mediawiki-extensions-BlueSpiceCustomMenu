@@ -12,5 +12,6 @@
 	"bs-custommenu-editlink-title": "編輯選單",
 	"bs-custommenu-no-entries": "此選單尚未建立任何實體",
 	"bs-pref-custommenu-show-custom-menu-header": "顯示擴充選單",
-	"bs-pref-custommenu-show-custom-menu-header-help": "啟用此選項可在頁面頂部顯示擴充選單"
+	"bs-pref-custommenu-show-custom-menu-header-help": "啟用此選項可在頁面頂部顯示擴充選單",
+	"bs-custommenu-no-entries-label": "此選單目前沒有任何項目"
 }
