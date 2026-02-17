@@ -9,5 +9,6 @@
 	"bs-custommenu-navbar-button-title": "Tilpasset meny",
 	"bs-custommenu-navbar-button-aria-label": "Tilpasset meny",
 	"bs-custommenu-editlink-text": "Rediger meny",
-	"bs-custommenu-editlink-title": "Rediger meny"
+	"bs-custommenu-editlink-title": "Rediger meny",
+	"bs-custommenu-no-entries-label": "Denne menyen har ingen oppføringer"
 }
