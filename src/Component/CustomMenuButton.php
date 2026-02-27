@@ -83,7 +83,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	 * @return array
 	 */
 	public function getIconClasses(): array {
-		return [ 'bi-grid-3x3-gap-fill' ];
+		return [ 'bi-bs-menu' ];
 	}
 
 	/**
