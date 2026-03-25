@@ -8,8 +8,8 @@
 		]
 	},
 	"bs-custommenu-desc": "Предоставляет настраиваемые меню",
-	"bs-custommenu-navbar-button-title": "Пользовательское меню",
-	"bs-custommenu-navbar-button-aria-label": "Пользовательское меню",
+	"bs-custommenu-navbar-button-title": "Расширенное меню",
+	"bs-custommenu-navbar-button-aria-label": "Расширенное меню",
 	"bs-custommenu-editlink-text": "Редактировать меню",
 	"bs-custommenu-editlink-title": "Редактировать меню"
 }

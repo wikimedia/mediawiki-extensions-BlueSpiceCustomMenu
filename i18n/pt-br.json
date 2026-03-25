@@ -6,8 +6,11 @@
 		]
 	},
 	"bs-custommenu-desc": "Fornece menus customizáveis",
-	"bs-custommenu-navbar-button-title": "Menu customizado",
-	"bs-custommenu-navbar-button-aria-label": "Menu customizado",
+	"bs-custommenu-navbar-button-title": "Menu estendido",
+	"bs-custommenu-navbar-button-aria-label": "Menu estendido",
 	"bs-custommenu-editlink-text": "Editar menu",
-	"bs-custommenu-editlink-title": "Editar menu"
+	"bs-custommenu-editlink-title": "Editar menu",
+	"bs-custommenu-no-entries-label": "Este menu atualmente não possui itens.",
+	"bs-pref-custommenu-show-custom-menu-header": "Mostrar menu estendido",
+	"bs-pref-custommenu-show-custom-menu-header-help": "Ative esta opção para exibir o menu estendido no cabeçalho da página."
 }

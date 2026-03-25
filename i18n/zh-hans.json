@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Peterxy12",
 			"Shimamura Sakura",
 			"TsuyaMarisa",
 			"佛壁灯",
@@ -8,8 +9,11 @@
 		]
 	},
 	"bs-custommenu-desc": "提供可自定义菜单",
-	"bs-custommenu-navbar-button-title": "自定义菜单",
-	"bs-custommenu-navbar-button-aria-label": "自定义设置",
+	"bs-custommenu-navbar-button-title": "扩展菜单",
+	"bs-custommenu-navbar-button-aria-label": "扩展菜单",
 	"bs-custommenu-editlink-text": "编辑菜单",
-	"bs-custommenu-editlink-title": "编辑菜单"
+	"bs-custommenu-editlink-title": "编辑菜单",
+	"bs-custommenu-no-entries-label": "此菜单目前没有任何项目",
+	"bs-pref-custommenu-show-custom-menu-header": "显示扩展菜单",
+	"bs-pref-custommenu-show-custom-menu-header-help": "启用此选项可在页面顶部显示扩充菜单"
 }

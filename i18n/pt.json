@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"Mansil alfalb"
 		]
 	},
 	"bs-custommenu-desc": "Fornece menus personalizáveis",
-	"bs-custommenu-navbar-button-title": "Menu personalizado",
-	"bs-custommenu-navbar-button-aria-label": "Menu personalizado",
+	"bs-custommenu-navbar-button-title": "Menu estendido",
+	"bs-custommenu-navbar-button-aria-label": "Menu estendido",
 	"bs-custommenu-editlink-text": "Editar menu",
 	"bs-custommenu-editlink-title": "Editar menu"
 }

@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"Սերգեյ Սաֆարյան"
 		]
 	},
-	"bs-custommenu-navbar-button-title": "Օգտվողի ընտրացանկ",
-	"bs-custommenu-navbar-button-aria-label": "Օգտվողի ընտրացանկ",
+	"bs-custommenu-navbar-button-title": "Ընդլայնված մենյու",
+	"bs-custommenu-navbar-button-aria-label": "Ընդլայնված մենյու",
 	"bs-custommenu-editlink-text": "Խմբագրել ընտրացանկը",
 	"bs-custommenu-editlink-title": "Խմբագրել ընտրացանկը"
 }

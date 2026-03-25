@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Krisztina"
+		]
+	},
+	"bs-custommenu-desc": "Testreszabható menüket kínál",
+	"bs-custommenu-navbar-button-title": "Egyedi menü",
+	"bs-custommenu-navbar-button-aria-label": "Egyedi menü",
+	"bs-custommenu-editlink-text": "Menü szerkesztése",
+	"bs-custommenu-editlink-title": "Menü szerkesztése"
+}

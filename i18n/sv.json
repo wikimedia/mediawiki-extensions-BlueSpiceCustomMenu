@@ -1,8 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mjälten"
+			"Mjälten",
+			"Stefan2255"
 		]
 	},
-	"bs-custommenu-desc": "Erbjuder egendefinierade menyer"
+	"bs-custommenu-desc": "Erbjuder egendefinierade menyer",
+	"bs-custommenu-navbar-button-title": "Utökad meny",
+	"bs-custommenu-navbar-button-aria-label": "Utökad meny",
+	"bs-custommenu-editlink-text": "Redigera meny",
+	"bs-custommenu-editlink-title": "Redigera meny",
+	"bs-custommenu-no-entries-label": "Den här menyn har för närvarande inga poster",
+	"bs-pref-custommenu-show-custom-menu-header": "Visa utökad meny",
+	"bs-pref-custommenu-show-custom-menu-header-help": "Aktivera det här alternativet för att visa den utökade menyn i sidans huvud"
 }

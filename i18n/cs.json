@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fraxinus.cs"
+			"Fraxinus.cs",
+			"Jrobicek"
 		]
 	},
 	"bs-custommenu-navbar-button-title": "Vlastní menu",
-	"bs-custommenu-navbar-button-aria-label": "Vlastní menu"
+	"bs-custommenu-navbar-button-aria-label": "Vlastní menu",
+	"bs-custommenu-editlink-text": "Menu úprav",
+	"bs-custommenu-editlink-title": "Menu úprav"
 }

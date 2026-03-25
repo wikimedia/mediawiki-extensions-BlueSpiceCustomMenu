@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Ioe2015",
-			"Leduyquang753"
+			"Leduyquang753",
+			"Minh Nguyen"
 		]
 	},
 	"bs-custommenu-desc": "Cung cấp các bảng chọn tùy biến",
-	"bs-custommenu-navbar-button-title": "Bảng chọn tuỳ chỉnh",
-	"bs-custommenu-navbar-button-aria-label": "Bảng chọn tuỳ chỉnh",
+	"bs-custommenu-navbar-button-title": "Bảng chọn tùy chỉnh",
+	"bs-custommenu-navbar-button-aria-label": "Bảng chọn tùy chỉnh",
 	"bs-custommenu-editlink-text": "Sửa đổi bảng chọn"
 }
