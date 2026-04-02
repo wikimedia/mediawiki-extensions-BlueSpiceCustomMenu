@@ -12,5 +12,6 @@
 	"bs-custommenu-editlink-text": "עריכת התפריט",
 	"bs-custommenu-editlink-title": "עריכת התפריט",
 	"bs-pref-custommenu-show-custom-menu-header": "הצגת תפריט מורחב",
-	"bs-pref-custommenu-show-custom-menu-header-help": "יש להפעיל את האפשרות הזאת כדי להציג את התפריט המורחב בכותרת העליונה של הדף"
+	"bs-pref-custommenu-show-custom-menu-header-help": "יש להפעיל את האפשרות הזאת כדי להציג את התפריט המורחב בכותרת העליונה של הדף",
+	"bs-custommenu-no-entries-label": "בתפריט הזה אין כעת רשומות"
 }
