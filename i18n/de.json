@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Mglaser",
+			"Mschlindwein",
 			"Patric Wirth"
 		]
 	},
 	"bs-custommenu-desc": "Stellt anpassbare Menüs zur Verfügung",
-	"bs-custommenu-navbar-button-title": "Seitenspezifisches Menü",
-	"bs-custommenu-navbar-button-aria-label": "Seitenspezifisches Menü",
+	"bs-custommenu-navbar-button-title": "Erweitertes Menü",
+	"bs-custommenu-navbar-button-aria-label": "Erweitertes Menü",
 	"bs-custommenu-editlink-text": "Menü bearbeiten",
 	"bs-custommenu-editlink-title": "Menü bearbeiten",
 	"bs-custommenu-no-entries": "Es wurden noch keine Einträge für dieses Menü erstellt",
