@@ -51,12 +51,25 @@ class Factory {
 		if ( !is_callable( $callable ) ) {
 			return null;
 		}
-		$this->instances[$key] = call_user_func(
+		$instance = call_user_func(
 			$callable,
 			$this->config,
 			$key
 		);
-		return $this->instances[$key];
+		if ( !( $instance instanceof ICustomMenu ) ) {
+			throw new \UnexpectedValueException( "Callable for key $key did not return an instance of ICustomMenu" );
+		}
+		return $this->register( $key, $instance );
+	}
+
+	/**
+	 * @param string $key
+	 * @param ICustomMenu $customMenu
+	 * @return ICustomMenu
+	 */
+	public function register( string $key, ICustomMenu $customMenu ): ICustomMenu {
+		$this->instances[$key] = $customMenu;
+		return $customMenu;
 	}
 
 	/**
