@@ -29,6 +29,10 @@ class Header extends MediawikiSidebar {
 		return 'ext.custommenu.menueditor.HeaderTree';
 	}
 
+	public function getAllowedNodes(): array {
+		return parent::getAllowedNodes();
+	}
+
 	/**
 	 * @inheritDoc
 	 */

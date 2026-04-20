@@ -50,7 +50,7 @@ class MenuParser {
 	/**
 	 * @var Title
 	 */
-	private $sourceTitle = null;
+	protected $sourceTitle = null;
 
 	/**
 	 * @param Title|null $currentTitle
@@ -79,6 +79,9 @@ class MenuParser {
 	 * @return array
 	 */
 	public function getNavigationSites( ?Title $title ) {
+		if ( !$this->currentTitle ) {
+			return [];
+		}
 		$menu = [];
 
 		if ( !$title || !$title->exists() ) {
@@ -113,7 +116,7 @@ class MenuParser {
 	 * @param int $iPassed
 	 * @return array
 	 */
-	private function parseArticleContentLines(
+	protected function parseArticleContentLines(
 		$aLines,
 		$iAllowedLevels = 2,
 		$iMaxMainEntries = 5,
@@ -276,10 +279,7 @@ class MenuParser {
 				if ( $oTitle === null ) {
 					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
 				} else {
-					$newApp['href'] = $oTitle->getLocalURL();
-					if ( $oTitle->hasFragment() ) {
-						$newApp['href'] .= $oTitle->getFragmentForURL();
-					}
+					$newApp['href'] = $this->getTitleUrl( $oTitle );
 
 					if ( $oTitle->equals( $this->currentTitle ) ) {
 						$newApp['active'] = true;
@@ -295,6 +295,18 @@ class MenuParser {
 		}
 
 		return $newApp;
+	}
+
+	/**
+	 * @param Title $title
+	 * @return string
+	 */
+	protected function getTitleUrl( Title $title ): string {
+		$url = $title->getLocalURL();
+		if ( $title->hasFragment() ) {
+			$url .= $title->getFragmentForURL();
+		}
+		return $url;
 	}
 
 	/**
