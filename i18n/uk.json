@@ -4,6 +4,7 @@
 			"DDPAT",
 			"Ice bulldog",
 			"Piramidion",
+			"Repakr",
 			"Ата"
 		]
 	},
@@ -11,5 +12,8 @@
 	"bs-custommenu-navbar-button-title": "Розширене меню",
 	"bs-custommenu-navbar-button-aria-label": "Розширене меню",
 	"bs-custommenu-editlink-text": "Редагувати меню",
-	"bs-custommenu-editlink-title": "Редагувати меню"
+	"bs-custommenu-editlink-title": "Редагувати меню",
+	"bs-custommenu-no-entries-label": "У цьому меню наразі немає записів",
+	"bs-pref-custommenu-show-custom-menu-header": "Показати розширене меню",
+	"bs-pref-custommenu-show-custom-menu-header-help": "Увімкніть цю опцію, щоб відобразити розширене меню у заголовку сторінки"
 }
