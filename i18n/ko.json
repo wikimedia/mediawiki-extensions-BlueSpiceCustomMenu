@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"YeBoy371",
 			"Ykhwong"
 		]
@@ -9,5 +10,8 @@
 	"bs-custommenu-navbar-button-title": "확장 메뉴",
 	"bs-custommenu-navbar-button-aria-label": "확장 메뉴",
 	"bs-custommenu-editlink-text": "메뉴 편집",
-	"bs-custommenu-editlink-title": "메뉴 편집"
+	"bs-custommenu-editlink-title": "메뉴 편집",
+	"bs-custommenu-no-entries-label": "이 메뉴는 현재 항목이 없습니다",
+	"bs-pref-custommenu-show-custom-menu-header": "확장 메뉴 표시",
+	"bs-pref-custommenu-show-custom-menu-header-help": "페이지 헤더에 확장된 메뉴를 표시하려면 이 옵션을 활성화하세요."
 }
