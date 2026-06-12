@@ -7,6 +7,7 @@ use BlueSpice\CustomMenu\Factory;
 use Config;
 use MediaWiki\Config\ConfigFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\Hook\MWStakeCommonUIRegisterSkinSlotComponents;
+use RequestContext;
 
 class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 
@@ -36,16 +37,30 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 		if ( !$this->config->get( 'ShowCustomMenuHeader' ) ) {
 			return;
 		}
-
-		$registry->register(
-			'NavbarPrimaryItems',
-			[
-				"cm-bluespice-item" => [
-					'factory' => static function () use ( $menu, ) {
-						return new CustomMenuButton( $menu );
-					}
+		$skin = RequestContext::getMain()->getSkin();
+		if ( is_a( $skin, 'SkinBlueSpiceEclipseSkin', true ) ) {
+			$registry->register(
+				'NavbarPrimaryCenterItems',
+				[
+					"z-custommenu-item" => [
+						'factory' => static function () use ( $menu, ) {
+							return new CustomMenuButton( $menu );
+						}
+					]
 				]
-			]
-		);
+			);
+		}
+		if ( is_a( $skin, 'SkinBlueSpiceDiscoverySkin', true ) ) {
+			$registry->register(
+				'NavbarPrimaryItems',
+				[
+					"cm-bluespice-item" => [
+						'factory' => static function () use ( $menu, ) {
+							return new CustomMenuButton( $menu );
+						}
+					]
+				]
+			);
+		}
 	}
 }
