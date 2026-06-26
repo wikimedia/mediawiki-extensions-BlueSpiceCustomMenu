@@ -276,8 +276,8 @@ class MenuParser {
 					. '/' . $aAppParts[1];
 			} else {
 				$oTitle = Title::newFromText( trim( $aAppParts[1] ) );
-				if ( $oTitle === null ) {
-					// TODO: Use status ojb on BeforeArticleSave to detect parse errors
+				if ( $oTitle === null || !$this->isTitleReadable( $oTitle ) ) {
+					return [];
 				} else {
 					$newApp['href'] = $this->getTitleUrl( $oTitle );
 
@@ -369,4 +369,13 @@ class MenuParser {
 		}
 		return $sWikiText;
 	}
+
+	/**
+	 * @param Title $title
+	 * @return true
+	 */
+	protected function isTitleReadable( Title $title ): bool {
+		return true;
+	}
+
 }
