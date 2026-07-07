@@ -50,7 +50,7 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 				]
 			);
 		}
-		if ( is_a( $skin, 'SkinBlueSpiceDiscoverySkin', true ) ) {
+		if ( is_a( $skin, 'BlueSpice\Discovery\Skin', true ) ) {
 			$registry->register(
 				'NavbarPrimaryItems',
 				[
