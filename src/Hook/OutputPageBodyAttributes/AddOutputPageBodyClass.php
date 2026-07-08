@@ -7,7 +7,6 @@ use BlueSpice\Hook\OutputPageBodyAttributes;
 class AddOutputPageBodyClass extends OutputPageBodyAttributes {
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function skipProcessing() {
@@ -24,7 +23,6 @@ class AddOutputPageBodyClass extends OutputPageBodyAttributes {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function doProcess() {

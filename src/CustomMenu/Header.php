@@ -12,7 +12,6 @@ use MWStake\MediaWiki\Component\DataStore\RecordSet;
 class Header extends \BlueSpice\CustomMenu\CustomMenu {
 
 	/**
-	 *
 	 * @return Record[]
 	 */
 	protected function getRecords() {
@@ -45,7 +44,6 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	}
 
 	/**
-	 *
 	 * @param Record[] $records
 	 * @return Record[]
 	 */
@@ -78,7 +76,6 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 	}
 
 	/**
-	 *
 	 * @param array $entry
 	 * @return Record
 	 */
@@ -94,20 +91,28 @@ class Header extends \BlueSpice\CustomMenu\CustomMenu {
 		return new Record( (object)$entry );
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function numberOfLevels() {
 		return $this->config->get( 'CustomMenuHeaderNumberOfLevels' );
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function numberOfMainEntries() {
 		return $this->config->get( 'CustomMenuHeaderNumberOfMainEntries' );
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function numberOfSubEntries() {
 		return $this->config->get( 'CustomMenuHeaderNumberOfSubEntries' );
 	}
 
 	/**
-	 *
 	 * @return string
 	 */
 	public function getEditURL() {

@@ -9,7 +9,6 @@ use MediaWikiIntegrationTestCase;
 use MenuParser as GlobalMenuParser;
 
 /**
- *
  * @group Database
  */
 class MenuParserTest extends MediaWikiIntegrationTestCase {
