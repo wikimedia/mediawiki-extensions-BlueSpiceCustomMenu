@@ -18,7 +18,6 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function noDataToMigrate() {
@@ -41,7 +40,6 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function doDBUpdates() {
@@ -76,7 +74,6 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 	}
 
 	/**
-	 *
 	 * @return User
 	 */
 	protected function getMaintenanceUser() {
@@ -84,7 +81,6 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 	}
 
 	/**
-	 *
 	 * @return string
 	 */
 	protected function getUpdateKey() {

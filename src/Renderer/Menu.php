@@ -62,7 +62,6 @@ class Menu extends \BlueSpice\Renderer {
 	}
 
 	/**
-	 *
 	 * @return string HTML
 	 */
 	protected function makeTagContent() {
@@ -121,7 +120,6 @@ class Menu extends \BlueSpice\Renderer {
 	}
 
 	/**
-	 *
 	 * @return string
 	 */
 	protected function makeItemRendererKey() {

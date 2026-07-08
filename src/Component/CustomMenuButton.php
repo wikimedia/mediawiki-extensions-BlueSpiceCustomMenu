@@ -34,7 +34,6 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function shouldRender( IContextSource $context ): bool {
@@ -51,7 +50,6 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getRequiredRLStyles(): array {
@@ -221,7 +219,6 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public function getPermissions(): array {
