@@ -248,6 +248,7 @@ class MenuParser {
 					return [];
 				} else {
 					$newApp['href'] = $this->getTitleUrl( $oTitle );
+					$newApp['_title'] = $oTitle;
 
 					if ( $oTitle->equals( $this->currentTitle ) ) {
 						$newApp['active'] = true;
