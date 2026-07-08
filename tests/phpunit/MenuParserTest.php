@@ -37,6 +37,39 @@ class MenuParserTest extends MediaWikiIntegrationTestCase {
 
 		$expected = FormatJson::decode( file_get_contents( __DIR__ . '/data/Menu.json' ), true );
 		$actual = $parser->getNavigationSites( $sourceTitle );
+		$this->assertMenuTitles( $actual );
+		$actual = $this->stripMenuTitles( $actual );
 		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * @param array $menuItems
+	 */
+	private function assertMenuTitles( array $menuItems ) {
+		foreach ( $menuItems as $menuItem ) {
+			if ( isset( $menuItem['_title'] ) ) {
+				$this->assertInstanceOf( Title::class, $menuItem['_title'] );
+			}
+
+			if ( isset( $menuItem['children'] ) ) {
+				$this->assertMenuTitles( $menuItem['children'] );
+			}
+		}
+	}
+
+	/**
+	 * @param array $menuItems
+	 * @return array
+	 */
+	private function stripMenuTitles( array $menuItems ): array {
+		foreach ( $menuItems as &$menuItem ) {
+			unset( $menuItem['_title'] );
+
+			if ( isset( $menuItem['children'] ) ) {
+				$menuItem['children'] = $this->stripMenuTitles( $menuItem['children'] );
+			}
+		}
+
+		return $menuItems;
 	}
 }
