@@ -8,7 +8,6 @@ use MediaWiki\Title\Title;
 class InvalidateHeaderMenu extends PageMoveComplete {
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function skipProcessing() {
@@ -29,7 +28,6 @@ class InvalidateHeaderMenu extends PageMoveComplete {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function doProcess() {

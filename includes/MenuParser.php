@@ -1,45 +1,10 @@
 <?php
-/**
- * TopMenuBarCustomizerParser class for extension TopMenuBarCustomizer
- *
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- *
- * This file is part of BlueSpice MediaWiki
- * For further information visit https://bluespice.com
- *
- * @author     Patric Wirth
- * @package    BlueSpice_Extensions
- * @subpackage TopMenuBarCustomizer
- * @copyright  Copyright (C) 2016 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GPL-2.0-or-later
- * @filesource
- */
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Title\Title;
 
-/**
- * TODO: Also re-write this parser or may even use some Treeparser from
- * Foundation !
- * TopMenuBarCustomizerParser class for TopMenuBarCustomizer extension
- * @package BlueSpice_Extensions
- * @subpackage TopMenuBarCustomizer
- */
 class MenuParser {
 
 	/**
@@ -204,6 +169,9 @@ class MenuParser {
 	/** @var int */
 	private static $idCounter = 0;
 
+	/**
+	 * @return string|false
+	 */
 	private function makeId() {
 		$base = strtolower( $this->sourceTitle->getPrefixedDBkey() );
 		$id = Sanitizer::escapeIdForAttribute( $base . static::$idCounter++ );

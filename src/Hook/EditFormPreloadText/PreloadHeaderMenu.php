@@ -10,7 +10,6 @@ use MWStake\MediaWiki\Component\DataStore\RecordSet;
 class PreloadHeaderMenu extends \BlueSpice\Hook\EditFormPreloadText {
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function skipProcessing() {
@@ -29,7 +28,6 @@ class PreloadHeaderMenu extends \BlueSpice\Hook\EditFormPreloadText {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function doProcess() {
@@ -50,7 +48,6 @@ class PreloadHeaderMenu extends \BlueSpice\Hook\EditFormPreloadText {
 	}
 
 	/**
-	 *
 	 * @param IRecord $record
 	 * @return array
 	 */

@@ -8,25 +8,21 @@ use MediaWiki\Config\Config;
 class Factory {
 
 	/**
-	 *
 	 * @var ICustomMenu[]
 	 */
 	protected $instances = [];
 
 	/**
-	 *
 	 * @var ExtensionAttributeBasedRegistry
 	 */
 	protected $registry = null;
 
 	/**
-	 *
 	 * @var Config
 	 */
 	protected $config = null;
 
 	/**
-	 *
 	 * @param ExtensionAttributeBasedRegistry $registry
 	 * @param Config $config
 	 */
@@ -36,7 +32,6 @@ class Factory {
 	}
 
 	/**
-	 *
 	 * @param string $key
 	 * @return ICustomMenu|null
 	 */
@@ -73,7 +68,6 @@ class Factory {
 	}
 
 	/**
-	 *
 	 * @return ICustomMenu[]
 	 */
 	public function getAllMenus() {
