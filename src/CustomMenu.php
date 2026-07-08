@@ -28,7 +28,6 @@ abstract class CustomMenu implements ICustomMenu {
 	protected $config = null;
 
 	/**
-	 *
 	 * @var UtilityFactory
 	 */
 	protected $util = null;
@@ -45,7 +44,6 @@ abstract class CustomMenu implements ICustomMenu {
 	}
 
 	/**
-	 *
 	 * @param Config $config
 	 * @param string $key
 	 * @param UtilityFactory|null $util

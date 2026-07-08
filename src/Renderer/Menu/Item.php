@@ -75,7 +75,6 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function hasChildren() {
@@ -88,7 +87,6 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	}
 
 	/**
-	 *
 	 * @return string HTML
 	 */
 	protected function makeTagContent() {
@@ -121,7 +119,6 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	}
 
 	/**
-	 *
 	 * @return string HTML
 	 */
 	protected function makeItemAnchor() {
@@ -133,7 +130,6 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	protected function makeItemAnchorAttribs() {
@@ -152,7 +148,6 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	}
 
 	/**
-	 *
 	 * @param int $level
 	 * @return string HTML
 	 */
@@ -164,7 +159,6 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	}
 
 	/**
-	 *
 	 * @return string HTML
 	 */
 	protected function makeChildMenuClosingTag() {
@@ -172,7 +166,6 @@ class Item extends \BlueSpice\CustomMenu\Renderer\Menu {
 	}
 
 	/**
-	 *
 	 * @param int $level
 	 * @return array
 	 */

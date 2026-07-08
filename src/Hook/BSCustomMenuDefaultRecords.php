@@ -34,19 +34,16 @@ use MWStake\MediaWiki\Component\DataStore\Record;
 abstract class BSCustomMenuDefaultRecords extends Hook {
 
 	/**
-	 *
 	 * @var string
 	 */
 	protected $key = null;
 
 	/**
-	 *
 	 * @var Record
 	 */
 	protected $record = null;
 
 	/**
-	 *
 	 * @param string $key
 	 * @param Record &$record
 	 * @return bool
@@ -63,7 +60,6 @@ abstract class BSCustomMenuDefaultRecords extends Hook {
 	}
 
 	/**
-	 *
 	 * @param IContextSource $context
 	 * @param Config $config
 	 * @param string $key

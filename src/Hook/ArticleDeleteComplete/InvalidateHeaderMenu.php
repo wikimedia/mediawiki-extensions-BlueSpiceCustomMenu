@@ -7,7 +7,6 @@ use MediaWiki\Title\Title;
 class InvalidateHeaderMenu extends \BlueSpice\Hook\ArticleDeleteComplete {
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function skipProcessing() {
@@ -23,7 +22,6 @@ class InvalidateHeaderMenu extends \BlueSpice\Hook\ArticleDeleteComplete {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	protected function doProcess() {
