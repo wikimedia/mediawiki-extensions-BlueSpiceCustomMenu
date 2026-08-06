@@ -6,8 +6,8 @@ use BlueSpice\CustomMenu\Component\CustomMenuButton;
 use BlueSpice\CustomMenu\Factory;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigFactory;
+use MediaWiki\Context\RequestContext;
 use MWStake\MediaWiki\Component\CommonUserInterface\Hook\MWStakeCommonUIRegisterSkinSlotComponents;
-use RequestContext;
 
 class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 
