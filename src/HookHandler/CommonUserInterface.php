@@ -4,7 +4,7 @@ namespace BlueSpice\CustomMenu\HookHandler;
 
 use BlueSpice\CustomMenu\Component\CustomMenuButton;
 use BlueSpice\CustomMenu\Factory;
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\Hook\MWStakeCommonUIRegisterSkinSlotComponents;
 
