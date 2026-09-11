@@ -175,7 +175,8 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	private function populateItems( array $records ): array {
 		$items = [];
 		foreach ( $records as $record ) {
-			if ( !$record->get( 'children', false ) instanceof RecordSet ) {
+			$children = $record->get( 'children', false );
+			if ( $children && !$children instanceof RecordSet ) {
 				continue;
 			}
 			$text = $record->get( 'text', '' );
@@ -204,7 +205,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 							'menu-list',
 							'll-dft'
 						],
-						'links' => $this->getRecordLinkDefinition( $record ),
+						'links' => $this->getRecordLinkDefinition( $children ),
 						'role' => 'group',
 						'item-role' => 'presentation',
 						'aria' => [
@@ -226,12 +227,14 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	}
 
 	/**
-	 * @param Record $record
+	 * @param RecordSet|null $recordSet The record set may not have children (NULL case)
 	 * @return array
 	 */
-	private function getRecordLinkDefinition( $record ): array {
+	private function getRecordLinkDefinition( $recordSet ): array {
 		$links = [];
-		foreach ( $record->get( 'children' )->getRecords() as $child ) {
+		$childRecords = $recordSet ? $recordSet->getRecords() : [];
+
+		foreach ( $childRecords as $child ) {
 			$id = Sanitizer::escapeIdForAttribute( $child->get( 'id', '' ) );
 			$text = $child->get( 'text', '' );
 			if ( empty( $text ) ) {
