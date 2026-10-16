@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"bs-custommenu-desc": "Poskytuje prispôsobiteľné ponuky",
+	"bs-custommenu-navbar-button-title": "Rozšírená ponuka",
+	"bs-custommenu-navbar-button-aria-label": "Rozšírená ponuka",
+	"bs-custommenu-editlink-text": "Upraviť ponuku",
+	"bs-custommenu-editlink-title": "Upraviť ponuku",
+	"bs-custommenu-no-entries-label": "Táto ponuka momentálne nemá žiadne položky",
+	"bs-pref-custommenu-show-custom-menu-header": "Zobrazovať rozšírenú ponuku",
+	"bs-pref-custommenu-show-custom-menu-header-help": "Zapnutím tejto možnosti sa rozšírená ponuka zobrazí v hlavičke stránky"
+}
