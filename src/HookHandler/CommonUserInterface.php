@@ -39,27 +39,21 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 		}
 		$skin = RequestContext::getMain()->getSkin();
 		if ( is_a( $skin, 'SkinBlueSpiceEclipseSkin', true ) ) {
-			$registry->register(
-				'NavbarPrimaryCenterItems',
-				[
-					"z-custommenu-item" => [
-						'factory' => static function () use ( $menu, ) {
-							return new CustomMenuButton( $menu );
-						}
-					]
-				]
-			);
+			$slot = 'NavbarPrimaryEastItems';
 		} elseif ( is_a( $skin, 'BlueSpice\Discovery\Skin', true ) ) {
-			$registry->register(
-				'NavbarPrimaryItems',
-				[
-					"cm-bluespice-item" => [
-						'factory' => static function () use ( $menu, ) {
-							return new CustomMenuButton( $menu );
-						}
-					]
-				]
-			);
+			$slot = 'NavbarPrimaryItems';
+		} else {
+			return;
 		}
+		$registry->register(
+			$slot,
+			[
+				"cm-bluespice-item" => [
+					'factory' => static function () use ( $menu, ) {
+						return new CustomMenuButton( $menu );
+					}
+				]
+			]
+		);
 	}
 }

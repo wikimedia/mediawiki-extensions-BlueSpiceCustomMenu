@@ -106,6 +106,25 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 
 		// Insert placeholder text
 		if ( empty( $items ) ) {
+			$placeholder = [
+				new Literal(
+					"cm-empty-menu",
+					Html::element( 'div', [ 'id' => 'cm-empty-menu', 'class' => 'cm-empty-menu' ] )
+				),
+				new Literal(
+					"cm-menu-title-0",
+					Html::element( 'p', [],
+						Message::newFromKey( "bs-custommenu-no-entries-label" )->escaped() )
+				)
+			];
+			$descriptionKey = $this->menu->getEmptyMenuDescriptionMessageKey();
+			if ( $descriptionKey ) {
+				$placeholder[] = new Literal(
+					"cm-empty-menu-desc",
+					Html::element( 'p', [ 'class' => 'cm-empty-menu-desc' ],
+						$this->context->msg( $descriptionKey )->text() )
+				);
+			}
 			$items = [
 				new SimpleCard( [
 					'id' => "cm-menu-0",
@@ -114,17 +133,7 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 						new SimpleCardBody( [
 							'id' => "cm-menu-0-head",
 							'classes' => [ 'menu-title' ],
-							'items' => [
-								new Literal(
-									"cm-empty-menu",
-									Html::element( 'div', [ 'id' => 'cm-empty-menu', 'class' => 'cm-empty-menu' ] )
-								),
-								new Literal(
-									"cm-menu-title-0",
-									Html::element( 'p', [],
-										Message::newFromKey( "bs-custommenu-no-entries-label" )->escaped() )
-								)
-							]
+							'items' => $placeholder
 						] )
 					]
 				] )

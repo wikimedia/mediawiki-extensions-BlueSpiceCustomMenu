@@ -163,4 +163,11 @@ abstract class CustomMenu implements ICustomMenu {
 	public function getEditURL() {
 		return null;
 	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getEmptyMenuDescriptionMessageKey() {
+		return null;
+	}
 }
