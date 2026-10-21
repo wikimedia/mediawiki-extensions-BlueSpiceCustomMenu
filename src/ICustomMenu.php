@@ -46,4 +46,11 @@ interface ICustomMenu {
 	 * @return string|null
 	 */
 	public function getEditURL();
+
+	/**
+	 * Message key for an explanatory text shown below the "no entries" label
+	 *
+	 * @return string|null
+	 */
+	public function getEmptyMenuDescriptionMessageKey();
 }
