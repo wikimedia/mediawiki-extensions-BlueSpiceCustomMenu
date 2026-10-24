@@ -8,5 +8,8 @@
 	"bs-custommenu-navbar-button-title": "غځول‌شوې غوره‌نۍ",
 	"bs-custommenu-navbar-button-aria-label": "غځول‌شوې غوره‌نۍ",
 	"bs-custommenu-editlink-text": "غوره‌نۍ سمول",
-	"bs-custommenu-editlink-title": "غوره‌نۍ سمول"
+	"bs-custommenu-editlink-title": "غوره‌نۍ سمول",
+	"bs-custommenu-no-entries-label": "دا غوره‌نۍ وسمهال هېڅ ننوتنې نه لري",
+	"bs-pref-custommenu-show-custom-menu-header": "غځول‌شوې غوره‌نۍ وښاياست",
+	"bs-pref-custommenu-show-custom-menu-header-help": "د مخ سرليک کې د غځول‌شوې غوره‌نۍ ښودلو لپاره دا خوښنه چارن کړئ"
 }
