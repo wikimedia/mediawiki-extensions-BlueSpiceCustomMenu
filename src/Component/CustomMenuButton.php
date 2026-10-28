@@ -3,7 +3,6 @@
 namespace BlueSpice\CustomMenu\Component;
 
 use BlueSpice\CustomMenu\ICustomMenu;
-use HtmlArmor;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
@@ -20,6 +19,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 use MWStake\MediaWiki\Component\DataStore\Record;
 use MWStake\MediaWiki\Component\DataStore\RecordSet;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponent {
 
