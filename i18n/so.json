@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"bs-custommenu-desc": "Waxay bixisaa liisas la habayn karo",
+	"bs-custommenu-navbar-button-title": "Liiska la ballaariyay",
+	"bs-custommenu-navbar-button-aria-label": "Liiska la ballaariyay",
+	"bs-custommenu-editlink-text": "Wax ka beddel liiska la ballaariyay",
+	"bs-custommenu-editlink-title": "Wax ka beddel liiska la ballaariyay",
+	"bs-custommenu-no-entries-label": "Liiskani hadda ma laha wax gelin ah",
+	"bs-pref-custommenu-show-custom-menu-header": "Muuji liiska la ballaariyay",
+	"bs-pref-custommenu-show-custom-menu-header-help": "Daar ikhtiyaarkan si liiska la ballaariyay loogu muujiyo madaxa bogga"
+}
