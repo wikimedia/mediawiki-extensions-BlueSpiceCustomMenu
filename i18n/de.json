@@ -3,14 +3,15 @@
 		"authors": [
 			"Mglaser",
 			"Mschlindwein",
-			"Patric Wirth"
+			"Patric Wirth",
+			"Vhoesl"
 		]
 	},
 	"bs-custommenu-desc": "Stellt anpassbare Menüs zur Verfügung",
 	"bs-custommenu-navbar-button-title": "Erweitertes Menü",
 	"bs-custommenu-navbar-button-aria-label": "Erweitertes Menü",
 	"bs-custommenu-editlink-text": "Menü bearbeiten",
-	"bs-custommenu-editlink-title": "Menü bearbeiten",
+	"bs-custommenu-editlink-title": "Erweitertes Menü bearbeiten",
 	"bs-custommenu-no-entries-label": "Dieses Menü enthält aktuell keine Einträge",
 	"bs-pref-custommenu-show-custom-menu-header": "Erweitertes Menü anzeigen",
 	"bs-pref-custommenu-show-custom-menu-header-help": "Diese Option aktivieren, um das erweiterte Menü im Kopfbereich der Seite anzuzeigen"
