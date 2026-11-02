@@ -9,7 +9,7 @@
 	"bs-custommenu-desc": "Fornisce menu personalizzabili",
 	"bs-custommenu-navbar-button-title": "Menu esteso",
 	"bs-custommenu-navbar-button-aria-label": "Menu esteso",
-	"bs-custommenu-editlink-text": "Modifica menu",
-	"bs-custommenu-editlink-title": "Modifica menu",
+	"bs-custommenu-editlink-text": "Modifica menu esteso",
+	"bs-custommenu-editlink-title": "Modifica menu esteso",
 	"bs-pref-custommenu-show-custom-menu-header": "Mostra menu esteso"
 }
