@@ -9,8 +9,8 @@
 	"bs-custommenu-desc": "מספק תפריטים להתאמה אישית",
 	"bs-custommenu-navbar-button-title": "תפריט מורחב",
 	"bs-custommenu-navbar-button-aria-label": "תפריט מורחב",
-	"bs-custommenu-editlink-text": "עריכת התפריט",
-	"bs-custommenu-editlink-title": "עריכת התפריט",
+	"bs-custommenu-editlink-text": "עריכת התפריט המורחב",
+	"bs-custommenu-editlink-title": "עריכת התפריט המורחב",
 	"bs-pref-custommenu-show-custom-menu-header": "הצגת תפריט מורחב",
 	"bs-pref-custommenu-show-custom-menu-header-help": "יש להפעיל את האפשרות הזאת כדי להציג את התפריט המורחב בכותרת העליונה של הדף",
 	"bs-custommenu-no-entries-label": "בתפריט הזה אין כעת רשומות"
