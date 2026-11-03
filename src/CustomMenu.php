@@ -167,6 +167,13 @@ abstract class CustomMenu implements ICustomMenu {
 	/**
 	 * @return string|null
 	 */
+	public function getEmptyMenuLabelMessageKey() {
+		return 'bs-custommenu-no-entries-label';
+	}
+
+	/**
+	 * @return string|null
+	 */
 	public function getEmptyMenuDescriptionMessageKey() {
 		return null;
 	}
