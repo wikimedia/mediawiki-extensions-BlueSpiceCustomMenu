@@ -104,40 +104,8 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 	public function getSubComponents(): array {
 		$items = $this->populateItems( $this->menu->getData()->getRecords() );
 
-		// Insert placeholder text
 		if ( empty( $items ) ) {
-			$placeholder = [
-				new Literal(
-					"cm-empty-menu",
-					Html::element( 'div', [ 'id' => 'cm-empty-menu', 'class' => 'cm-empty-menu' ] )
-				),
-				new Literal(
-					"cm-menu-title-0",
-					Html::element( 'p', [],
-						Message::newFromKey( "bs-custommenu-no-entries-label" )->escaped() )
-				)
-			];
-			$descriptionKey = $this->menu->getEmptyMenuDescriptionMessageKey();
-			if ( $descriptionKey ) {
-				$placeholder[] = new Literal(
-					"cm-empty-menu-desc",
-					Html::element( 'p', [ 'class' => 'cm-empty-menu-desc' ],
-						$this->context->msg( $descriptionKey )->text() )
-				);
-			}
-			$items = [
-				new SimpleCard( [
-					'id' => "cm-menu-0",
-					'classes' => [ 'card-mn' ],
-					'items' => [
-						new SimpleCardBody( [
-							'id' => "cm-menu-0-head",
-							'classes' => [ 'menu-title' ],
-							'items' => $placeholder
-						] )
-					]
-				] )
-			];
+			$items = [ $this->getEmptyMenuCard() ];
 		}
 
 		if ( !empty( $this->menu->getEditURL() ) ) {
@@ -172,6 +140,56 @@ class CustomMenuButton extends SimpleDropdownIcon implements IRestrictedComponen
 				Html::element( 'div', [ 'id' => 'cm-mm-div', 'class' => 'mm-bg' ] )
 			)
 		];
+	}
+
+	/**
+	 * Placeholder shown when the menu has no entries.
+	 *
+	 * Mirrors the empty state of the notifications mega menu (header, then a
+	 * fixed-width, centered block), so the icon stays in place when switching
+	 * between the two menus.
+	 *
+	 * @return SimpleCard
+	 */
+	private function getEmptyMenuCard(): SimpleCard {
+		$content = Html::element( 'div', [ 'id' => 'cm-empty-menu', 'class' => 'cm-empty-menu' ] );
+		$labelKey = $this->menu->getEmptyMenuLabelMessageKey();
+		if ( $labelKey ) {
+			$content .= Html::element(
+				'p',
+				[ 'id' => 'cm-empty-menu-label' ],
+				$this->context->msg( $labelKey )->text()
+			);
+		}
+		$descriptionKey = $this->menu->getEmptyMenuDescriptionMessageKey();
+		if ( $descriptionKey ) {
+			$content .= Html::element(
+				'p',
+				[ 'class' => 'cm-empty-menu-desc' ],
+				$this->context->msg( $descriptionKey )->text()
+			);
+		}
+
+		return new SimpleCard( [
+			'id' => 'cm-menu-0',
+			'classes' => [ 'card-mn' ],
+			'items' => [
+				new SimpleCardHeader( [
+					'id' => 'cm-menu-0-head',
+					'classes' => [ 'menu-title' ],
+					'items' => [
+						new Literal(
+							'cm-menu-title-0',
+							$this->context->msg( 'bs-custommenu-navbar-button-title' )->escaped()
+						)
+					]
+				] ),
+				new Literal(
+					'cm-empty-menu-wrapper',
+					Html::rawElement( 'div', [ 'id' => 'cm-empty-menu-wrapper' ], $content )
+				)
+			]
+		] );
 	}
 
 	/**

@@ -1,0 +1,31 @@
+/* Empty state, sized like the empty notifications mega menu (NotifyMe) */
+#cm-empty-menu-wrapper {
+	width: 300px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding-top: 50px;
+	text-align: center;
+}
+
+#cm-empty-menu {
+	background-image: url( ../resources/images/menu.svg );
+	background-size: 80px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: rgba( 62, 83, 137, 0.1 );
+	border-radius: 50%;
+	height: 120px;
+	width: 120px;
+	margin: 0 auto 40px;
+}
+
+#cm-empty-menu-wrapper p {
+	font-size: 0.9375rem;
+	color: var( --color-base, #202122 );
+}
+
+@media all and ( min-width: 768px ) {
+	#cm-empty-menu-wrapper {
+		min-height: 350px;
+	}
+}
