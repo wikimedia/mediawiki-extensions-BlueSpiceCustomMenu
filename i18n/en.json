@@ -9,7 +9,7 @@
 	"bs-custommenu-navbar-button-aria-label": "Extended menu",
 	"bs-custommenu-editlink-text": "Edit extended menu",
 	"bs-custommenu-editlink-title": "Edit extended menu",
-	"bs-custommenu-no-entries-label": "This menu currently has no entries",
+	"bs-custommenu-no-entries-label": "There are no entries yet",
 	"bs-pref-custommenu-show-custom-menu-header": "Show extended menu",
 	"bs-pref-custommenu-show-custom-menu-header-help": "Enable this option to display the extended menu in the header of the page"
 }
