@@ -9,9 +9,9 @@
 	"bs-custommenu-desc": "يوفر قوائم قابلة للتخصيص",
 	"bs-custommenu-navbar-button-title": "القائمة الموسعة",
 	"bs-custommenu-navbar-button-aria-label": "القائمة الموسعة",
-	"bs-custommenu-editlink-text": "عدل القائمة",
-	"bs-custommenu-editlink-title": "عدل القائمة",
-	"bs-custommenu-no-entries-label": "لا تحتوي هذه القائمة على أي إدخالات حاليًا",
+	"bs-custommenu-editlink-text": "تحرير القائمة الموسعة",
+	"bs-custommenu-editlink-title": "تحرير القائمة الموسعة",
+	"bs-custommenu-no-entries-label": "لا توجد مشاركات حتى الآن",
 	"bs-pref-custommenu-show-custom-menu-header": "إظهار القائمة الموسعة",
 	"bs-pref-custommenu-show-custom-menu-header-help": "قم بتمكين هذا الخيار لعرض القائمة الموسعة في رأس الصفحة"
 }
