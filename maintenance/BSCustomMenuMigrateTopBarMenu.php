@@ -61,7 +61,7 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 		try {
 			$move = $this->services->getMovePageFactory()->newMovePage( $oldTitle, $newTitle );
 			$move->move(
-				$this->getMaintenanceUser(),
+				User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] ),
 				"TopMenuBarCustomizer => CustomMenu",
 				false
 			);
@@ -71,13 +71,6 @@ class BSCustomMenuMigrateTopBarMenu extends LoggedUpdateMaintenance {
 		$this->output( "\n" );
 
 		return true;
-	}
-
-	/**
-	 * @return User
-	 */
-	protected function getMaintenanceUser() {
-		return $this->services->getService( 'BSUtilityFactory' )->getMaintenanceUser()->getUser();
 	}
 
 	/**
