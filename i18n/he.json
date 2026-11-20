@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A100Star",
 			"Amire80",
 			"Neriah",
 			"Steeve815"
@@ -13,5 +14,5 @@
 	"bs-custommenu-editlink-title": "עריכת התפריט המורחב",
 	"bs-pref-custommenu-show-custom-menu-header": "הצגת תפריט מורחב",
 	"bs-pref-custommenu-show-custom-menu-header-help": "יש להפעיל את האפשרות הזאת כדי להציג את התפריט המורחב בכותרת העליונה של הדף",
-	"bs-custommenu-no-entries-label": "בתפריט הזה אין כעת רשומות"
+	"bs-custommenu-no-entries-label": "אין עדיין רשומות"
 }
